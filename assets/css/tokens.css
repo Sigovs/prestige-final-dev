@@ -1,0 +1,55 @@
+/* ============================================================
+   PRESTIGE IMPORTS — DESIGN TOKENS (single source of truth)
+   Colors · type · spacing · layout · motion.
+   Linked BEFORE main.css / srp.css / vdp.css on every page.
+   Change a value here → it updates across all pages + design.html.
+   (One responsive override of --section-py / --header-h lives in
+    main.css under @media max-width:960px.)
+   ============================================================ */
+
+:root {
+    /* Surfaces — light neutral gray (modern, airy) */
+    --bg:        #F4F4F4;
+    --bg-soft:   #EAEAEA;
+    --bg-deep:   #DEDEDE;
+    --cream:     #edeae4;   /* warm cream for text on dark surfaces */
+
+    /* Ink — Figma exact */
+    --ink:       #1c1c1c;
+    --ink-soft:  #45474B;
+    --ink-muted: #7C7E82;
+
+    /* Header surface */
+    --header-bg: #1c1c1c;
+
+    /* Hairline dividers */
+    --rule:        rgba(28, 28, 28, 0.12);
+    --rule-strong: rgba(28, 28, 28, 0.24);
+
+    /* Typography — Continental */
+    --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif:   'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-sans:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    /* Spacing — generous magazine scale */
+    --sp-1: 8px;
+    --sp-2: 16px;
+    --sp-3: 24px;
+    --sp-4: 36px;
+    --sp-5: 56px;
+    --sp-6: 80px;
+    --sp-7: 112px;
+    --sp-8: 160px;
+
+    --section-py: 140px;
+    --header-h:     107px;                       /* homepage .site-header (transparent over video) */
+    --srp-header-h:  72px;                       /* compact .srp-header — inventory and other utility pages */
+
+    /* Motion */
+    --ease:       cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* Elevation — single restrained pop for dropdown panels / popovers */
+    --pop:        0 16px 40px -12px rgba(28, 28, 28, 0.28);
+    --container-max: 1440px;
+    --container-wide: 1684px; /* header uses wider track per Figma */
+}
