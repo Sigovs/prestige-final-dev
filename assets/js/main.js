@@ -398,7 +398,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Smooth scroll for anchor links ------------------------------------
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', e => {
-            const target = document.querySelector(anchor.getAttribute('href'));
+            const href = anchor.getAttribute('href');
+            if (!href || href === '#') return;   // bare "#" is not a scroll target
+            const target = document.querySelector(href);
             if (!target) return;
             e.preventDefault();
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -679,10 +681,65 @@ document.addEventListener('DOMContentLoaded', () => {
                     eventsMedia.classList.remove('is-previewing');
                 });
                 row.addEventListener('click', e => {
+                    // On mobile the rows act as an accordion (handled below),
+                    // not as a swap of the (hidden) featured card.
+                    if (window.matchMedia('(max-width: 900px)').matches) return;
                     e.preventDefault();
                     applyRow(row);
                 });
             });
+        }
+    }
+
+    // --- Events list → mobile accordion (content under the article) ---------
+    const eventAccRows = document.querySelectorAll('.event-row');
+    if (eventAccRows.length) {
+        const accMq = window.matchMedia('(max-width: 900px)');
+
+        eventAccRows.forEach(li => {
+            const link = li.querySelector('.event-row__link');
+            if (!link || li.querySelector('.event-row__panel')) return;
+            const d = link.dataset;
+
+            const panel = document.createElement('div');
+            panel.className = 'event-row__panel';
+            const inner = document.createElement('div');
+            inner.className = 'event-row__panel-inner';
+            if (d.eventImg) {
+                const img = document.createElement('img');
+                img.className = 'event-row__panel-img';
+                img.src = d.eventImg;
+                img.alt = d.eventTitle || '';
+                img.loading = 'lazy';
+                inner.appendChild(img);
+            }
+            if (d.eventBody) {
+                const p = document.createElement('p');
+                p.className = 'event-row__panel-text';
+                p.textContent = d.eventBody;
+                inner.appendChild(p);
+            }
+            panel.appendChild(inner);
+            li.appendChild(panel);
+
+            link.addEventListener('click', e => {
+                if (!accMq.matches) return;
+                e.preventDefault();
+                const isOpen = li.classList.contains('is-open');
+                eventAccRows.forEach(x => {
+                    x.classList.remove('is-open');
+                    x.querySelector('.event-row__link')?.classList.remove('is-active');
+                });
+                if (!isOpen) {
+                    li.classList.add('is-open');
+                    link.classList.add('is-active');
+                }
+            });
+        });
+
+        // Open the first article by default on mobile
+        if (accMq.matches && eventAccRows[0]) {
+            eventAccRows[0].classList.add('is-open');
         }
     }
 

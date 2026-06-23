@@ -2442,7 +2442,7 @@ body.menu-open {
     .event-row__meta { grid-column: 1 / -1; }
     .event-row__arrow { grid-row: 2; grid-column: 2; }
     .event-row__link:hover,
-    .event-row__link.is-active { padding-left: 14px; }
+    .event-row__link.is-active { padding-left: 20px; }
 }
 
 
@@ -3017,7 +3017,7 @@ body.menu-open {
     .site-header.is-scrolled .logo img { height: 42px; }
     .hero__masthead { display: none; }
     .site-menu__grid { grid-template-columns: 1fr; gap: var(--sp-5); }
-    .site-menu__link { font-size: 44px; }
+    .site-menu__link { font-size: 48px; line-height: 48px; letter-spacing: -1.5px; }
 }
 
 
@@ -4744,7 +4744,7 @@ body { font-weight: 400; }
 
 /* ── Component headings — mobile sizes (DESK/MOB, px) ── */
 @media (max-width: 900px) {
-    .site-menu__link { font-size: 40px; }
+    .site-menu__link { font-size: 48px; line-height: 48px; letter-spacing: -1.5px; }
     .hero__headline-secondary { font-size: 30px; }
     .inventory__heading-secondary { font-size: 22px; }
     .brands__heading-primary { font-size: 34px; }
@@ -4852,7 +4852,7 @@ body.menu-open .site-nav-toggle__icon span:nth-child(2) { bottom: 5px; transform
     .hero__brand-link:hover .hero__brand-name { color: #fff; }
 
     .site-menu__grid { grid-template-columns: 1fr; gap: var(--sp-5); padding-top: var(--sp-3); }
-    .site-menu__link { font-size: 40px; line-height: 1.15; letter-spacing: -1px; gap: 16px; }
+    .site-menu__link { font-size: 48px; line-height: 48px; letter-spacing: -1.5px; gap: 16px; }
     .site-menu__link em { font-size: 14px; min-width: 1.4em; }
     .site-menu { padding-top: calc(var(--header-h) + var(--sp-3)); }
 }
@@ -4946,14 +4946,14 @@ body.menu-open .site-nav-toggle__icon span:nth-child(2) { bottom: 5px; transform
     .events__col { order: 1; }
     .event-featured { order: 2; }
 
-    .diff__ctas { flex-direction: column; align-items: stretch; }
+    .diff__ctas { flex-direction: column; align-items: stretch; width: 100%; }
     .diff__ctas .btn { width: 100%; justify-content: center; }
 }
 
 
 /* ── Mobile: events side padding · inventory CTA · brands Karma center ── */
 @media (max-width: 900px) {
-    .events__inner { width: min(92%, var(--container-max)); }
+    .section--events .events__inner { width: 100%; max-width: none; margin: 0; padding-left: 20px; padding-right: 20px; }
     .events__col { aspect-ratio: auto; max-height: none; }
     .inventory__header .btn { width: 100%; justify-content: center; }
     .brands__grid .brand-card:nth-child(7) { grid-column: 1 / -1; }
@@ -5001,3 +5001,93 @@ body.menu-open .site-nav-toggle__icon span:nth-child(2) { bottom: 5px; transform
 .services__ctas,
 .diff__ctas,
 .sell__cta { margin-top: 32px; }
+
+
+/* ── Mobile: News & Events rows — stack meta/title, drop the marker line ── */
+@media (max-width: 900px) {
+    .event-row__link {
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        gap: 4px 12px;
+        padding: 16px 20px;
+    }
+    .event-row__link:hover,
+    .event-row__link.is-active { padding-left: 20px; padding-right: 20px; }
+    .event-row__link::before { display: none; }
+    .event-row__meta  { grid-column: 1; grid-row: 1; }
+    .event-row__title { grid-column: 1; grid-row: 2; }
+    .event-row__arrow { grid-column: 2; grid-row: 1 / 3; align-self: center; }
+}
+
+
+/* Slide-in reveal translates media off to the side — clip so it never
+   creates horizontal page scroll (verticals are not sticky → safe). */
+.section--vertical { overflow-x: clip; }
+
+
+/* ── Mobile: uniform content side padding — 20px floor ──────────────
+   Padding lives on the CONTENT wrappers (forced full width so they all
+   start at the same edge → identical 20px inset everywhere). May be
+   larger, never smaller. Background layers and full-bleed imagery
+   (hero / sell / services bg, vertical media, events featured photo,
+   IG grid) are left untouched and stay edge-to-edge. ── */
+@media (max-width: 900px) {
+    .container,
+    .vertical__inner,
+    .services__inner,
+    .sell__inner,
+    .events__inner,
+    .ig__layout,
+    .diff__inner,
+    .reviews__inner,
+    .site-footer__inner {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* rows sit inside events__inner's 20px inset; add 16px internal padding
+       so the active row's dark fill never glues the text to its edge */
+    .event-row__link,
+    .event-row__link:hover,
+    .event-row__link.is-active { padding-left: 16px; padding-right: 16px; }
+}
+
+
+/* ── News & Events: mobile accordion (content opens under the article) ── */
+.event-row__panel { display: none; }   /* desktop uses the featured card */
+
+@media (max-width: 900px) {
+    .event-featured { display: none; }          /* hide the desktop featured card */
+    .events__col { gap: 0; }
+
+    .event-row__panel {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.45s var(--ease);
+    }
+    .event-row.is-open .event-row__panel { grid-template-rows: 1fr; }
+    .event-row__panel-inner { overflow: hidden; min-height: 0; padding-left: 16px; padding-right: 16px; }
+    .event-row.is-open .event-row__panel-inner { padding-bottom: 20px; }
+    .event-row__panel-img {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        display: block;
+        border-radius: 4px;
+        margin-top: 14px;
+    }
+    .event-row__panel-text {
+        margin: 14px 0 0;
+        font-family: var(--font-sans);
+        font-size: 14px;
+        line-height: 22px;
+        color: var(--ink-soft);
+    }
+    /* caret indicates expand/collapse on mobile */
+    .event-row__arrow { transition: transform 0.35s var(--ease); }
+    .event-row.is-open .event-row__arrow { transform: rotate(90deg); }
+}
