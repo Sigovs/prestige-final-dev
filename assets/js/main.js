@@ -744,6 +744,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
+    // --- Click-to-play / pause videos (Auto Spa vertical) ------------------
+    document.querySelectorAll('.vertical__media--video').forEach(media => {
+        const video = media.querySelector('video');
+        const playBtn = media.querySelector('.vertical__play');
+        if (!video || !playBtn) return;
+        const icon = playBtn.querySelector('i');
+
+        const reflect = playing => {
+            media.classList.toggle('is-playing', playing);
+            playBtn.classList.toggle('is-pause', playing);
+            if (icon) icon.className = playing ? 'ph ph-pause' : 'ph ph-play';
+            playBtn.setAttribute('aria-label', playing ? 'Pause video' : 'Play video');
+        };
+
+        const toggle = () => {
+            if (video.paused) { video.muted = false; video.play(); }
+            else { video.pause(); }
+        };
+
+        playBtn.addEventListener('click', toggle);
+        video.addEventListener('click', toggle);
+        video.addEventListener('play',  () => reflect(true));
+        video.addEventListener('pause', () => reflect(false));
+        video.addEventListener('ended', () => reflect(false));
+    });
+
+
     // --- Recently purchased slider (sell-your-car) --------------------------
     const sliderTrack = document.querySelector('[data-slider-track]');
     const prevBtn = document.querySelector('[data-slider-prev]');
