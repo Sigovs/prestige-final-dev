@@ -737,3 +737,21 @@
     .vdp-photos { grid-template-columns: 1fr; }
     .vdp-actionbar__actions { flex-wrap: wrap; }
 }
+
+
+/* ── Mobile: align VDP content to the 20px side-padding floor (design system) ── */
+@media (max-width: 900px) {
+    .breadcrumb,
+    .vdp-summary,
+    .vdp-summary__bar,
+    .vdp-sections,
+    .vdp-gallery-sec,
+    .vdp-related {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
