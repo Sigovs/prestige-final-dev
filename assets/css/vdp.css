@@ -754,4 +754,6 @@
         padding-left: 20px;
         padding-right: 20px;
     }
+    /* Related: one card per screen, swipe/drag to advance */
+    .vdp-related__track > li { flex: 0 0 100%; }
 }
