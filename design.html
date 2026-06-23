@@ -57,6 +57,15 @@
         .ico { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 18px 8px; border: 1px solid var(--rule); border-radius: 6px; background: #fff; }
         .ico i { font-size: 28px; color: var(--ink); line-height: 1; }
         .ico span { font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: var(--ink-muted); }
+
+        .stack-demo { border: 1px solid var(--rule); border-radius: 8px; padding: 36px; background: #fff; }
+        .logo-tile { border: 1px solid var(--rule); border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 22px; height: 92px; }
+        .logo-tile img { max-height: 40px; max-width: 82%; width: auto; }
+        .logo-tile--dark { background: var(--ink); }
+        .logo-tile--dark img { filter: brightness(0) invert(1); }
+        .logo-tile--light { background: #fff; }
+        .logo-tile--light img { filter: brightness(0); }
+        .logo-sub { font-family: var(--font-sans); font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-muted); margin: 22px 0 10px; }
     </style>
 </head>
 <body>
@@ -96,6 +105,48 @@
             <div class="tr"><span class="t-micro">Micro label</span><span class="tr__spec"><b>Micro</b> · Inter<br>11 px · LH 16 · 1.5px · 500 · caps</span></div>
         </section>
 
+        <!-- HEADING STACK -->
+        <section class="ds__sec">
+            <h2 class="ds__h">Heading Stack</h2>
+            <p class="ds__note">Same rhythm, two alignments. All px.</p>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:16px;">
+                <div>
+                    <p class="logo-sub" style="margin-top:0;">Left &middot; default</p>
+                    <div class="stack-demo">
+                        <span class="eyebrow-stamp">The Prestige Difference</span>
+                        <h3 class="t-h1" style="margin: 16px 0 0;">A Different Kind of Dealership.</h3>
+                        <div class="t-h2" style="margin: 8px 0 0; color: var(--ink-muted); font-weight: 500;">Since 1977.</div>
+                        <p class="t-body" style="margin: 24px 0 0; max-width: 46ch;">Paragraph &mdash; body copy begins 24px below the heading.</p>
+                    </div>
+                </div>
+                <div>
+                    <p class="logo-sub" style="margin-top:0;">Centered</p>
+                    <div class="stack-demo" style="text-align:center;">
+                        <span class="eyebrow-stamp">Authorized House</span>
+                        <h3 class="t-h1" style="margin: 16px 0 0;">Explore Our Brands</h3>
+                        <div class="t-h2" style="margin: 8px 0 0; color: var(--ink-muted); font-weight: 500;">Seven Brands. One Floor.</div>
+                        <p class="t-body" style="margin: 24px auto 0; max-width: 46ch;">Paragraph &mdash; same 16 / 8 / 24 rhythm, centered.</p>
+                    </div>
+                </div>
+                <div>
+                    <p class="logo-sub" style="margin-top:0;">Sub-section &middot; H2</p>
+                    <div class="stack-demo">
+                        <span class="eyebrow-stamp">Featured Inventory</span>
+                        <h3 class="t-h2" style="margin: 16px 0 0;">A Curated Selection</h3>
+                        <p class="t-body" style="margin: 24px 0 0; max-width: 46ch;">Smaller heading (H2) &mdash; same 16 / 24 rhythm.</p>
+                    </div>
+                </div>
+                <div>
+                    <p class="logo-sub" style="margin-top:0;">Feature &middot; no eyebrow</p>
+                    <div class="stack-demo">
+                        <h3 class="t-h2" style="margin: 0;">Prestige Marine</h3>
+                        <p class="t-body" style="margin: 24px 0 0; max-width: 46ch;">No eyebrow &mdash; heading leads straight to the paragraph. Used in the Verticals.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="spec-list">Eyebrow &rarr; heading <code>16px</code> &middot; Heading &rarr; paragraph <code>24px</code> &middot; primary &rarr; secondary <code>8px</code> &middot; <b>Alignment</b> left (default) or centered &middot; <b>Heading</b> H1 (sections) or H2 (sub / features).</p>
+        </section>
+
         <!-- COLOR -->
         <section class="ds__sec">
             <h2 class="ds__h">Color</h2>
@@ -126,6 +177,7 @@
             <div class="sp"><span class="sp__bar" style="width:80px"></span><span class="sp__lbl">--sp-6 · 80px</span></div>
             <div class="sp"><span class="sp__bar" style="width:112px"></span><span class="sp__lbl">--sp-7 · 112px</span></div>
             <div class="sp"><span class="sp__bar" style="width:160px"></span><span class="sp__lbl">--sp-8 · 160px</span></div>
+            <p class="spec-list" style="margin-top:24px;"><b>Section padding</b> (top &amp; bottom) <code>140px</code> desktop &middot; <code>96px</code> mobile. Compact sections (Verticals) <code>72 / 48px</code>. Sticky scroll sections (Sell · Services · Events) use custom scroll heights.<br><b>Content &rarr; CTA</b> <code>32px</code>.</p>
         </section>
 
         <!-- RADIUS + ELEVATION -->
@@ -208,6 +260,48 @@
                 <div class="ico"><i class="ph ph-youtube-logo"></i><span>youtube-logo</span></div>
                 <div class="ico"><i class="ph ph-linkedin-logo"></i><span>linkedin-logo</span></div>
             </div>
+        </section>
+
+        <!-- LOGOS -->
+        <section class="ds__sec">
+            <h2 class="ds__h">Logos</h2>
+            <p class="ds__note">Master mark + authorized brand marks &mdash; white &amp; black. SVG.</p>
+            <p class="logo-sub" style="margin-top:0;">Master &middot; white / black</p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+                <div class="logo-tile logo-tile--dark" style="height:120px;"><img src="assets/images/prestige_logo.svg" alt="Prestige Imports" style="max-height:56px;"></div>
+                <div class="logo-tile logo-tile--light" style="height:120px;"><img src="assets/images/prestige_logo.svg" alt="Prestige Imports" style="max-height:56px;"></div>
+            </div>
+            <p class="logo-sub">Brands &middot; white</p>
+            <div class="sw-grid">
+                <div class="logo-tile logo-tile--dark"><img src="assets/images/Pagani_logo.svg" alt="Pagani"></div>
+                <div class="logo-tile logo-tile--dark"><img src="assets/images/Lamborghini_logo.svg" alt="Lamborghini"></div>
+                <div class="logo-tile logo-tile--dark"><img src="assets/images/lotus_logo.svg" alt="Lotus"></div>
+                <div class="logo-tile logo-tile--dark"><img src="assets/images/czinger_logo.svg" alt="Czinger"></div>
+                <div class="logo-tile logo-tile--dark"><img src="assets/images/gunther_logo.svg" alt="Gunther Werks"></div>
+                <div class="logo-tile logo-tile--dark"><img src="assets/images/eccentrica_logo.svg" alt="Eccentrica"></div>
+                <div class="logo-tile logo-tile--dark"><img src="assets/images/karma_logo.svg" alt="Karma"></div>
+            </div>
+            <p class="logo-sub">Brands &middot; black</p>
+            <div class="sw-grid">
+                <div class="logo-tile logo-tile--light"><img src="assets/images/Pagani_logo.svg" alt="Pagani"></div>
+                <div class="logo-tile logo-tile--light"><img src="assets/images/Lamborghini_logo.svg" alt="Lamborghini"></div>
+                <div class="logo-tile logo-tile--light"><img src="assets/images/lotus_logo.svg" alt="Lotus"></div>
+                <div class="logo-tile logo-tile--light"><img src="assets/images/czinger_logo.svg" alt="Czinger"></div>
+                <div class="logo-tile logo-tile--light"><img src="assets/images/gunther_logo.svg" alt="Gunther Werks"></div>
+                <div class="logo-tile logo-tile--light"><img src="assets/images/eccentrica_logo.svg" alt="Eccentrica"></div>
+                <div class="logo-tile logo-tile--light"><img src="assets/images/karma_logo.svg" alt="Karma"></div>
+            </div>
+        </section>
+
+        <!-- HERO MEDIA -->
+        <section class="ds__sec">
+            <h2 class="ds__h">Hero Media</h2>
+            <p class="ds__note">One standard for every hero slide &mdash; video and stills. Full-bleed, object-fit: cover, dark gradient overlay.</p>
+            <div style="display: flex; gap: 16px; align-items: stretch; flex-wrap: wrap;">
+                <div style="flex: 1 1 320px; aspect-ratio: 16 / 9; background: var(--ink); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--cream); font-family: var(--font-display); font-weight: 700; font-size: 26px; letter-spacing: -0.5px;">Desktop<span style="font-size: 16px; color: var(--ink-muted);">16 : 9 &middot; 1920 &times; 1080</span></div>
+                <div style="flex: 0 0 auto; width: 150px; aspect-ratio: 9 / 16; background: var(--ink); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-align: center; color: var(--cream); font-family: var(--font-display); font-weight: 700; font-size: 18px; letter-spacing: -0.3px;">Mobile<span style="font-size: 13px; color: var(--ink-muted); line-height: 1.4;">9 : 16<br>1080 &times; 1920</span></div>
+            </div>
+            <p class="spec-list"><b>Desktop</b> <code>16:9 &middot; 1920 &times; 1080</code> &middot; <b>Mobile</b> <code>9:16 &middot; 1080 &times; 1920</code> &middot; <b>Video</b> <code>MP4 / H.264 &middot; muted &middot; loop &middot; 5&ndash;10s</code> &middot; <b>Stills</b> <code>JPG ~80%</code> &middot; <b>Display</b> <code>object-fit: cover</code> + dark gradient. Keep the subject centered &mdash; edges crop.</p>
         </section>
 
         <!-- PAGES -->

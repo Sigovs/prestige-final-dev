@@ -1253,7 +1253,7 @@ body.menu-open {
 .section--brands {
     background-color: var(--bg);
     color: var(--ink);
-    padding: clamp(80px, 12vh, 140px) 0;
+    padding: var(--section-py) 0;
 }
 
 .brands__header {
@@ -2725,7 +2725,7 @@ body.menu-open {
     position: relative;
     background-color: var(--ink);
     color: var(--cream);
-    padding: clamp(80px, 12vh, 140px) 0 clamp(96px, 14vh, 160px);
+    padding: var(--section-py) 0;
     overflow: hidden;
     min-height: 100vh;
     display: flex;
@@ -4704,7 +4704,7 @@ body { font-weight: 400; }
     background-color: var(--ink);
     flex-shrink: 0;
 }
-.vertical__cta { margin-top: var(--sp-2); }
+.vertical__cta { margin-top: 32px; }
 
 /* Reveal — image slides in from its side, text rises (on scroll) */
 .section--vertical .vertical__media {
@@ -4966,3 +4966,38 @@ body.menu-open .site-nav-toggle__icon span:nth-child(2) { bottom: 5px; transform
     .ig__form input { width: 100%; flex: none; }
     .ig__form .btn { width: 100%; }
 }
+
+
+/* ════════════════════════════════════════════════════════════
+   HEADING STACK — one rhythm for every section header.
+   Eyebrow → H1: 16px · H1 → paragraph: 24px · primary → secondary: 8px
+   ════════════════════════════════════════════════════════════ */
+.inventory__header-text,
+.brands__header,
+.sell__text,
+.services__text,
+.events__text,
+.diff__header,
+.ig__intro,
+.vertical__text { gap: 16px; }
+
+.inventory__intro,
+.brands__intro,
+.sell__intro,
+.services__intro-text,
+.events__intro-text,
+.vertical__lead { margin-top: 8px; }   /* +16 gap = 24 from heading */
+
+.inventory__heading,
+.brands__heading,
+.sell__heading,
+.services__heading,
+.events__heading,
+.diff__heading,
+.ig__heading { gap: 8px; }
+
+
+/* ── CTA rhythm — space from text/image to the action ── */
+.services__ctas,
+.diff__ctas,
+.sell__cta { margin-top: 32px; }
