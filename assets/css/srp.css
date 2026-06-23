@@ -188,6 +188,9 @@ body:has(.site-header.is-scrolled) .filter-bar {
     z-index: 120;
 }
 .filter__panel--wide { min-width: 320px; }
+/* Closed dropdowns must not lay out — otherwise the absolute panels
+   leak past the viewport on narrow screens (horizontal scroll). */
+.filter:not([open]) .filter__panel { display: none; }
 /* "All filters" opens a broad multi-column panel */
 .filter__panel--all {
     min-width: 640px;
@@ -539,4 +542,9 @@ body:has(.site-header.is-scrolled) .filter-bar {
         padding-left: 20px;
         padding-right: 20px;
     }
+    /* stack the "All filters" groups so the 4-column grid never overflows */
+    .filter-all__grid { grid-template-columns: 1fr; }
+    .filter-all { overflow-x: clip; }
+    /* let pagination wrap instead of nudging the page wider */
+    .pagination { flex-wrap: wrap; gap: 4px; }
 }
