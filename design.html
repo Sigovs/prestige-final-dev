@@ -316,6 +316,30 @@
             <p class="spec-list"><b>Desktop</b> <code>16:9 &middot; 1920 &times; 1080</code> &middot; <b>Mobile</b> <code>9:16 &middot; 1080 &times; 1920</code> &middot; <b>Video</b> <code>MP4 / H.264 &middot; muted &middot; loop &middot; 5&ndash;10s</code> &middot; <b>Stills</b> <code>JPG ~80%</code> &middot; <b>Display</b> <code>object-fit: cover</code> + dark gradient. Keep the subject centered &mdash; edges crop.</p>
         </section>
 
+        <!-- MOBILE -->
+        <section class="ds__sec">
+            <h2 class="ds__h">Mobile</h2>
+            <p class="ds__note">Rules that apply when the layout switches to its mobile form.</p>
+
+            <p class="spec-list"><b>Breakpoint</b> &mdash; mobile layout engages at <code>max-width: 900px</code> (the single source of truth; a few components fine-tune at 600px). Section vertical rhythm relaxes to <code>--section-py: 96px</code> (from 140px) at <code>max-width: 960px</code>.</p>
+
+            <p class="spec-list"><b>Side padding</b> &mdash; <code>20px</code> floor, identical on every section &amp; the footer. Content may sit further in, never less. Background layers and full-bleed imagery stay edge-to-edge. <i>(See Layout.)</i></p>
+
+            <p class="spec-list"><b>Type</b> &mdash; every role keeps a fixed mobile px size (the <b>mob</b> column in Type Ramp) &mdash; no fluid scaling. Heading-stack rhythm (16 / 24 / 8) is unchanged.</p>
+
+            <p class="spec-list"><b>Navigation</b> &mdash; the desktop nav collapses to a hamburger that opens a full-screen overlay. Menu links use the <b>Display</b> role (<code>48px</code>). Hero phone / address tags and slide pagination are hidden.</p>
+
+            <p class="spec-list"><b>Hero</b> &mdash; the entire hero fits <b>above the fold</b> (one viewport, no scroll). Brand names render as stacked, uppercase text links. Media is <code>9:16 &middot; 1080 &times; 1920</code>. <i>(See Hero Media.)</i></p>
+
+            <p class="spec-list"><b>CTAs</b> &mdash; full-width, stacked, label centered.</p>
+
+            <p class="spec-list"><b>Carousels</b> &mdash; inventory shows one card at a time with left / right arrows + dots; the &ldquo;recently sold&rdquo; slider steps one card per tap.</p>
+
+            <p class="spec-list"><b>News &amp; Events</b> &mdash; the rows become an <b>accordion</b>: tapping an article opens its photo + copy directly beneath the title (one open at a time). Rows carry <code>16px</code> internal padding so the active dark fill never glues text to its edge.</p>
+
+            <p class="spec-list"><b>Reveals</b> &mdash; slide-in transforms are clipped (<code>overflow-x: clip</code>) so off-screen motion never creates horizontal page scroll.</p>
+        </section>
+
         <!-- PAGES -->
         <section class="ds__sec">
             <h2 class="ds__h">Pages</h2>
