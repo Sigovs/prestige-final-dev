@@ -5091,3 +5091,54 @@ body.menu-open .site-nav-toggle__icon span:nth-child(2) { bottom: 5px; transform
     .event-row__arrow { transition: transform 0.35s var(--ease); }
     .event-row.is-open .event-row__arrow { transform: rotate(90deg); }
 }
+
+
+/* ── Marine — full-bleed background video, centered content ───────────── */
+.section--vertical--video {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--ink);
+    padding: clamp(80px, 14vh, 160px) 0;
+}
+.section--vertical--video .vertical__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+.section--vertical--video .vertical__scrim {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(12, 12, 12, 0.45);
+    z-index: 1;
+}
+.section--vertical--video .vertical__inner {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: min(90%, 640px);
+    margin: 0 auto;
+}
+.section--vertical--video .vertical__text {
+    align-items: center;
+    text-align: center;
+}
+.section--vertical--video .vertical__heading { color: var(--cream); }
+.section--vertical--video .vertical__lead {
+    color: rgba(244, 242, 238, 0.82);
+    max-width: 46ch;
+}
+.section--vertical--video .vertical__list {
+    width: 100%;
+    max-width: 46ch;
+    border-top-color: rgba(244, 242, 238, 0.24);
+}
+.section--vertical--video .vertical__list li {
+    color: var(--cream);
+    border-bottom-color: rgba(244, 242, 238, 0.24);
+    justify-content: center;
+}
+.section--vertical--video .vertical__list li::before { background-color: var(--cream); }
+.section--vertical--video .vertical__cta { align-self: center; }
