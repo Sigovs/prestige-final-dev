@@ -888,4 +888,32 @@ document.addEventListener('DOMContentLoaded', () => {
         updateDrift();
     }
 
+
+    // --- Inventory mobile carousel (1 card · arrows · dots) ---------------
+    (function () {
+        const grid = document.querySelector('.inventory__grid');
+        const dotsWrap = document.querySelector('[data-inv-dots]');
+        if (!grid || !dotsWrap) return;
+        const cards = Array.from(grid.children);
+        cards.forEach((c, i) => {
+            const b = document.createElement('button');
+            b.className = 'inv-carousel__dot';
+            b.type = 'button';
+            b.setAttribute('aria-label', 'Vehicle ' + (i + 1));
+            b.addEventListener('click', () => grid.scrollTo({ left: c.offsetLeft - grid.offsetLeft, behavior: 'smooth' }));
+            dotsWrap.appendChild(b);
+        });
+        const dots = Array.from(dotsWrap.children);
+        const update = () => {
+            const idx = Math.round(grid.scrollLeft / grid.clientWidth);
+            dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+        };
+        grid.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+        update();
+        const prev = document.querySelector('[data-inv-prev]');
+        const next = document.querySelector('[data-inv-next]');
+        if (prev) prev.addEventListener('click', () => grid.scrollBy({ left: -grid.clientWidth, behavior: 'smooth' }));
+        if (next) next.addEventListener('click', () => grid.scrollBy({ left: grid.clientWidth, behavior: 'smooth' }));
+    })();
+
 });

@@ -29,7 +29,7 @@
                 <details class="srp-drop">
                     <summary class="srp-drop__trigger site-nav__link">
                         <span>Inventory</span>
-                        <i class="ph-thin ph-caret-down srp-drop__caret" aria-hidden="true"></i>
+                        <i class="ph ph-caret-down srp-drop__caret" aria-hidden="true"></i>
                     </summary>
                     <div class="srp-drop__panel">
                       <div class="srp-drop__inner">
@@ -94,9 +94,41 @@
                 <a href="#store" class="site-nav__link">Store</a>
                 <a href="#research" class="site-nav__link">Research</a>
                 <a href="#about" class="site-nav__link">About</a>
+                <a href="#contact" class="site-nav__link">Contact Us</a>
             </nav>
+            <button class="site-nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Menu">
+                <span class="site-nav-toggle__label" data-when-closed="Menu" data-when-open="Close">Menu</span>
+                <span class="site-nav-toggle__icon" aria-hidden="true"><span></span><span></span></span>
+            </button>
         </div>
     </header>
+
+    <!-- Mobile full-screen menu (toggled by .site-nav-toggle; logic in main.js) -->
+    <div class="site-menu" id="site-menu" aria-hidden="true" aria-label="Main menu">
+        <div class="site-menu__grid">
+            <div class="site-menu__col">
+                <p class="site-menu__caption">Menu</p>
+                <ul class="site-menu__list">
+                    <li><a class="site-menu__link" href="srp.html"><em>01</em>Inventory</a></li>
+                    <li><a class="site-menu__link" href="#sell"><em>02</em>Sell Your Vehicle</a></li>
+                    <li><a class="site-menu__link" href="#service"><em>03</em>Service</a></li>
+                    <li><a class="site-menu__link" href="#about"><em>04</em>About</a></li>
+                    <li><a class="site-menu__link" href="#contact"><em>05</em>Contact</a></li>
+                </ul>
+            </div>
+            <div class="site-menu__col--meta">
+                <div class="site-menu__group">
+                    <p class="site-menu__caption">Visit</p>
+                    <address class="site-menu__address">14780 Biscayne Blvd<br>North Miami Beach, FL 33181</address>
+                </div>
+                <div class="site-menu__group">
+                    <p class="site-menu__caption">Contact</p>
+                    <a class="site-menu__contact" href="tel:+18332906287">+1 (833) 290-6287</a>
+                </div>
+            </div>
+        </div>
+        <p class="site-menu__sign">Prestige Imports — South Florida, since 1977</p>
+    </div>
 
     <main>
 
@@ -111,10 +143,10 @@
                     <source src="assets/videos/hero3.mp4" type="video/mp4">
                 </video>
                 <video class="hero__video" data-slide-video="2" muted loop playsinline preload="auto" disableremoteplayback>
-                    <source src="assets/videos/hero2.mp4" type="video/mp4">
+                    <source src="assets/videos/service_vid.mp4" type="video/mp4">
                 </video>
                 <video class="hero__video" data-slide-video="3" muted loop playsinline preload="auto" disableremoteplayback>
-                    <source src="assets/videos/service_vid.mp4" type="video/mp4">
+                    <source src="assets/videos/hero2.mp4" type="video/mp4">
                 </video>
                 <img class="hero__video" data-slide-video="4" src="assets/images/hero/marine.jpg" alt="" loading="lazy">
                 <img class="hero__video" data-slide-video="5" src="assets/images/hero/auto-spa.jpg" alt="" loading="lazy">
@@ -122,11 +154,11 @@
 
             <div class="hero__contact" aria-label="Contact">
                 <a href="tel:+18332906287" class="hero__contact-link">
-                    <i class="ph-thin ph-phone" aria-hidden="true"></i>
+                    <i class="ph ph-phone" aria-hidden="true"></i>
                     <span>+1 (833) 290-6287</span>
                 </a>
                 <a href="https://maps.google.com/?q=14780+Biscayne+Blvd+North+Miami+Beach+FL" class="hero__contact-link" target="_blank" rel="noopener">
-                    <i class="ph-thin ph-map-pin" aria-hidden="true"></i>
+                    <i class="ph ph-map-pin" aria-hidden="true"></i>
                     <span>14780 Biscayne Blvd · North Miami Beach, FL</span>
                 </a>
             </div>
@@ -150,27 +182,13 @@
                         <p class="hero__intro">A second-generation, family-owned dealership offering Lamborghini, Pagani, Lotus, Karma, and Czinger — alongside a curated inventory of pre-owned exotics for collectors and enthusiasts.</p>
                         <div class="hero__actions">
                             <a href="#inventory" class="hero__cta-link">
-                                <span>Browse the collection</span>
-                                <i class="ph-thin ph-caret-right" aria-hidden="true"></i>
+                                <span>View all inventory</span>
+                                <i class="ph ph-caret-right" aria-hidden="true"></i>
                             </a>
                         </div>
                     </article>
 
                     <article class="hero__slide" data-slide-index="2">
-                        <h1 class="hero__headline">
-                            <span class="hero__headline-primary">Beyond the Drive.</span>
-                            <span class="hero__headline-secondary">Concierge without compromise.</span>
-                        </h1>
-                        <p class="hero__intro">Beyond every transaction is a dedicated concierge experience. Whether you're consigning a collector vehicle, arranging enclosed transport, coordinating storage, or seeking ongoing ownership support, our team is here to handle every detail with discretion and care.</p>
-                        <div class="hero__actions">
-                            <a href="#contact" class="hero__cta-link">
-                                <span>Contact Us</span>
-                                <i class="ph-thin ph-caret-right" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </article>
-
-                    <article class="hero__slide" data-slide-index="3">
                         <h1 class="hero__headline">
                             <span class="hero__headline-primary">Performance, preserved.</span>
                             <span class="hero__headline-secondary">Confidence in every mile.</span>
@@ -179,7 +197,21 @@
                         <div class="hero__actions">
                             <a href="#service" class="hero__cta-link">
                                 <span>Schedule Service</span>
-                                <i class="ph-thin ph-caret-right" aria-hidden="true"></i>
+                                <i class="ph ph-caret-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="hero__slide" data-slide-index="3">
+                        <h1 class="hero__headline">
+                            <span class="hero__headline-primary">We buy exotics.</span>
+                            <span class="hero__headline-secondary">Sell yours, effortlessly.</span>
+                        </h1>
+                        <p class="hero__intro">Trading up or simply moving on? Prestige acquires luxury and exotic vehicles outright — a discreet, fair-market offer and a seamless sale.</p>
+                        <div class="hero__actions">
+                            <a href="#sell" class="hero__cta-link">
+                                <span>Sell Your Vehicle</span>
+                                <i class="ph ph-caret-right" aria-hidden="true"></i>
                             </a>
                         </div>
                     </article>
@@ -193,7 +225,7 @@
                         <div class="hero__actions">
                             <a href="#marine" class="hero__cta-link">
                                 <span>Explore Marine</span>
-                                <i class="ph-thin ph-caret-right" aria-hidden="true"></i>
+                                <i class="ph ph-caret-right" aria-hidden="true"></i>
                             </a>
                         </div>
                     </article>
@@ -207,7 +239,7 @@
                         <div class="hero__actions">
                             <a href="#auto" class="hero__cta-link">
                                 <span>Explore Auto Spa</span>
-                                <i class="ph-thin ph-caret-right" aria-hidden="true"></i>
+                                <i class="ph ph-caret-right" aria-hidden="true"></i>
                             </a>
                         </div>
                     </article>
@@ -220,63 +252,70 @@
                 <li class="hero__brand">
                     <a href="#" class="hero__brand-link" aria-label="Explore Pagani">
                         <img src="assets/images/Pagani_logo.svg" alt="Pagani">
+                        <span class="hero__brand-name">Pagani</span>
                         <span class="hero__brand-sub">
                             <span class="hero__brand-sub-city">Miami</span>
-                            <span class="hero__brand-sub-hover">Explore Brand <i class="ph-thin ph-caret-right" aria-hidden="true"></i></span>
+                            <span class="hero__brand-sub-hover">Explore Brand <i class="ph ph-caret-right" aria-hidden="true"></i></span>
                         </span>
                     </a>
                 </li>
                 <li class="hero__brand">
                     <a href="#" class="hero__brand-link" aria-label="Explore Lamborghini">
                         <img src="assets/images/Lamborghini_logo.svg" alt="Lamborghini">
+                        <span class="hero__brand-name">Lamborghini</span>
                         <span class="hero__brand-sub">
                             <span class="hero__brand-sub-city">Miami</span>
-                            <span class="hero__brand-sub-hover">Explore Brand <i class="ph-thin ph-caret-right" aria-hidden="true"></i></span>
+                            <span class="hero__brand-sub-hover">Explore Brand <i class="ph ph-caret-right" aria-hidden="true"></i></span>
                         </span>
                     </a>
                 </li>
                 <li class="hero__brand">
                     <a href="#" class="hero__brand-link" aria-label="Explore Lotus">
                         <img src="assets/images/lotus_logo.svg" alt="Lotus">
+                        <span class="hero__brand-name">Lotus</span>
                         <span class="hero__brand-sub">
                             <span class="hero__brand-sub-city">Miami</span>
-                            <span class="hero__brand-sub-hover">Explore Brand <i class="ph-thin ph-caret-right" aria-hidden="true"></i></span>
+                            <span class="hero__brand-sub-hover">Explore Brand <i class="ph ph-caret-right" aria-hidden="true"></i></span>
                         </span>
                     </a>
                 </li>
                 <li class="hero__brand">
                     <a href="#" class="hero__brand-link" aria-label="Explore Czinger">
                         <img src="assets/images/czinger_logo.svg" alt="Czinger">
+                        <span class="hero__brand-name">Czinger</span>
                         <span class="hero__brand-sub">
                             <span class="hero__brand-sub-city">Miami</span>
-                            <span class="hero__brand-sub-hover">Explore Brand <i class="ph-thin ph-caret-right" aria-hidden="true"></i></span>
+                            <span class="hero__brand-sub-hover">Explore Brand <i class="ph ph-caret-right" aria-hidden="true"></i></span>
                         </span>
                     </a>
                 </li>
                 <li class="hero__brand">
                     <a href="#" class="hero__brand-link" aria-label="Explore Gunther Werks">
                         <img src="assets/images/gunther_logo.svg" alt="Gunther Werks">
+                        <span class="hero__brand-name">Gunther Werks</span>
                         <span class="hero__brand-sub">
                             <span class="hero__brand-sub-city">Miami</span>
-                            <span class="hero__brand-sub-hover">Explore Brand <i class="ph-thin ph-caret-right" aria-hidden="true"></i></span>
+                            <span class="hero__brand-sub-hover">Explore Brand <i class="ph ph-caret-right" aria-hidden="true"></i></span>
                         </span>
                     </a>
                 </li>
                 <li class="hero__brand">
                     <a href="#" class="hero__brand-link" aria-label="Explore Eccentrica">
                         <img src="assets/images/eccentrica_logo.svg" alt="Eccentrica">
+                        <span class="hero__brand-name">Eccentrica</span>
                         <span class="hero__brand-sub">
                             <span class="hero__brand-sub-city">Miami</span>
-                            <span class="hero__brand-sub-hover">Explore Brand <i class="ph-thin ph-caret-right" aria-hidden="true"></i></span>
+                            <span class="hero__brand-sub-hover">Explore Brand <i class="ph ph-caret-right" aria-hidden="true"></i></span>
                         </span>
                     </a>
                 </li>
                 <li class="hero__brand">
                     <a href="#" class="hero__brand-link" aria-label="Explore Karma">
                         <img src="assets/images/karma_logo.svg" alt="Karma">
+                        <span class="hero__brand-name">Karma</span>
                         <span class="hero__brand-sub">
                             <span class="hero__brand-sub-city">Miami</span>
-                            <span class="hero__brand-sub-hover">Explore Brand <i class="ph-thin ph-caret-right" aria-hidden="true"></i></span>
+                            <span class="hero__brand-sub-hover">Explore Brand <i class="ph ph-caret-right" aria-hidden="true"></i></span>
                         </span>
                     </a>
                 </li>
@@ -313,14 +352,16 @@
             <!-- Slide nav — small prev/next buttons, right edge mid-height -->
             <div class="hero__nav" data-hero-nav>
                 <button type="button" class="hero__nav-btn" data-hero-prev aria-label="Previous slide">
-                    <i class="ph-thin ph-arrow-left" aria-hidden="true"></i>
+                    <i class="ph ph-arrow-left" aria-hidden="true"></i>
                 </button>
                 <button type="button" class="hero__nav-btn" data-hero-next aria-label="Next slide">
-                    <i class="ph-thin ph-arrow-right" aria-hidden="true"></i>
+                    <i class="ph ph-arrow-right" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
         </section>
+
+
 
 
         <!-- INVENTORY — featured cars in light editorial, sticky-pinned on scroll -->
@@ -338,7 +379,7 @@
                     </div>
                     <a href="#" class="btn">
                         <span>Explore the collection</span>
-                        <i class="ph-thin ph-caret-right" aria-hidden="true"></i>
+                        <i class="ph ph-caret-right" aria-hidden="true"></i>
                     </a>
                 </header>
 
@@ -355,8 +396,8 @@
                             <div class="vehicle-card__body">
                                 <h3 class="vehicle-card__name">2024 Lamborghini Revuelto</h3>
                                 <ul class="vehicle-card__specs">
-                                    <li class="spec"><i class="ph-thin ph-gauge" aria-hidden="true"></i><span>120 mi</span></li>
-                                    <li class="spec"><i class="ph-thin ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
+                                    <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>120 mi</span></li>
+                                    <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
                                 </ul>
                             </div>
                         </a>
@@ -369,8 +410,8 @@
                             <div class="vehicle-card__body">
                                 <h3 class="vehicle-card__name">2024 Pagani Utopia</h3>
                                 <ul class="vehicle-card__specs">
-                                    <li class="spec"><i class="ph-thin ph-gauge" aria-hidden="true"></i><span>85 mi</span></li>
-                                    <li class="spec"><i class="ph-thin ph-gear-six" aria-hidden="true"></i><span>Manual</span></li>
+                                    <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>85 mi</span></li>
+                                    <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Manual</span></li>
                                 </ul>
                             </div>
                         </a>
@@ -383,8 +424,8 @@
                             <div class="vehicle-card__body">
                                 <h3 class="vehicle-card__name">2024 Czinger 21C</h3>
                                 <ul class="vehicle-card__specs">
-                                    <li class="spec"><i class="ph-thin ph-gauge" aria-hidden="true"></i><span>60 mi</span></li>
-                                    <li class="spec"><i class="ph-thin ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
+                                    <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>60 mi</span></li>
+                                    <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
                                 </ul>
                             </div>
                         </a>
@@ -397,8 +438,8 @@
                             <div class="vehicle-card__body">
                                 <h3 class="vehicle-card__name">2023 Lamborghini Huracán STO</h3>
                                 <ul class="vehicle-card__specs">
-                                    <li class="spec"><i class="ph-thin ph-gauge" aria-hidden="true"></i><span>1,800 mi</span></li>
-                                    <li class="spec"><i class="ph-thin ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
+                                    <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>1,800 mi</span></li>
+                                    <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
                                 </ul>
                             </div>
                         </a>
@@ -411,8 +452,8 @@
                             <div class="vehicle-card__body">
                                 <h3 class="vehicle-card__name">2024 Karma GS-6</h3>
                                 <ul class="vehicle-card__specs">
-                                    <li class="spec"><i class="ph-thin ph-gauge" aria-hidden="true"></i><span>45 mi</span></li>
-                                    <li class="spec"><i class="ph-thin ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
+                                    <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>45 mi</span></li>
+                                    <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
                                 </ul>
                             </div>
                         </a>
@@ -425,13 +466,19 @@
                             <div class="vehicle-card__body">
                                 <h3 class="vehicle-card__name">2024 Lotus Emira First Edition</h3>
                                 <ul class="vehicle-card__specs">
-                                    <li class="spec"><i class="ph-thin ph-gauge" aria-hidden="true"></i><span>450 mi</span></li>
-                                    <li class="spec"><i class="ph-thin ph-gear-six" aria-hidden="true"></i><span>Manual</span></li>
+                                    <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>450 mi</span></li>
+                                    <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Manual</span></li>
                                 </ul>
                             </div>
                         </a>
                     </li>
                 </ul>
+
+                <div class="inv-carousel" aria-label="Inventory navigation">
+                    <button class="inv-carousel__arrow" type="button" data-inv-prev aria-label="Previous vehicle"><i class="ph ph-caret-left" aria-hidden="true"></i></button>
+                    <div class="inv-carousel__dots" data-inv-dots></div>
+                    <button class="inv-carousel__arrow" type="button" data-inv-next aria-label="Next vehicle"><i class="ph ph-caret-right" aria-hidden="true"></i></button>
+                </div>
             </div>
         </div>
         </section>
@@ -462,7 +509,7 @@
                             <span class="brand-card__city">Miami</span>
                             <span class="brand-card__cta">
                                 <span>Explore Brand</span>
-                                <i class="ph-thin ph-arrow-right" aria-hidden="true"></i>
+                                <i class="ph ph-arrow-right" aria-hidden="true"></i>
                             </span>
                         </a>
                     </li>
@@ -475,7 +522,7 @@
                             <span class="brand-card__city">Miami</span>
                             <span class="brand-card__cta">
                                 <span>Explore Brand</span>
-                                <i class="ph-thin ph-arrow-right" aria-hidden="true"></i>
+                                <i class="ph ph-arrow-right" aria-hidden="true"></i>
                             </span>
                         </a>
                     </li>
@@ -488,7 +535,7 @@
                             <span class="brand-card__city">Miami</span>
                             <span class="brand-card__cta">
                                 <span>Explore Brand</span>
-                                <i class="ph-thin ph-arrow-right" aria-hidden="true"></i>
+                                <i class="ph ph-arrow-right" aria-hidden="true"></i>
                             </span>
                         </a>
                     </li>
@@ -501,7 +548,7 @@
                             <span class="brand-card__city">Miami</span>
                             <span class="brand-card__cta">
                                 <span>Explore Brand</span>
-                                <i class="ph-thin ph-arrow-right" aria-hidden="true"></i>
+                                <i class="ph ph-arrow-right" aria-hidden="true"></i>
                             </span>
                         </a>
                     </li>
@@ -514,7 +561,7 @@
                             <span class="brand-card__city">Miami</span>
                             <span class="brand-card__cta">
                                 <span>Explore Brand</span>
-                                <i class="ph-thin ph-arrow-right" aria-hidden="true"></i>
+                                <i class="ph ph-arrow-right" aria-hidden="true"></i>
                             </span>
                         </a>
                     </li>
@@ -527,7 +574,7 @@
                             <span class="brand-card__city">Miami</span>
                             <span class="brand-card__cta">
                                 <span>Explore Brand</span>
-                                <i class="ph-thin ph-arrow-right" aria-hidden="true"></i>
+                                <i class="ph ph-arrow-right" aria-hidden="true"></i>
                             </span>
                         </a>
                     </li>
@@ -540,7 +587,7 @@
                             <span class="brand-card__city">Miami</span>
                             <span class="brand-card__cta">
                                 <span>Explore Brand</span>
-                                <i class="ph-thin ph-arrow-right" aria-hidden="true"></i>
+                                <i class="ph ph-arrow-right" aria-hidden="true"></i>
                             </span>
                         </a>
                     </li>
@@ -569,7 +616,7 @@
                         </div>
                         <a href="#sell" class="btn btn--on-dark sell__cta">
                             <span>Request a private valuation</span>
-                            <i class="ph-thin ph-caret-right" aria-hidden="true"></i>
+                            <i class="ph ph-caret-right" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
@@ -629,11 +676,11 @@
                         <div class="services__ctas">
                             <a href="#" class="btn btn--solid services__cta">
                                 <span>Book Appointment</span>
-                                <i class="ph-thin ph-caret-right" aria-hidden="true"></i>
+                                <i class="ph ph-caret-right" aria-hidden="true"></i>
                             </a>
                             <a href="tel:+18332906287" class="btn services__cta">
                                 <span>Contact Our Team</span>
-                                <i class="ph-thin ph-phone" aria-hidden="true"></i>
+                                <i class="ph ph-phone" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
@@ -670,7 +717,7 @@
                             <p class="event-featured__text">Prestige Imports joins the Miami race weekend with curated viewing experiences and exclusive client events at Hard Rock Stadium.</p>
                             <a href="#" class="event-featured__link">
                                 <span>Read more</span>
-                                <i class="ph-thin ph-caret-right" aria-hidden="true"></i>
+                                <i class="ph ph-caret-right" aria-hidden="true"></i>
                             </a>
                         </div>
                     </article>
@@ -699,7 +746,7 @@
                                         <span class="event-row__cat">Motorsport</span>
                                     </div>
                                     <h4 class="event-row__title">Formula 1 Miami Grand Prix</h4>
-                                    <i class="ph-thin ph-caret-right event-row__arrow" aria-hidden="true"></i>
+                                    <i class="ph ph-caret-right event-row__arrow" aria-hidden="true"></i>
                                 </a>
                             </li>
                             <li class="event-row">
@@ -715,7 +762,7 @@
                                         <span class="event-row__cat">Concourse</span>
                                     </div>
                                     <h4 class="event-row__title">Moda Miami Concourse d'Elegance</h4>
-                                    <i class="ph-thin ph-caret-right event-row__arrow" aria-hidden="true"></i>
+                                    <i class="ph ph-caret-right event-row__arrow" aria-hidden="true"></i>
                                 </a>
                             </li>
                             <li class="event-row">
@@ -731,7 +778,7 @@
                                         <span class="event-row__cat">Launch</span>
                                     </div>
                                     <h4 class="event-row__title">Lamborghini Temerario Preview Night</h4>
-                                    <i class="ph-thin ph-caret-right event-row__arrow" aria-hidden="true"></i>
+                                    <i class="ph ph-caret-right event-row__arrow" aria-hidden="true"></i>
                                 </a>
                             </li>
                             <li class="event-row">
@@ -747,7 +794,7 @@
                                         <span class="event-row__cat">Private</span>
                                     </div>
                                     <h4 class="event-row__title">Pagani Utopia Roadster — Private Showing</h4>
-                                    <i class="ph-thin ph-caret-right event-row__arrow" aria-hidden="true"></i>
+                                    <i class="ph ph-caret-right event-row__arrow" aria-hidden="true"></i>
                                 </a>
                             </li>
                         </ol>
@@ -756,12 +803,6 @@
             </div>
         </section>
 
-
-        <!-- Cinematic break — full-bleed image, slow fade-in +
-             settle as it scrolls into view. -->
-        <div class="section-break" data-reveal aria-hidden="true">
-            <img src="assets/images/brake.jpg" alt="" loading="lazy">
-        </div>
 
 
         <!-- ============================================================
@@ -790,7 +831,7 @@
                         <p class="diff__para">We don't just sell cars. We provide lifestyles — from acquisition and nationwide delivery through long-term ownership support. For clients who also prefer the water, we offer VanDutch luxury marine alongside our automotive portfolio.</p>
                         <a href="#" class="diff__readmore">
                             <span>Read more</span>
-                            <i class="ph-thin ph-arrow-right" aria-hidden="true"></i>
+                            <i class="ph ph-arrow-right" aria-hidden="true"></i>
                         </a>
                     </div>
 
@@ -819,7 +860,7 @@
                                 <span>See More</span>
                             </a>
                             <a href="tel:+18332906287" class="btn btn--on-dark btn--ghost">
-                                <i class="ph-thin ph-phone" aria-hidden="true"></i>
+                                <i class="ph ph-phone" aria-hidden="true"></i>
                                 <span>Contact Us</span>
                             </a>
                         </div>
@@ -928,60 +969,78 @@
                 <div class="reviews__dots" data-reviews-dots role="tablist" aria-label="Reviews pages"></div>
 
                 <a href="https://www.google.com/maps/place/Prestige+Imports" target="_blank" rel="noopener" class="reviews__cta">
-                    <i class="ph-thin ph-pencil-simple-line" aria-hidden="true"></i>
+                    <i class="ph ph-pencil-simple-line" aria-hidden="true"></i>
                     <span>Leave a Review</span>
                 </a>
             </div>
         </section>
 
 
-        <!-- ============================================================
-             PRESTIGE AUTO SPA & MARINE — dark editorial band after
-             reviews. Two equal full-bleed media boxes (Auto Spa / Marine)
-             with gold-accent labels; hover lifts the label, zooms the
-             image, and reveals the → CTA. Stacks to 1 column < 820px.
+                <!-- ============================================================
+             VERTICALS — Prestige's three business directions:
+             Marine - Auto Spa - Energy. Stacked editorial sections
+             (image + text), alternating sides.
              ============================================================ -->
-        <section class="section section--spa" id="spa" aria-labelledby="spa-heading" data-reveal>
-            <div class="container">
-                <header class="spa__header">
-                    <span class="eyebrow-stamp eyebrow-stamp--light">The Prestige Difference</span>
-                    <h2 class="spa__heading" id="spa-heading">
-                        <span class="spa__heading-accent">Prestige</span> Auto Spa &amp; Marine
-                    </h2>
-                </header>
+        <section class="section section--vertical" id="marine" data-reveal>
+            <div class="vertical__inner">
+                <div class="vertical__media">
+                    <img src="assets/images/spa/marine_hero.jpg" alt="Prestige Marine - luxury yacht at golden hour" loading="lazy">
+                </div>
+                <div class="vertical__text">
+                    <h2 class="vertical__heading">Prestige Marine</h2>
+                    <p class="vertical__lead">Bespoke luxury on the water — sales, service, and sourcing.</p>
+                    <ul class="vertical__list">
+                            <li>Yacht &amp; boat sales</li>
+                            <li>Service &amp; maintenance</li>
+                            <li>Consulting &amp; bespoke sourcing</li>
+                    </ul>
+                    <a href="#" class="btn btn--solid vertical__cta">
+                        <span>Explore Marine</span>
+                        <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-                <ul class="spa__grid" aria-label="Prestige Auto Spa &amp; Marine">
-                    <li class="spa__box">
-                        <a class="spa__link" href="#auto" aria-label="Prestige Auto Spa — explore">
-                            <div class="spa__media">
-                                <img src="assets/images/spa/auto_hero.jpg" alt="Prestige Auto Spa storefront at sunset" loading="lazy">
-                            </div>
-                            <div class="spa__label">
-                                <span class="spa__kicker">On land</span>
-                                <h3 class="spa__title"><span class="spa__title-accent">Auto</span> Spa</h3>
-                                <span class="btn btn--on-dark spa__cta">
-                                    <span>Explore</span>
-                                    <i class="ph-thin ph-arrow-right" aria-hidden="true"></i>
-                                </span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="spa__box">
-                        <a class="spa__link" href="#marine" aria-label="Prestige Marine Detailing — explore">
-                            <div class="spa__media">
-                                <img src="assets/images/spa/marine_hero.jpg" alt="Luxury boat being detailed at a Miami marina at golden hour" loading="lazy">
-                            </div>
-                            <div class="spa__label">
-                                <span class="spa__kicker">On water</span>
-                                <h3 class="spa__title"><span class="spa__title-accent">Marine</span> Detailing</h3>
-                                <span class="btn btn--on-dark spa__cta">
-                                    <span>Explore</span>
-                                    <i class="ph-thin ph-arrow-right" aria-hidden="true"></i>
-                                </span>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
+        <section class="section section--vertical section--vertical--reverse" id="auto" data-reveal>
+            <div class="vertical__inner">
+                <div class="vertical__media">
+                    <img src="assets/images/spa/auto_hero.jpg" alt="Prestige Auto Spa storefront" loading="lazy">
+                </div>
+                <div class="vertical__text">
+                    <h2 class="vertical__heading">Prestige Auto Spa</h2>
+                    <p class="vertical__lead">Premium care for any vehicle — open to every client.</p>
+                    <ul class="vertical__list">
+                            <li>Express &amp; full-service wash</li>
+                            <li>High-end detailing</li>
+                            <li>Paint protection, ceramic &amp; PPF</li>
+                    </ul>
+                    <a href="#" class="btn btn--solid vertical__cta">
+                        <span>Explore Auto Spa</span>
+                        <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--vertical" id="energy" data-reveal>
+            <div class="vertical__inner">
+                <div class="vertical__media">
+                    <img src="assets/images/spa/energy.jpg" alt="Prestige Energy - Shell-branded fuel station" loading="lazy">
+                </div>
+                <div class="vertical__text">
+                    <h2 class="vertical__heading">Prestige Energy</h2>
+                    <p class="vertical__lead">Our own Shell-branded fuel station and convenience store.</p>
+                    <ul class="vertical__list">
+                            <li>Shell-branded fuel</li>
+                            <li>Convenience store</li>
+                            <li>Snacks, drinks &amp; daily essentials</li>
+                    </ul>
+                    <a href="#" class="btn btn--solid vertical__cta">
+                        <span>Visit Prestige Energy</span>
+                        <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -992,57 +1051,80 @@
              hardcoded — update periodically (IG gives no count without the
              Graph API). Photography-led, light frame before the footer.
              ============================================================ -->
-        <section class="section section--instagram" id="instagram" aria-labelledby="ig-heading" data-reveal>
-            <div class="container">
-                <header class="ig__header">
-                    <div class="ig__header-text">
-                        <span class="eyebrow-stamp">Follow Along</span>
-                        <h2 class="ig__heading" id="ig-heading">
-                            <span class="ig__heading-primary">New Arrivals, Epic Cars,</span>
-                            <span class="ig__heading-secondary">And the Prestige Lifestyle.</span>
-                        </h2>
-                    </div>
-                    <a class="ig__handle" href="https://www.instagram.com/prestigeimports/" target="_blank" rel="noopener">
-                        <i class="ph-thin ph-instagram-logo" aria-hidden="true"></i>
-                        <span class="ig__handle-name">@prestigeimports</span>
+                <section class="section section--instagram" id="instagram" aria-labelledby="ig-heading" data-reveal>
+            <div class="ig__layout">
+
+                <!-- Left — follow along + IG logo -->
+                <div class="ig__intro">
+                    <img class="ig__logo" src="assets/images/Instagram_Glyph_Gradient.svg" alt="Instagram" width="52" height="52">
+                    <span class="eyebrow-stamp">Follow Along</span>
+                    <h2 class="ig__heading" id="ig-heading">
+                        <span class="ig__heading-primary">New Arrivals, Epic Cars,</span>
+                        <span class="ig__heading-secondary">And the Prestige Lifestyle.</span>
+                    </h2>
+                    <a class="ig__handle" href="https://www.instagram.com/prestigeimports/" target="_blank" rel="noopener">@prestigeimports</a>
+                    <div class="ig__stats">
                         <span class="ig__handle-stat"><strong>8,366</strong> posts</span>
                         <span class="ig__handle-stat"><strong>350K</strong> followers</span>
+                    </div>
+                    <a class="btn btn--solid ig__follow" href="https://www.instagram.com/prestigeimports/" target="_blank" rel="noopener">
+                        <span>Follow on Instagram</span>
+                        <i class="ph ph-instagram-logo" aria-hidden="true"></i>
                     </a>
-                </header>
-            </div>
+                </div>
 
-            <ul class="ig__grid container" aria-label="Recent Instagram posts">
-                <li><a class="ig__tile" href="https://www.instagram.com/prestigeimports/" target="_blank" rel="noopener" aria-label="View on Instagram">
-                    <img src="assets/images/2024%20Lamborghini%20Revuelto.jpg" alt="" loading="lazy">
-                    <span class="ig__overlay" aria-hidden="true"><i class="ph-thin ph-instagram-logo"></i></span>
-                </a></li>
-                <li><a class="ig__tile" href="https://www.instagram.com/prestigeimports/" target="_blank" rel="noopener" aria-label="View on Instagram">
-                    <img src="assets/images/2024%20Pagani%20Utopia.webp" alt="" loading="lazy">
-                    <span class="ig__overlay" aria-hidden="true"><i class="ph-thin ph-instagram-logo"></i></span>
-                </a></li>
-                <li><a class="ig__tile" href="https://www.instagram.com/prestigeimports/" target="_blank" rel="noopener" aria-label="View on Instagram">
-                    <img src="assets/images/2024%20Czinger%2021C.webp" alt="" loading="lazy">
-                    <span class="ig__overlay" aria-hidden="true"><i class="ph-thin ph-instagram-logo"></i></span>
-                </a></li>
-                <li><a class="ig__tile" href="https://www.instagram.com/prestigeimports/" target="_blank" rel="noopener" aria-label="View on Instagram">
-                    <img src="assets/images/2023_Lamborghini_Huracan_STO_1.jpg" alt="" loading="lazy">
-                    <span class="ig__overlay" aria-hidden="true"><i class="ph-thin ph-instagram-logo"></i></span>
-                </a></li>
-                <li><a class="ig__tile" href="https://www.instagram.com/prestigeimports/" target="_blank" rel="noopener" aria-label="View on Instagram">
-                    <img src="assets/images/Karma%20GS-6.avif" alt="" loading="lazy">
-                    <span class="ig__overlay" aria-hidden="true"><i class="ph-thin ph-instagram-logo"></i></span>
-                </a></li>
-                <li><a class="ig__tile" href="https://www.instagram.com/prestigeimports/" target="_blank" rel="noopener" aria-label="View on Instagram">
-                    <img src="assets/images/2024%20Lotus%20Emira%20First%20Edition.avif" alt="" loading="lazy">
-                    <span class="ig__overlay" aria-hidden="true"><i class="ph-thin ph-instagram-logo"></i></span>
-                </a></li>
-            </ul>
+                <!-- Center — stacked image grid -->
+                <ul class="ig__grid" aria-label="Recent Instagram posts">
+                    <li><a class="ig__tile" href="https://www.instagram.com/prestigeimports/" target="_blank" rel="noopener" aria-label="View on Instagram">
+                        <img src="assets/images/2024%20Lamborghini%20Revuelto.jpg" alt="" loading="lazy">
+                        <span class="ig__overlay" aria-hidden="true"><i class="ph ph-instagram-logo"></i></span>
+                    </a></li>
+                    <li><a class="ig__tile" href="https://www.instagram.com/prestigeimports/" target="_blank" rel="noopener" aria-label="View on Instagram">
+                        <img src="assets/images/2024%20Pagani%20Utopia.webp" alt="" loading="lazy">
+                        <span class="ig__overlay" aria-hidden="true"><i class="ph ph-instagram-logo"></i></span>
+                    </a></li>
+                    <li><a class="ig__tile" href="https://www.instagram.com/prestigeimports/" target="_blank" rel="noopener" aria-label="View on Instagram">
+                        <img src="assets/images/2024%20Czinger%2021C.webp" alt="" loading="lazy">
+                        <span class="ig__overlay" aria-hidden="true"><i class="ph ph-instagram-logo"></i></span>
+                    </a></li>
+                    <li><a class="ig__tile" href="https://www.instagram.com/prestigeimports/" target="_blank" rel="noopener" aria-label="View on Instagram">
+                        <img src="assets/images/2023_Lamborghini_Huracan_STO_1.jpg" alt="" loading="lazy">
+                        <span class="ig__overlay" aria-hidden="true"><i class="ph ph-instagram-logo"></i></span>
+                    </a></li>
+                    <li><a class="ig__tile" href="https://www.instagram.com/prestigeimports/" target="_blank" rel="noopener" aria-label="View on Instagram">
+                        <img src="assets/images/Karma%20GS-6.avif" alt="" loading="lazy">
+                        <span class="ig__overlay" aria-hidden="true"><i class="ph ph-instagram-logo"></i></span>
+                    </a></li>
+                    <li><a class="ig__tile" href="https://www.instagram.com/prestigeimports/" target="_blank" rel="noopener" aria-label="View on Instagram">
+                        <img src="assets/images/2024%20Lotus%20Emira%20First%20Edition.avif" alt="" loading="lazy">
+                        <span class="ig__overlay" aria-hidden="true"><i class="ph ph-instagram-logo"></i></span>
+                    </a></li>
+                    <li><a class="ig__tile" href="https://www.instagram.com/prestigeimports/" target="_blank" rel="noopener" aria-label="View on Instagram">
+                        <img src="assets/images/2022%20Ferrari%20812%20Superfast.avif" alt="" loading="lazy">
+                        <span class="ig__overlay" aria-hidden="true"><i class="ph ph-instagram-logo"></i></span>
+                    </a></li>
+                    <li><a class="ig__tile" href="https://www.instagram.com/prestigeimports/" target="_blank" rel="noopener" aria-label="View on Instagram">
+                        <img src="assets/images/2024%20Lamborghini%20Revuelto.jpg" alt="" loading="lazy">
+                        <span class="ig__overlay" aria-hidden="true"><i class="ph ph-instagram-logo"></i></span>
+                    </a></li>
+                    <li><a class="ig__tile" href="https://www.instagram.com/prestigeimports/" target="_blank" rel="noopener" aria-label="View on Instagram">
+                        <img src="assets/images/2024%20Pagani%20Utopia.webp" alt="" loading="lazy">
+                        <span class="ig__overlay" aria-hidden="true"><i class="ph ph-instagram-logo"></i></span>
+                    </a></li>
+                </ul>
 
-            <div class="container ig__cta-wrap">
-                <a class="btn btn--solid" href="https://www.instagram.com/prestigeimports/" target="_blank" rel="noopener">
-                    <span>Follow on Instagram</span>
-                    <i class="ph-thin ph-instagram-logo" aria-hidden="true"></i>
-                </a>
+                <!-- Right — newsletter -->
+                <aside class="ig__newsletter">
+                    <span class="eyebrow-stamp">Stay in the Know</span>
+                    <h2 class="ig__news-heading">Join Our Mailing List</h2>
+                    <p class="ig__news-text">New arrivals, private events, and exclusive offers — delivered straight to your inbox.</p>
+                    <form class="ig__form" onsubmit="return false">
+                        <label class="sr-only" for="nl-email">Email address</label>
+                        <input id="nl-email" name="email" type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn--solid">Join Now</button>
+                    </form>
+                </aside>
+
             </div>
         </section>
 
@@ -1053,7 +1135,7 @@
          FOOTER — dark ink continuation. 4-col link grid + bottom bar
          with copyright, social icons, legal.
          ============================================================ -->
-    <footer class="site-footer">
+    <footer class="site-footer" id="contact">
         <div class="site-footer__inner">
 
             <div class="site-footer__top">
@@ -1072,22 +1154,22 @@
                     <ul class="site-footer__social" aria-label="Social media">
                         <li>
                             <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
-                                <i class="ph-thin ph-instagram-logo" aria-hidden="true"></i>
+                                <i class="ph ph-instagram-logo" aria-hidden="true"></i>
                             </a>
                         </li>
                         <li>
                             <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
-                                <i class="ph-thin ph-facebook-logo" aria-hidden="true"></i>
+                                <i class="ph ph-facebook-logo" aria-hidden="true"></i>
                             </a>
                         </li>
                         <li>
                             <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">
-                                <i class="ph-thin ph-youtube-logo" aria-hidden="true"></i>
+                                <i class="ph ph-youtube-logo" aria-hidden="true"></i>
                             </a>
                         </li>
                         <li>
                             <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
-                                <i class="ph-thin ph-linkedin-logo" aria-hidden="true"></i>
+                                <i class="ph ph-linkedin-logo" aria-hidden="true"></i>
                             </a>
                         </li>
                     </ul>
@@ -1153,11 +1235,11 @@
                 <div class="site-footer__actions">
                     <a href="tel:+18332906287" class="btn btn--on-dark btn--solid">
                         <span>Call</span>
-                        <i class="ph-thin ph-phone" aria-hidden="true"></i>
+                        <i class="ph ph-phone" aria-hidden="true"></i>
                     </a>
                     <a href="https://maps.google.com/?q=14780+Biscayne+Blvd+North+Miami+Beach+FL" target="_blank" rel="noopener" class="btn btn--on-dark btn--ghost">
                         <span>Get Directions</span>
-                        <i class="ph-thin ph-map-pin" aria-hidden="true"></i>
+                        <i class="ph ph-map-pin" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
@@ -1179,7 +1261,7 @@
     </footer>
 
     <a href="#top" id="back-to-top" class="back-to-top" aria-label="Back to top">
-        <i class="ph-thin ph-arrow-up" aria-hidden="true"></i>
+        <i class="ph ph-arrow-up" aria-hidden="true"></i>
     </a>
 
     <script>

@@ -8,72 +8,116 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 
     <!-- Real system: tokens first, then components -->
     <link rel="stylesheet" href="assets/css/tokens.css">
     <link rel="stylesheet" href="assets/css/main.css">
 
-    <!-- Reference-page layout only (not part of the product CSS) -->
+    <!-- Reference-page layout ONLY (not part of the product CSS) -->
     <style>
         body { background: var(--bg); color: var(--ink); font-family: var(--font-sans); margin: 0; }
-        .ds { width: min(92%, 1080px); margin: 0 auto; padding: 64px 0 120px; }
-        .ds__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(34px, 5vw, 56px); letter-spacing: -0.02em; margin: 0 0 8px; }
-        .ds__lede { color: var(--ink-soft); max-width: 60ch; margin: 0 0 8px; line-height: 1.6; }
-        .ds__sec { margin-top: 72px; }
-        .ds__h { font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: -0.01em; margin: 0 0 4px; }
-        .ds__note { color: var(--ink-muted); font-size: 13px; margin: 0 0 24px; }
-        .ds__grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
-        .sw { border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; background: #fff; }
-        .sw__chip { height: 84px; }
-        .sw__meta { padding: 10px 12px; }
+        .ds { width: min(92%, 1100px); margin: 0 auto; padding: 56px 0 140px; }
+        .ds__masthead { border-bottom: 2px solid var(--ink); padding-bottom: 20px; margin-bottom: 8px; }
+        .ds__kicker { font-family: var(--font-sans); font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--ink-muted); }
+        .ds__title { font-family: var(--font-display); font-weight: 700; font-size: 56px; line-height: 1; letter-spacing: -1px; margin: 10px 0 0; }
+        .ds__sub { color: var(--ink-soft); font-size: 16px; line-height: 1.6; margin: 10px 0 0; max-width: 60ch; }
+
+        .ds__sec { margin-top: 80px; }
+        .ds__h { font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: 1px; text-transform: uppercase; margin: 0 0 4px; }
+        .ds__note { color: var(--ink-muted); font-size: 13px; margin: 0 0 28px; line-height: 1.5; }
+        .ds__rule { height: 1px; background: var(--rule); border: 0; margin: 0 0 28px; }
+
+        /* type ramp rows */
+        .tr { display: grid; grid-template-columns: 1fr 230px; gap: 24px; align-items: baseline;
+              padding: 22px 0; border-top: 1px solid var(--rule); }
+        .tr__spec { font-family: var(--font-sans); font-size: 12px; line-height: 1.7; color: var(--ink-muted); text-align: right; }
+        .tr__spec b { color: var(--ink); font-weight: 600; }
+
+        /* swatches */
+        .sw-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+        .sw { border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background:#fff; }
+        .sw__chip { height: 78px; border-bottom: 1px solid var(--rule); }
+        .sw__meta { padding: 9px 11px; }
         .sw__name { font-weight: 600; font-size: 13px; }
-        .sw__val { color: var(--ink-muted); font-size: 12px; font-family: var(--font-sans); }
-        .row { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
-        .panel-dark { background: var(--ink); border-radius: 10px; padding: 32px; }
-        .type-row { border-top: 1px solid var(--rule); padding: 18px 0; display: flex; align-items: baseline; justify-content: space-between; gap: 24px; }
-        .type-row span.lbl { color: var(--ink-muted); font-size: 12px; white-space: nowrap; }
-        .sp { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
-        .sp__bar { height: 14px; background: var(--ink); border-radius: 2px; }
+        .sw__val { color: var(--ink-muted); font-size: 12px; }
+
+        /* spacing */
+        .sp { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
+        .sp__bar { height: 16px; background: var(--ink); border-radius: 2px; }
         .sp__lbl { font-size: 12px; color: var(--ink-muted); }
+
+        .row { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+        .panel-dark { background: var(--ink); border-radius: 8px; padding: 32px; margin-top: 16px; }
+        .spec-list { font-size: 13px; line-height: 1.9; color: var(--ink-soft); margin: 16px 0 0; }
+        .spec-list code { font-family: ui-monospace, Menlo, monospace; font-size: 12px; background: var(--bg-soft); padding: 1px 6px; border-radius: 4px; color: var(--ink); }
+
+        .ico-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); }
+        .ico { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 18px 8px; border: 1px solid var(--rule); border-radius: 6px; background: #fff; }
+        .ico i { font-size: 28px; color: var(--ink); line-height: 1; }
+        .ico span { font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: var(--ink-muted); }
     </style>
 </head>
 <body>
     <main class="ds">
-        <span class="eyebrow-stamp">Design System</span>
-        <h1 class="ds__title" style="margin-top:18px;">Prestige Imports</h1>
-        <p class="ds__lede">Single source of truth for the build. All values are CSS custom properties in <strong>assets/css/tokens.css</strong>; components live in <strong>main.css</strong> (+ <strong>srp.css</strong> / <strong>vdp.css</strong>). Change a token once → it updates across every page and this reference.</p>
+
+        <header class="ds__masthead">
+            <span class="ds__kicker">Prestige Imports · Internal</span>
+            <h1 class="ds__title">Design System</h1>
+            <p class="ds__sub">One source of truth for <strong>index · srp · vdp</strong>. All values live in <strong>assets/css/tokens.css</strong> + <strong>main.css</strong>. Font sizes, line-heights and spacing are in <strong>px</strong>; every role ships a <strong>desktop</strong> and a <strong>mobile</strong> size (mobile ≤ 900px).</p>
+        </header>
+
+        <!-- FONTS -->
+        <section class="ds__sec">
+            <h2 class="ds__h">Fonts</h2>
+            <p class="ds__note">Two families only. Display for headings, Sans for body &amp; UI.</p>
+            <div class="sw-grid" style="grid-template-columns: repeat(auto-fill, minmax(240px,1fr));">
+                <div class="sw"><div style="padding:18px 16px"><div style="font-family:var(--font-display);font-weight:700;font-size:30px;letter-spacing:-0.5px">Plus Jakarta Sans</div><div class="sw__val" style="margin-top:6px">--font-display · headings, display, price · 400/500/600/700</div></div></div>
+                <div class="sw"><div style="padding:18px 16px"><div style="font-family:var(--font-sans);font-weight:400;font-size:30px">Inter</div><div class="sw__val" style="margin-top:6px">--font-sans · body, UI, labels · 400/500/600</div></div></div>
+            </div>
+        </section>
+
+        <!-- TYPE RAMP -->
+        <section class="ds__sec">
+            <h2 class="ds__h">Type Ramp</h2>
+            <p class="ds__note">Spec format — <b>desktop / mobile · line-height · letter-spacing · weight</b>. All px.</p>
+
+            <div class="tr"><span class="t-display">Quiet Power</span><span class="tr__spec"><b>Display</b> · Plus Jakarta<br>80 / 48 px · LH 80/48 · −1.5px · 700</span></div>
+            <div class="tr"><span class="t-h1">A Curated Selection</span><span class="tr__spec"><b>H1</b> · Plus Jakarta<br>50 / 34 px · LH 52/36 · −1px · 700</span></div>
+            <div class="tr"><span class="t-h2">The Prestige Difference</span><span class="tr__spec"><b>H2</b> · Plus Jakarta<br>34 / 26 px · LH 40/30 · −0.5px · 600</span></div>
+            <div class="tr"><span class="t-h3">2024 Pagani Utopia</span><span class="tr__spec"><b>H3</b> / price · Plus Jakarta<br>22 px · LH 28 · 0 · 600</span></div>
+            <div class="tr"><span class="t-h4">Vehicle card title</span><span class="tr__spec"><b>H4</b> / card · Plus Jakarta<br>18 px · LH 24 · 0 · 600</span></div>
+            <div class="tr"><span class="t-lead">Lead paragraph — the editorial intro line that opens a section.</span><span class="tr__spec"><b>Lead</b> · Inter<br>18 / 16 px · LH 28/26 · 400</span></div>
+            <div class="tr"><span class="t-body">Body copy — the workhorse for paragraphs, specs and descriptions across the site.</span><span class="tr__spec"><b>Body</b> · Inter<br>16 px · LH 26 · 400</span></div>
+            <div class="tr"><span class="t-small">Small — secondary details and metadata.</span><span class="tr__spec"><b>Small</b> · Inter<br>14 px · LH 22 · 400</span></div>
+            <div class="tr"><span class="t-caption">Caption — fine print, disclaimers.</span><span class="tr__spec"><b>Caption</b> · Inter<br>12 px · LH 18 · 400</span></div>
+            <div class="tr"><span class="t-eyebrow">Eyebrow label</span><span class="tr__spec"><b>Eyebrow</b> · Inter<br>12 px · LH 12 · 2px · 500 · caps</span></div>
+            <div class="tr"><span class="t-micro">Micro label</span><span class="tr__spec"><b>Micro</b> · Inter<br>11 px · LH 16 · 1.5px · 500 · caps</span></div>
+        </section>
 
         <!-- COLOR -->
         <section class="ds__sec">
             <h2 class="ds__h">Color</h2>
-            <p class="ds__note">Monochrome editorial. Photography is the color note.</p>
-            <div class="ds__grid">
+            <p class="ds__note">Monochrome editorial — photography is the only color note.</p>
+            <div class="sw-grid">
                 <div class="sw"><div class="sw__chip" style="background:var(--bg)"></div><div class="sw__meta"><div class="sw__name">bg</div><div class="sw__val">#F4F4F4</div></div></div>
                 <div class="sw"><div class="sw__chip" style="background:var(--bg-soft)"></div><div class="sw__meta"><div class="sw__name">bg-soft</div><div class="sw__val">#EAEAEA</div></div></div>
                 <div class="sw"><div class="sw__chip" style="background:var(--bg-deep)"></div><div class="sw__meta"><div class="sw__name">bg-deep</div><div class="sw__val">#DEDEDE</div></div></div>
-                <div class="sw"><div class="sw__chip" style="background:var(--cream)"></div><div class="sw__meta"><div class="sw__name">cream</div><div class="sw__val">#edeae4</div></div></div>
-                <div class="sw"><div class="sw__chip" style="background:var(--ink)"></div><div class="sw__meta"><div class="sw__name">ink</div><div class="sw__val">#1c1c1c</div></div></div>
+                <div class="sw"><div class="sw__chip" style="background:var(--cream)"></div><div class="sw__meta"><div class="sw__name">cream</div><div class="sw__val">#EDEAE4</div></div></div>
+                <div class="sw"><div class="sw__chip" style="background:var(--ink)"></div><div class="sw__meta"><div class="sw__name">ink</div><div class="sw__val">#1C1C1C</div></div></div>
                 <div class="sw"><div class="sw__chip" style="background:var(--ink-soft)"></div><div class="sw__meta"><div class="sw__name">ink-soft</div><div class="sw__val">#45474B</div></div></div>
                 <div class="sw"><div class="sw__chip" style="background:var(--ink-muted)"></div><div class="sw__meta"><div class="sw__name">ink-muted</div><div class="sw__val">#7C7E82</div></div></div>
-                <div class="sw"><div class="sw__chip" style="background:var(--header-bg)"></div><div class="sw__meta"><div class="sw__name">header-bg</div><div class="sw__val">#1c1c1c</div></div></div>
+                <div class="sw"><div class="sw__chip" style="background:var(--header-bg)"></div><div class="sw__meta"><div class="sw__name">header-bg</div><div class="sw__val">#1C1C1C</div></div></div>
+                <div class="sw"><div class="sw__chip" style="background:#fff;position:relative"><span style="position:absolute;inset:0;background:var(--rule)"></span></div><div class="sw__meta"><div class="sw__name">rule</div><div class="sw__val">rgba(28,28,28,.12)</div></div></div>
+                <div class="sw"><div class="sw__chip" style="background:#fff;position:relative"><span style="position:absolute;inset:0;background:var(--rule-strong)"></span></div><div class="sw__meta"><div class="sw__name">rule-strong</div><div class="sw__val">rgba(28,28,28,.24)</div></div></div>
             </div>
-        </section>
-
-        <!-- TYPE -->
-        <section class="ds__sec">
-            <h2 class="ds__h">Typography</h2>
-            <p class="ds__note">Display / headings: <strong>Plus Jakarta Sans</strong> (--font-display) · Body / UI: <strong>Inter</strong> (--font-sans).</p>
-            <div class="type-row"><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(34px,3.4vw,46px);letter-spacing:-0.02em;">A Different Kind of Dealership.</span><span class="lbl">display · 700</span></div>
-            <div class="type-row"><span style="font-family:var(--font-display);font-weight:700;font-size:30px;letter-spacing:-0.018em;">Section heading</span><span class="lbl">display · 700 · 30</span></div>
-            <div class="type-row"><span style="font-family:var(--font-display);font-weight:400;font-size:24px;">Heading regular</span><span class="lbl">display · 400 · 24</span></div>
-            <div class="type-row"><span style="font-family:var(--font-sans);font-size:16px;line-height:1.6;">Body copy — Inter, the workhorse for paragraphs, specs, and UI.</span><span class="lbl">sans · 400 · 16</span></div>
-            <div class="type-row"><span class="eyebrow-stamp">Eyebrow stamp</span><span class="lbl">sans · 500 · 12 · caps</span></div>
         </section>
 
         <!-- SPACING -->
         <section class="ds__sec">
-            <h2 class="ds__h">Spacing scale</h2>
-            <p class="ds__note">Generous magazine rhythm. Section padding = --section-py (140px).</p>
+            <h2 class="ds__h">Spacing</h2>
+            <p class="ds__note">8px base scale. Section padding = 140px (96px ≤ 960px).</p>
             <div class="sp"><span class="sp__bar" style="width:8px"></span><span class="sp__lbl">--sp-1 · 8px</span></div>
             <div class="sp"><span class="sp__bar" style="width:16px"></span><span class="sp__lbl">--sp-2 · 16px</span></div>
             <div class="sp"><span class="sp__bar" style="width:24px"></span><span class="sp__lbl">--sp-3 · 24px</span></div>
@@ -84,27 +128,86 @@
             <div class="sp"><span class="sp__bar" style="width:160px"></span><span class="sp__lbl">--sp-8 · 160px</span></div>
         </section>
 
+        <!-- RADIUS + ELEVATION -->
+        <section class="ds__sec">
+            <h2 class="ds__h">Radius &amp; Elevation</h2>
+            <p class="ds__note">Squared buttons (0px); soft 5px on media cards; one elevation token.</p>
+            <div class="row">
+                <div style="width:120px;height:80px;background:#fff;border:1px solid var(--rule);border-radius:0"></div>
+                <div style="width:120px;height:80px;background:#fff;border:1px solid var(--rule);border-radius:5px"></div>
+                <div style="width:160px;height:80px;background:#fff;border-radius:8px;box-shadow:var(--pop)"></div>
+            </div>
+            <p class="spec-list">Buttons <code>border-radius: 0</code> · Media/cards <code>5px</code> · Popovers <code>8px</code><br>Elevation <code>--pop: 0 16px 40px -12px rgba(28,28,28,.28)</code></p>
+        </section>
+
         <!-- BUTTONS -->
         <section class="ds__sec">
             <h2 class="ds__h">Buttons</h2>
-            <p class="ds__note">Squared, uppercase, letter-spaced. <code>.btn</code> + modifiers. Primary on dark = --solid.</p>
-            <div class="row" style="margin-bottom:18px;">
-                <a class="btn" href="#"><span>Default</span><i class="ph-thin ph-caret-right"></i></a>
-                <a class="btn btn--solid" href="#"><span>Solid</span><i class="ph-thin ph-caret-right"></i></a>
+            <p class="ds__note">Squared · uppercase · tracked. Size: padding 16×28px · 11px · 2.5px · LH 1 · 1px border.</p>
+            <div class="row">
+                <a class="btn" href="#"><span>Default</span><i class="ph-thin ph-arrow-right"></i></a>
+                <a class="btn btn--solid" href="#"><span>Solid · primary</span></a>
             </div>
             <div class="panel-dark">
                 <div class="row">
-                    <a class="btn btn--on-dark" href="#"><span>On dark</span><i class="ph-thin ph-caret-right"></i></a>
+                    <a class="btn btn--on-dark" href="#"><span>On dark</span><i class="ph-thin ph-arrow-right"></i></a>
                     <a class="btn btn--on-dark btn--solid" href="#"><span>On dark · solid</span></a>
                     <a class="btn btn--on-dark btn--ghost" href="#"><span>On dark · ghost</span></a>
                 </div>
             </div>
+            <p class="spec-list"><b>Hover</b> — ink/cream fill sweeps in from the left (<code>::before</code>, ~0.45s), text inverts, trailing icon nudges +4px. <b>Focus</b> — inherits browser outline; CTAs in dark sections use gold focus where set.</p>
         </section>
 
-        <!-- MOTION -->
+        <!-- TAGS / LABELS -->
         <section class="ds__sec">
-            <h2 class="ds__h">Motion &amp; elevation</h2>
-            <p class="ds__note">Ease <code>--ease: cubic-bezier(0.22, 1, 0.36, 1)</code> · Elevation <code>--pop</code> for popovers/dropdowns · Containers <code>--container-max 1440px</code> / <code>--container-wide 1684px</code>.</p>
+            <h2 class="ds__h">Tags &amp; Labels</h2>
+            <p class="ds__note">Eyebrow chip + inline labels + inventory status badge.</p>
+            <div class="row" style="gap:24px">
+                <span class="eyebrow-stamp">Eyebrow Stamp</span>
+                <span class="eyebrow-stamp eyebrow-stamp--light">Eyebrow · light</span>
+                <span class="t-eyebrow">t-eyebrow label</span>
+                <span class="t-micro">t-micro label</span>
+            </div>
+            <p class="spec-list">Eyebrow stamp — height 22px · pad 0 10px · 12px · 2px · caps · fill <code>#252525</code> / cream text.<br>Status badge (SRP) — <code>Sale Pending</code> with 6px dot, 11px tracked label.</p>
+        </section>
+
+        <!-- LAYOUT -->
+        <section class="ds__sec">
+            <h2 class="ds__h">Layout</h2>
+            <p class="spec-list">Container <code>--container-max: 1440px</code> · header track <code>--container-wide: 1684px</code> · content tracks 1080–1100px · gutters <code>min(90–94%, …)</code>.<br>Header <code>--header-h: 107px</code> (home) / <code>--srp-header-h: 72px</code> · Motion ease <code>cubic-bezier(0.22, 1, 0.36, 1)</code>.</p>
+        </section>
+
+        <!-- ICONS -->
+        <section class="ds__sec">
+            <h2 class="ds__h">Icons</h2>
+            <p class="ds__note">Phosphor Icons — thin weight, via CDN. Every icon used across index · srp · vdp.</p>
+            <div class="ico-grid">
+                <div class="ico"><i class="ph ph-arrow-right"></i><span>arrow-right</span></div>
+                <div class="ico"><i class="ph ph-arrow-left"></i><span>arrow-left</span></div>
+                <div class="ico"><i class="ph ph-arrow-up"></i><span>arrow-up</span></div>
+                <div class="ico"><i class="ph ph-caret-right"></i><span>caret-right</span></div>
+                <div class="ico"><i class="ph ph-caret-left"></i><span>caret-left</span></div>
+                <div class="ico"><i class="ph ph-caret-down"></i><span>caret-down</span></div>
+                <div class="ico"><i class="ph ph-phone"></i><span>phone</span></div>
+                <div class="ico"><i class="ph ph-map-pin"></i><span>map-pin</span></div>
+                <div class="ico"><i class="ph ph-envelope-simple"></i><span>envelope-simple</span></div>
+                <div class="ico"><i class="ph ph-chat-circle"></i><span>chat-circle</span></div>
+                <div class="ico"><i class="ph ph-gauge"></i><span>gauge</span></div>
+                <div class="ico"><i class="ph ph-gear-six"></i><span>gear-six</span></div>
+                <div class="ico"><i class="ph ph-shield-check"></i><span>shield-check</span></div>
+                <div class="ico"><i class="ph ph-list-checks"></i><span>list-checks</span></div>
+                <div class="ico"><i class="ph ph-calculator"></i><span>calculator</span></div>
+                <div class="ico"><i class="ph ph-info"></i><span>info</span></div>
+                <div class="ico"><i class="ph ph-images"></i><span>images</span></div>
+                <div class="ico"><i class="ph ph-heart"></i><span>heart</span></div>
+                <div class="ico"><i class="ph ph-bookmark-simple"></i><span>bookmark-simple</span></div>
+                <div class="ico"><i class="ph ph-share-network"></i><span>share-network</span></div>
+                <div class="ico"><i class="ph ph-pencil-simple-line"></i><span>pencil-simple-line</span></div>
+                <div class="ico"><i class="ph ph-instagram-logo"></i><span>instagram-logo</span></div>
+                <div class="ico"><i class="ph ph-facebook-logo"></i><span>facebook-logo</span></div>
+                <div class="ico"><i class="ph ph-youtube-logo"></i><span>youtube-logo</span></div>
+                <div class="ico"><i class="ph ph-linkedin-logo"></i><span>linkedin-logo</span></div>
+            </div>
         </section>
 
         <!-- PAGES -->
@@ -116,8 +219,7 @@
                 <a class="btn" href="vdp.html"><span>VDP — Vehicle</span></a>
             </div>
         </section>
-    </main>
 
-    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css">
+    </main>
 </body>
 </html>

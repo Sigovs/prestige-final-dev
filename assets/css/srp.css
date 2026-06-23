@@ -44,7 +44,7 @@ body.page-inventory {
     font-family: var(--font-display);
     font-weight: 500;
     font-size: 15px;
-    letter-spacing: 0.01em;
+    letter-spacing: 0px;
     color: var(--ink-soft);
     white-space: nowrap;
 }
@@ -98,7 +98,7 @@ body:has(.site-header.is-scrolled) .filter-bar {
     font-family: var(--font-sans);
     font-size: 13px;
     font-weight: 500;
-    letter-spacing: 0.01em;
+    letter-spacing: 0px;
     cursor: pointer;
     list-style: none;
     white-space: nowrap;
@@ -199,7 +199,7 @@ body:has(.site-header.is-scrolled) .filter-bar {
     font-family: var(--font-sans);
     font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.16em;
+    letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--ink-muted);
     margin: 0 0 10px;
@@ -291,7 +291,7 @@ body:has(.site-header.is-scrolled) .filter-bar {
     font-family: var(--font-sans);
     font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.5px;
     color: var(--ink-soft);
     background: none;
     border: none;
@@ -372,7 +372,7 @@ body:has(.site-header.is-scrolled) .filter-bar {
     font-family: var(--font-sans);
     font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.02em;
+    letter-spacing: 0px;
     line-height: 1;
     text-decoration: none;
 }
@@ -396,7 +396,7 @@ body:has(.site-header.is-scrolled) .filter-bar {
     font-family: var(--font-sans);
     font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.5px;
     color: var(--ink-soft);
     background: none;
     border: none;
@@ -440,7 +440,7 @@ body:has(.site-header.is-scrolled) .filter-bar {
     font-family: var(--font-sans);
     font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.5px;
     line-height: 1;
     border-radius: 3px;
 }
@@ -480,7 +480,7 @@ body:has(.site-header.is-scrolled) .filter-bar {
     color: var(--bg);
     border-color: var(--ink);
 }
-.pagination__link--nav { letter-spacing: 0.08em; text-transform: uppercase; font-size: 12px; }
+.pagination__link--nav { letter-spacing: 1px; text-transform: uppercase; font-size: 12px; }
 .pagination__link--disabled {
     color: var(--ink-muted);
     pointer-events: none;

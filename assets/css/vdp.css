@@ -91,7 +91,7 @@
     font-family: var(--font-sans);
     font-size: 13px;
     font-weight: 500;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.5px;
 }
 .vdp-gallery__count i { font-size: 15px; }
 
@@ -255,7 +255,7 @@
     font-family: var(--font-sans);
     font-size: 10px;
     font-weight: 500;
-    letter-spacing: 0.14em;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--ink-soft);
     transition: color 0.2s var(--ease);
@@ -543,7 +543,7 @@
     font-family: var(--font-sans);
     font-size: 11px;
     font-weight: 500;
-    letter-spacing: 0.12em;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--ink-muted);
 }
