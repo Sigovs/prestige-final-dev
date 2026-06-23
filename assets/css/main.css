@@ -5111,7 +5111,7 @@ body.menu-open .site-nav-toggle__icon span:nth-child(2) { bottom: 5px; transform
 .section--vertical--video .vertical__scrim {
     position: absolute;
     inset: 0;
-    background-color: rgba(12, 12, 12, 0.45);
+    background-color: rgba(12, 12, 12, 0.62);
     z-index: 1;
 }
 .section--vertical--video .vertical__inner {
