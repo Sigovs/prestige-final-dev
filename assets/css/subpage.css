@@ -487,17 +487,33 @@
     opacity: 0;
     transform: translateY(40px);
     transition:
-        opacity 0.8s var(--ease),
-        transform 0.8s var(--ease);
+        opacity 1.2s var(--ease),
+        transform 1.2s var(--ease);
 }
 [data-reveal].is-visible .reveal-up { opacity: 1; transform: none; }
-[data-reveal].is-visible .reveal-up:nth-child(1) { transition-delay: 0.04s; }
-[data-reveal].is-visible .reveal-up:nth-child(2) { transition-delay: 0.11s; }
-[data-reveal].is-visible .reveal-up:nth-child(3) { transition-delay: 0.18s; }
-[data-reveal].is-visible .reveal-up:nth-child(4) { transition-delay: 0.25s; }
-[data-reveal].is-visible .reveal-up:nth-child(5) { transition-delay: 0.32s; }
-[data-reveal].is-visible .reveal-up:nth-child(6) { transition-delay: 0.39s; }
-[data-reveal].is-visible .reveal-up:nth-child(7) { transition-delay: 0.46s; }
+[data-reveal].is-visible .reveal-up:nth-child(1) { transition-delay: 0.06s; }
+[data-reveal].is-visible .reveal-up:nth-child(2) { transition-delay: 0.16s; }
+[data-reveal].is-visible .reveal-up:nth-child(3) { transition-delay: 0.26s; }
+[data-reveal].is-visible .reveal-up:nth-child(4) { transition-delay: 0.36s; }
+[data-reveal].is-visible .reveal-up:nth-child(5) { transition-delay: 0.46s; }
+[data-reveal].is-visible .reveal-up:nth-child(6) { transition-delay: 0.56s; }
+[data-reveal].is-visible .reveal-up:nth-child(7) { transition-delay: 0.66s; }
+
+/* Text staircase FROM THE SIDE — same cascade as reveal-up but horizontal. */
+.reveal-side {
+    opacity: 0;
+    transform: translateX(-44px);
+    transition:
+        opacity 1.2s var(--ease),
+        transform 1.2s var(--ease);
+}
+[data-reveal].is-visible .reveal-side { opacity: 1; transform: none; }
+[data-reveal].is-visible .reveal-side:nth-child(1) { transition-delay: 0.06s; }
+[data-reveal].is-visible .reveal-side:nth-child(2) { transition-delay: 0.16s; }
+[data-reveal].is-visible .reveal-side:nth-child(3) { transition-delay: 0.26s; }
+[data-reveal].is-visible .reveal-side:nth-child(4) { transition-delay: 0.36s; }
+[data-reveal].is-visible .reveal-side:nth-child(5) { transition-delay: 0.46s; }
+[data-reveal].is-visible .reveal-side:nth-child(6) { transition-delay: 0.56s; }
 
 /* Directional slide-in — images enter from their side (left/right). */
 .reveal-left,
@@ -505,8 +521,8 @@
     opacity: 0;
     will-change: transform, opacity;
     transition:
-        opacity 0.9s var(--ease),
-        transform 0.9s var(--ease);
+        opacity 1.3s var(--ease),
+        transform 1.3s var(--ease);
 }
 .reveal-left  { transform: translateX(-52px); }
 .reveal-right { transform: translateX(52px); }
@@ -515,9 +531,11 @@
 
 /* Contain the horizontal travel so a slide never adds page scroll. */
 .mediatext { overflow-x: clip; }
+.page-about__main { overflow-x: clip; }
 
 @media (prefers-reduced-motion: reduce) {
     .reveal-up,
+    .reveal-side,
     .reveal-left,
     .reveal-right { transition: none; opacity: 1; transform: none; }
 }
