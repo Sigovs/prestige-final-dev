@@ -4216,17 +4216,18 @@ body { font-weight: 400; }
    Ten steps, monotonic. Every heading / body / label on the
    site must use one of these — never an off-scale px value.
 
-      STEP        FAMILY  SIZE                    USE
-      .t-display  PJS-700 clamp(48,5.4vw,80)      hero headline
-      .t-h1       PJS-700 clamp(36,3.4vw,50)      section heading
-      .t-h2       PJS-600 clamp(26,2.4vw,34)      large standalone heading
+      STEP        FAMILY  SIZE (desk / mob)       USE
+      .t-display  PJS-700 80 / 48px               hero headline
+      .t-h1       PJS-700 50 / 34px               section heading
+      .t-h2       PJS-600 34 / 26px               large standalone heading
       .t-h3       PJS-600 22px                    card / panel heading · price
       .t-h4       PJS-600 18px                    card title · small heading
-      .t-lead     Inter-400 17px                  intro paragraph
-      .t-body     Inter-400 15px                  default body
-      .t-small    Inter-400 13px                  compact / secondary text
+      .t-lead     Inter-400 18 / 16px             intro paragraph
+      .t-body     Inter-400 16px                  default body
+      .t-small    Inter-400 14px                  compact / secondary text
       .t-caption  Inter-400 12px                  fine print
-      .t-eyebrow  Inter-500 12px upper 0.16em     label / eyebrow
+      .t-eyebrow  Inter-500 12px upper 2px        label / eyebrow
+      .t-micro    Inter-500 11px upper 1.5px      smallest tracked UI label
 
    Every .t-* resets margin:0 — spacing is the parent's job
    (see HEADING STACK below). New pages: apply .t-* directly.

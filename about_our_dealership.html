@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <title>About — Prestige Imports</title>
+    <meta name="description" content="Prestige Imports — a second-generation, family-owned luxury lifestyle destination since 1977. Authorized exotic automobiles, marine, and aviation, with bespoke service in North Miami Beach.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+
+    <!-- Leaflet — open-source map (leafletjs.com) for the Visit section -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/subpage.css">
+
+    <script src="assets/js/main.js?v=4" defer></script>
+</head>
+<body class="page-about">
+
+    <!-- ════════════════════════════════════════════════════════════
+         HEADER — identical to Home / SRP / VDP (.site-header).
+         ════════════════════════════════════════════════════════════ -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a href="index.html" class="logo" aria-label="Prestige Imports — Home">
+                <img src="assets/images/prestige_logo.svg" alt="Prestige Imports">
+            </a>
+            <nav class="site-nav" aria-label="Primary">
+
+                <details class="srp-drop">
+                    <summary class="srp-drop__trigger site-nav__link">
+                        <span>Inventory</span>
+                        <i class="ph ph-caret-down srp-drop__caret" aria-hidden="true"></i>
+                    </summary>
+                    <div class="srp-drop__panel">
+                      <div class="srp-drop__inner">
+
+                        <div class="srp-drop__col">
+                            <p class="srp-drop__col-title">Shop</p>
+                            <ul class="srp-drop__list">
+                                <li><a class="srp-drop__item" href="srp.html"><span>View All</span><span class="srp-drop__count">149</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?cond=new"><span>New</span><span class="srp-drop__count">61</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?cond=preowned"><span>Pre-Owned</span><span class="srp-drop__count">88</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?sort=new-arrivals"><span>New Arrivals</span><span class="srp-drop__count">14</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="srp-drop__col">
+                            <p class="srp-drop__col-title">By Type</p>
+                            <ul class="srp-drop__list">
+                                <li><a class="srp-drop__item" href="srp.html?body=convertible"><span>Convertible</span><span class="srp-drop__count">31</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?body=coupe"><span>Coupe</span><span class="srp-drop__count">62</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?body=electric"><span>Electric</span><span class="srp-drop__count">11</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?body=hyper"><span>Hyper / Exotic</span><span class="srp-drop__count">9</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?body=sedan"><span>Sedan</span><span class="srp-drop__count">14</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?body=suv"><span>SUV</span><span class="srp-drop__count">28</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="srp-drop__col">
+                            <p class="srp-drop__col-title">Our Brands</p>
+                            <ul class="srp-drop__list">
+                                <li><a class="srp-drop__item" href="srp.html?make=czinger"><span>Czinger</span><span class="srp-drop__count">2</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?make=eccentrica"><span>Eccentrica</span><span class="srp-drop__count">1</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?make=gunther"><span>Gunther</span><span class="srp-drop__count">2</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?make=karma"><span>Karma</span><span class="srp-drop__count">4</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?make=lamborghini"><span>Lamborghini</span><span class="srp-drop__count">44</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?make=lotus"><span>Lotus</span><span class="srp-drop__count">6</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?make=pagani"><span>Pagani</span><span class="srp-drop__count">3</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="srp-drop__col">
+                            <p class="srp-drop__col-title">Pre-Owned Brands</p>
+                            <ul class="srp-drop__list">
+                                <li><a class="srp-drop__item" href="srp.html?make=bentley"><span>Bentley</span><span class="srp-drop__count">5</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?make=ferrari"><span>Ferrari</span><span class="srp-drop__count">7</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?make=mclaren"><span>McLaren</span><span class="srp-drop__count">6</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?make=mercedes-benz"><span>Mercedes-Benz</span><span class="srp-drop__count">15</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?make=porsche"><span>Porsche</span><span class="srp-drop__count">32</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?all-makes"><span>All makes →</span><span class="srp-drop__count"></span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="srp-drop__cta">
+                            <a class="btn btn--solid" href="srp.html">View All Inventory</a>
+                        </div>
+
+                      </div>
+                    </div>
+                </details>
+
+                <a href="index.html#sell" class="site-nav__link">Sell Your Vehicle</a>
+                <a href="index.html#service" class="site-nav__link">Service</a>
+                <a href="#" class="site-nav__link">Store</a>
+                <a href="#" class="site-nav__link">Research</a>
+                <a href="about_our_dealership.html" class="site-nav__link is-active">About</a>
+                <a href="#contact" class="site-nav__link">Contact Us</a>
+            </nav>
+            <button class="site-nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Menu">
+                <span class="site-nav-toggle__label" data-when-closed="Menu" data-when-open="Close">Menu</span>
+                <span class="site-nav-toggle__icon" aria-hidden="true"><span></span><span></span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile full-screen menu (toggled by .site-nav-toggle; logic in main.js) -->
+    <div class="site-menu" id="site-menu" aria-hidden="true" aria-label="Main menu">
+        <div class="site-menu__grid">
+            <div class="site-menu__col">
+                <p class="site-menu__caption">Menu</p>
+                <ul class="site-menu__list">
+                    <li><a class="site-menu__link" href="srp.html">Inventory</a></li>
+                    <li><a class="site-menu__link" href="index.html#sell">Sell Your Vehicle</a></li>
+                    <li><a class="site-menu__link" href="index.html#service">Service</a></li>
+                    <li><a class="site-menu__link" href="about_our_dealership.html">About</a></li>
+                    <li><a class="site-menu__link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="site-menu__col--meta">
+                <div class="site-menu__group">
+                    <p class="site-menu__caption">Visit</p>
+                    <address class="site-menu__address">14780 Biscayne Blvd<br>North Miami Beach, FL 33181</address>
+                </div>
+                <div class="site-menu__group">
+                    <p class="site-menu__caption">Contact</p>
+                    <a class="site-menu__contact" href="tel:+18332906287">+1 (833) 290-6287</a>
+                </div>
+            </div>
+        </div>
+        <p class="site-menu__sign">Prestige Imports — South Florida, since 1977</p>
+    </div>
+
+
+    <main class="page-about__main">
+
+        <!-- ═══════════ HERO ═══════════ -->
+        <section class="subhero" aria-labelledby="a2-hero-title">
+            <div class="subhero__media" aria-hidden="true">
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="assets/videos/herovideo_sub.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="subhero__inner">
+                <span class="eyebrow-stamp eyebrow-stamp--light">Second-Generation Luxury Since 1977</span>
+                <h1 class="t-h1 subhero__title" id="a2-hero-title">More than a dealership.</h1>
+                <p class="t-lead subhero__lead">Prestige Imports is not your typical dealership. We don't just sell cars — we sell the high-end lifestyle that matches the world's most extraordinary automobiles, and the Miami lifestyle that has made South Florida a premier global destination.</p>
+                <div class="subhero__actions">
+                    <a class="btn btn--on-dark btn--solid" href="srp.html"><span>Explore Inventory</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+                    <a class="btn btn--on-dark" href="#story"><span>Our Story</span></a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ INTRO — asymmetric chapter opener (image + text) ═══════════ -->
+        <section class="section" id="story" data-reveal>
+            <div class="sub-wrap">
+                <div class="mediatext mediatext--flip mediatext--portrait">
+                    <div class="mediatext__media reveal-right">
+                        <img src="assets/images/A family legacy of luxury.jpg" alt="A family legacy of luxury — Prestige Imports">
+                    </div>
+                    <div class="mediatext__body">
+                        <span class="eyebrow-stamp reveal-up">About Prestige</span>
+                        <h2 class="t-h1 mediatext__body-title reveal-up" style="margin-top: var(--sp-2);">A family legacy of luxury.</h2>
+                        <p class="t-lead reveal-up" style="margin-bottom: var(--sp-3);">Prestige Imports is a second-generation, family-owned dealership that has delivered an exceptional level of customer service to luxury automobile enthusiasts from North Miami Beach, South Florida, and around the world since 1977.</p>
+                        <p class="t-body reveal-up">Our philosophy has always extended beyond selling automobiles. Every visit, every vehicle, and every relationship is built around delivering a true luxury ownership experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ STATS BOXES — dark band ═══════════ -->
+        <section class="section statband" data-reveal>
+            <div class="sub-wrap">
+                <!-- Connected grid reveals as ONE unit (reveal-up on the grid, not
+                     per cell) so the shared 1px dividers never drop on a composited
+                     layer seam. -->
+                <div class="dept-grid dept-grid--ink reveal-up">
+                    <div class="dept">
+                        <span class="dept__num">Est.<br>1977</span>
+                        <p class="t-small dept__copy">Serving luxury enthusiasts for nearly five decades.</p>
+                    </div>
+                    <div class="dept">
+                        <span class="dept__num">Second<br>Generation</span>
+                        <p class="t-small dept__copy">Family-owned and operated.</p>
+                    </div>
+                    <div class="dept">
+                        <span class="dept__num">Worldwide<br>Clients</span>
+                        <p class="t-small dept__copy">Serving collectors across the globe.</p>
+                    </div>
+                    <div class="dept">
+                        <span class="dept__num">Luxury<br>Lifestyle</span>
+                        <p class="t-small dept__copy">More than cars.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ OUR BRANDS — homepage visual direction, About copy ═══════════ -->
+        <section class="section section--brands" id="brands" aria-labelledby="a2-brands-heading" data-reveal>
+            <div class="container">
+                <header class="brands__header">
+                    <span class="eyebrow-stamp reveal-up">Officially Authorized</span>
+                    <h2 class="brands__heading reveal-up" id="a2-brands-heading">
+                        <span class="brands__heading-primary">Seven Brands. One Destination.</span>
+                        <span class="brands__heading-secondary">Under one roof.</span>
+                    </h2>
+                    <p class="brands__intro reveal-up">Prestige Imports proudly represents Lamborghini, Pagani, Lotus, Czinger, Gunther Werks, Eccentrica, and Karma.</p>
+                </header>
+
+                <ul class="brands__grid" aria-label="Authorized brands">
+                    <li class="brand-card reveal-up">
+                        <a href="srp.html?make=lamborghini" class="brand-card__link">
+                            <div class="brand-card__media"><img src="assets/images/Lamborghini_logo.svg" alt="Lamborghini"></div>
+                            <h3 class="brand-card__name">Lamborghini</h3>
+                            <span class="brand-card__city">Miami</span>
+                            <span class="brand-card__cta"><span>Explore Brand</span><i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+                        </a>
+                    </li>
+                    <li class="brand-card reveal-up">
+                        <a href="srp.html?make=pagani" class="brand-card__link">
+                            <div class="brand-card__media"><img src="assets/images/Pagani_logo.svg" alt="Pagani"></div>
+                            <h3 class="brand-card__name">Pagani</h3>
+                            <span class="brand-card__city">Miami</span>
+                            <span class="brand-card__cta"><span>Explore Brand</span><i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+                        </a>
+                    </li>
+                    <li class="brand-card reveal-up">
+                        <a href="srp.html?make=lotus" class="brand-card__link">
+                            <div class="brand-card__media"><img src="assets/images/lotus_logo.svg" alt="Lotus"></div>
+                            <h3 class="brand-card__name">Lotus</h3>
+                            <span class="brand-card__city">Miami</span>
+                            <span class="brand-card__cta"><span>Explore Brand</span><i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+                        </a>
+                    </li>
+                    <li class="brand-card reveal-up">
+                        <a href="srp.html?make=czinger" class="brand-card__link">
+                            <div class="brand-card__media"><img src="assets/images/czinger_logo.svg" alt="Czinger"></div>
+                            <h3 class="brand-card__name">Czinger</h3>
+                            <span class="brand-card__city">Miami</span>
+                            <span class="brand-card__cta"><span>Explore Brand</span><i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+                        </a>
+                    </li>
+                    <li class="brand-card reveal-up">
+                        <a href="srp.html?make=gunther" class="brand-card__link">
+                            <div class="brand-card__media"><img src="assets/images/gunther_logo.svg" alt="Gunther Werks"></div>
+                            <h3 class="brand-card__name">Gunther Werks</h3>
+                            <span class="brand-card__city">Miami</span>
+                            <span class="brand-card__cta"><span>Explore Brand</span><i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+                        </a>
+                    </li>
+                    <li class="brand-card reveal-up">
+                        <a href="srp.html?make=eccentrica" class="brand-card__link">
+                            <div class="brand-card__media"><img src="assets/images/eccentrica_logo.svg" alt="Eccentrica"></div>
+                            <h3 class="brand-card__name">Eccentrica</h3>
+                            <span class="brand-card__city">Miami</span>
+                            <span class="brand-card__cta"><span>Explore Brand</span><i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+                        </a>
+                    </li>
+                    <li class="brand-card reveal-up">
+                        <a href="srp.html?make=karma" class="brand-card__link">
+                            <div class="brand-card__media"><img src="assets/images/karma_logo.svg" alt="Karma"></div>
+                            <h3 class="brand-card__name">Karma</h3>
+                            <span class="brand-card__city">Miami</span>
+                            <span class="brand-card__cta"><span>Explore Brand</span><i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ LAMBORGHINI — media + text (image left) ═══════════ -->
+        <section class="section" style="background-color: var(--bg-soft);" data-reveal>
+            <div class="sub-wrap">
+                <div class="mediatext">
+                    <div class="mediatext__media reveal-left">
+                        <img src="assets/images/2023_Lamborghini_Huracan_STO_1.jpg" alt="Lamborghini on the Prestige Imports showroom floor">
+                    </div>
+                    <div class="mediatext__body">
+                        <span class="eyebrow-stamp reveal-up">Factory Authorized</span>
+                        <h2 class="t-h2 mediatext__body-title reveal-up" style="margin-top: var(--sp-2);">One of North America's leading Lamborghini dealerships.</h2>
+                        <p class="t-body reveal-up">Prestige Imports is one of North America's leading factory-authorized Lamborghini dealerships, representing legendary models including the Aventador, Huracán, and Urus.</p>
+                        <p class="t-body reveal-up">Our website showcases only a small portion of our inventory — because of Lamborghini's exclusive display requirements, many vehicles cannot be shown online. Visit our showroom to experience the complete collection firsthand.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ VISUAL BREAK 1 ═══════════ -->
+        <section class="visualbreak" data-reveal>
+            <div class="visualbreak__media" aria-hidden="true">
+                <img src="assets/images/visual_brake1.jpg" alt="" data-parallax="30">
+            </div>
+            <div class="visualbreak__inner">
+                <h2 class="t-h1 visualbreak__title reveal-up">Luxury beyond expectations.</h2>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ WORLD OF EXOTICS — media + text (image right) ═══════════ -->
+        <section class="section" data-reveal>
+            <div class="sub-wrap">
+                <div class="mediatext mediatext--flip">
+                    <div class="mediatext__media reveal-right">
+                        <img src="assets/images/2022 Ferrari 812 Superfast.avif" alt="A Ferrari on the Prestige Imports floor">
+                    </div>
+                    <div class="mediatext__body">
+                        <span class="eyebrow-stamp reveal-up">Collector Destination</span>
+                        <h2 class="t-h2 mediatext__body-title reveal-up" style="margin-top: var(--sp-2);">The world's finest automotive brands.</h2>
+                        <p class="t-body reveal-up">An internationally renowned destination for luxury, exotic, and supercars — Aston Martin, Bentley, Bugatti, BMW, Ferrari, Jaguar, Koenigsegg, Lamborghini, Lotus, Maserati, McLaren, Mercedes-Benz, Pagani, Porsche, Range Rover, and Rolls-Royce.</p>
+                        <p class="t-body reveal-up">Because every client has unique tastes, we offer bespoke personalization tailored to your exact specifications — from subtle refinements to complete transformations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ PERSONALIZATION ═══════════ -->
+        <section class="section" style="background-color: var(--bg-soft);" data-reveal>
+            <div class="sub-wrap">
+                <div class="sub-head">
+                    <span class="eyebrow-stamp reveal-up">Personalization</span>
+                    <h2 class="t-h2 sub-head__title reveal-up">Built around your vision.</h2>
+                </div>
+                <div class="dept-grid dept-grid--cards dept-grid--tint">
+                    <div class="dept reveal-up">
+                        <i class="ph ph-sliders-horizontal dept__icon" aria-hidden="true"></i>
+                        <h3 class="t-h4 dept__title">Mild to Wild</h3>
+                        <p class="t-small dept__copy">The full personalization spectrum, from restrained to radical.</p>
+                    </div>
+                    <div class="dept reveal-up">
+                        <i class="ph ph-binoculars dept__icon" aria-hidden="true"></i>
+                        <h3 class="t-h4 dept__title">Collector Sourcing</h3>
+                        <p class="t-small dept__copy">We locate the rare and the impossible on your behalf.</p>
+                    </div>
+                    <div class="dept reveal-up">
+                        <i class="ph ph-pencil-simple-line dept__icon" aria-hidden="true"></i>
+                        <h3 class="t-h4 dept__title">Bespoke Specifications</h3>
+                        <p class="t-small dept__copy">Tailored to your exact configuration and taste.</p>
+                    </div>
+                    <div class="dept reveal-up">
+                        <i class="ph ph-crown-simple dept__icon" aria-hidden="true"></i>
+                        <h3 class="t-h4 dept__title">Concierge Service</h3>
+                        <p class="t-small dept__copy">A luxury buying experience from beginning to end.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ CURATED PRE-OWNED — media + text (image left) ═══════════ -->
+        <section class="section" data-reveal>
+            <div class="sub-wrap">
+                <div class="mediatext">
+                    <div class="mediatext__media reveal-left">
+                        <img src="assets/images/2024 Czinger 21C.webp" alt="A collector-grade hypercar at Prestige Imports">
+                    </div>
+                    <div class="mediatext__body">
+                        <span class="eyebrow-stamp reveal-up">Curated Collection</span>
+                        <h2 class="t-h2 mediatext__body-title reveal-up" style="margin-top: var(--sp-2);">Luxury pre-owned inventory.</h2>
+                        <p class="t-body reveal-up">A massive selection of luxury pre-owned exotics — Ferrari, Lamborghini, Bentley, Mercedes-Benz, Porsche, Lotus, Pagani, Rolls-Royce, and many more.</p>
+                        <p class="t-body reveal-up">Our inventory constantly evolves with collector-grade hypercars including the Pagani Huayra, Ferrari LaFerrari, and Bugatti Veyron and Chiron.</p>
+                        <p class="reveal-up" style="margin-top: 32px;">
+                            <a class="btn btn--solid" href="srp.html?cond=preowned"><span>Browse Pre-Owned Inventory</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ VISUAL BREAK 2 — editorial photography, no overlay ═══════════ -->
+        <section class="visualbreak" data-reveal aria-hidden="true">
+            <div class="visualbreak__media">
+                <img src="assets/images/about.jpg" alt="" data-parallax="30">
+            </div>
+        </section>
+
+
+        <!-- ═══════════ THE PRESTIGE FAMILY — verticals from the home page ═══════════ -->
+        <section class="section" style="background-color: var(--bg-soft);" data-reveal>
+            <div class="sub-wrap">
+                <div class="sub-head">
+                    <span class="eyebrow-stamp reveal-up">Lifestyle</span>
+                    <h2 class="t-h2 sub-head__title reveal-up">The Prestige family.</h2>
+                    <p class="t-body sub-head__lead reveal-up">Prestige extends across the South Florida lifestyle — care for your car, your time on the water, and the fuel that keeps it all moving.</p>
+                </div>
+                <div class="imgcard-grid">
+                    <article class="imgcard reveal-up">
+                        <a class="imgcard__media" href="index.html#auto"><img src="assets/images/spa/auto_hero.jpg" alt="Prestige Auto Spa"></a>
+                        <h3 class="t-h4 imgcard__title">Prestige Auto Spa</h3>
+                        <p class="t-small imgcard__copy">Premium care for any vehicle, open to every client — from express washes to intensive paint correction.</p>
+                    </article>
+                    <article class="imgcard reveal-up">
+                        <a class="imgcard__media" href="index.html#marine"><img src="assets/images/spa/marine_hero.jpg" alt="Prestige Marine"></a>
+                        <h3 class="t-h4 imgcard__title">Prestige Marine</h3>
+                        <p class="t-small imgcard__copy">Bespoke luxury on the water — sales, service, and sourcing for South Florida's boating enthusiasts.</p>
+                    </article>
+                    <article class="imgcard reveal-up">
+                        <a class="imgcard__media" href="index.html#energy"><img src="assets/images/spa/energy.jpg" alt="Prestige Energy"></a>
+                        <h3 class="t-h4 imgcard__title">Prestige Energy</h3>
+                        <p class="t-small imgcard__copy">Our own Shell-branded fuel station and convenience store — your one-stop shop for everything your car needs.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ TRADE-IN — full-bleed photo band, darkened, centered ═══════════ -->
+        <section class="section cta-band feature-band" data-reveal>
+            <div class="feature-band__media" aria-hidden="true">
+                <img src="assets/images/Upgrade_Your_Collection.jpg" alt="" data-parallax>
+            </div>
+            <div class="sub-wrap feature-band__inner">
+                <span class="eyebrow-stamp eyebrow-stamp--light reveal-up" style="margin: 0 auto;">Upgrade Your Collection</span>
+                <h2 class="t-h2 cta-band__title reveal-up" style="margin-top: var(--sp-2);">Trading in made easy.</h2>
+                <p class="t-body reveal-up" style="color: rgba(237,234,228,0.82); max-width: 56ch; margin: var(--sp-3) auto 0;">If you have an older vehicle, trading it in is a great way to reduce the cost of your next purchase.</p>
+                <p class="t-body reveal-up" style="color: rgba(237,234,228,0.82); max-width: 56ch; margin: var(--sp-2) auto 0;">Prestige Imports makes the process simple — helping you avoid unnecessary hassle while maximizing value. Start online and speak with a member of our team to complete the process.</p>
+                <div class="cta-band__actions reveal-up">
+                    <a class="btn btn--on-dark btn--solid" href="index.html#sell"><span>Value My Trade</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ SERVICE ═══════════ -->
+        <section class="section" style="background-color: var(--bg-soft);" data-reveal>
+            <div class="sub-wrap">
+                <div class="sub-head">
+                    <span class="eyebrow-stamp reveal-up">Factory Expertise</span>
+                    <h2 class="t-h2 sub-head__title reveal-up">The largest Lamborghini service department in the country.</h2>
+                    <p class="t-body sub-head__lead reveal-up">When it's time to service your luxury automobile, you can rely on Prestige Imports. We're proud to operate the nation's largest Lamborghini service department, backed by factory-trained technicians with the expertise to maintain luxury and exotic automobiles at the highest level — from routine maintenance to repairs and genuine parts replacement.</p>
+                </div>
+                <div class="dept-grid dept-grid--cards">
+                    <div class="dept reveal-up">
+                        <i class="ph ph-gear-six dept__icon" aria-hidden="true"></i>
+                        <h3 class="t-h4 dept__title">Factory Service</h3>
+                        <p class="t-small dept__copy">Manufacturer-standard procedures and diagnostics.</p>
+                    </div>
+                    <div class="dept reveal-up">
+                        <i class="ph ph-shield-check dept__icon" aria-hidden="true"></i>
+                        <h3 class="t-h4 dept__title">Certified Technicians</h3>
+                        <p class="t-small dept__copy">Factory-trained specialists who know these cars.</p>
+                    </div>
+                    <div class="dept reveal-up">
+                        <i class="ph ph-list-checks dept__icon" aria-hidden="true"></i>
+                        <h3 class="t-h4 dept__title">OEM Parts</h3>
+                        <p class="t-small dept__copy">Genuine components sourced direct from the maker.</p>
+                    </div>
+                    <div class="dept reveal-up">
+                        <i class="ph ph-sparkle dept__icon" aria-hidden="true"></i>
+                        <h3 class="t-h4 dept__title">Luxury Maintenance</h3>
+                        <p class="t-small dept__copy">Detailing and protection worthy of the collection.</p>
+                    </div>
+                </div>
+                <p class="reveal-up" style="margin-top: var(--sp-4);">
+                    <a class="btn btn--solid" href="index.html#service"><span>Schedule Service</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+                </p>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ REVIEWS — reused verbatim from the home page (.section--reviews) ═══════════ -->
+        <section class="section section--reviews" id="reviews" data-reveal>
+            <div class="reviews__inner">
+                <div class="reviews__intro">
+                    <span class="eyebrow-stamp eyebrow-stamp--light">What People Say</span>
+                    <span class="reviews__brand" role="img" aria-label="Google">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
+                        </svg>
+                    </span>
+                    <div class="reviews__meta">
+                        <span class="reviews__rating">4.9</span>
+                        <span class="reviews__stars" aria-label="4.9 out of 5 stars">★★★★★</span>
+                        <span class="reviews__divider" aria-hidden="true"></span>
+                        <span class="reviews__label">Google Reviews</span>
+                    </div>
+                </div>
+
+                <div class="reviews__track" data-reviews-track>
+                    <article class="review-card">
+                        <span class="review-card__quote" aria-hidden="true">&ldquo;</span>
+                        <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+                        <p class="review-card__text">A genuinely first-class experience from first call to delivery. They handled every detail and the car arrived in better condition than I expected.</p>
+                        <div class="review-card__author">
+                            <span class="review-card__name">M. Hartwell</span>
+                            <span class="review-card__date">3 weeks ago</span>
+                        </div>
+                    </article>
+                    <article class="review-card">
+                        <span class="review-card__quote" aria-hidden="true">&ldquo;</span>
+                        <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+                        <p class="review-card__text">Discreet, knowledgeable, and refreshingly honest. They sourced exactly what I was looking for and the paperwork was painless.</p>
+                        <div class="review-card__author">
+                            <span class="review-card__name">D. Castellanos</span>
+                            <span class="review-card__date">1 month ago</span>
+                        </div>
+                    </article>
+                    <article class="review-card">
+                        <span class="review-card__quote" aria-hidden="true">&ldquo;</span>
+                        <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+                        <p class="review-card__text">Bought my Lotus through Prestige and they made the whole process feel effortless. Door-to-door delivery to the Northeast was flawless.</p>
+                        <div class="review-card__author">
+                            <span class="review-card__name">A. Whitford</span>
+                            <span class="review-card__date">2 months ago</span>
+                        </div>
+                    </article>
+                    <article class="review-card">
+                        <span class="review-card__quote" aria-hidden="true">&ldquo;</span>
+                        <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+                        <p class="review-card__text">They sold my Aventador for me, handled the listing privately, and got me a number I didn't think was possible. Real professionals.</p>
+                        <div class="review-card__author">
+                            <span class="review-card__name">R. Linden</span>
+                            <span class="review-card__date">2 months ago</span>
+                        </div>
+                    </article>
+
+                    <article class="review-card">
+                        <span class="review-card__quote" aria-hidden="true">&ldquo;</span>
+                        <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+                        <p class="review-card__text">Service department is on another level — they treat the car the way you would. Trust them with anything in my collection.</p>
+                        <div class="review-card__author">
+                            <span class="review-card__name">P. Sloan</span>
+                            <span class="review-card__date">3 months ago</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="reviews__dots" data-reviews-dots role="tablist" aria-label="Reviews pages"></div>
+
+                <a href="https://www.google.com/maps/place/Prestige+Imports" target="_blank" rel="noopener" class="reviews__cta">
+                    <i class="ph ph-pencil-simple-line" aria-hidden="true"></i>
+                    <span>Read More Reviews</span>
+                </a>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ VISIT / LOCATION — details + Leaflet map ═══════════ -->
+        <section class="section" data-reveal>
+            <div class="sub-wrap">
+                <div class="sub-head">
+                    <span class="eyebrow-stamp reveal-up">Visit Prestige Imports</span>
+                    <h2 class="t-h2 sub-head__title reveal-up">A South Florida destination.</h2>
+                    <p class="t-body sub-head__lead reveal-up">Located in North Miami Beach, Prestige Imports welcomes clients from South Florida and around the world.</p>
+                </div>
+
+                <div class="contact-split">
+                    <div class="locbox reveal-up">
+                        <div class="locbox__row">
+                            <span class="locbox__label">Address</span>
+                            <span class="t-body locbox__value">14780 Biscayne Blvd<br>North Miami Beach, FL 33181</span>
+                        </div>
+                        <div class="locbox__row">
+                            <span class="locbox__label">Phone</span>
+                            <span class="t-body locbox__value"><a href="tel:+18332906287">+1 (833) 290-6287</a></span>
+                        </div>
+                        <div class="locbox__row">
+                            <span class="locbox__label">Store Hours</span>
+                            <span class="t-body locbox__value">Mon – Fri · 9:00 AM – 7:00 PM<br>Saturday · 10:00 AM – 6:00 PM<br>Sunday · Closed</span>
+                        </div>
+                        <div class="locbox__row">
+                            <span class="locbox__label">Parking</span>
+                            <span class="t-body locbox__value">Complimentary on-site parking for all visitors.</span>
+                        </div>
+                        <a class="btn btn--solid" href="https://maps.google.com/?q=14780+Biscayne+Blvd+North+Miami+Beach+FL" target="_blank" rel="noopener"><span>Get Directions</span><i class="ph ph-map-pin" aria-hidden="true"></i></a>
+                    </div>
+
+                    <div class="about-map" id="about-map" role="img" aria-label="Map showing Prestige Imports at 14780 Biscayne Blvd, North Miami Beach, FL"></div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ CONTACT FORM ═══════════ -->
+        <section class="section" id="contact-form" style="background-color: var(--bg-soft);" aria-labelledby="a2-ask-heading" data-reveal>
+            <div class="sub-wrap">
+                <div class="contact-split">
+                    <div>
+                        <div class="sub-head">
+                            <span class="eyebrow-stamp reveal-up">Get in Touch</span>
+                            <h2 class="t-h2 sub-head__title reveal-up" id="a2-ask-heading">Let's start the conversation.</h2>
+                            <p class="t-body sub-head__lead reveal-up">Whether you're searching for a specific exotic, interested in service, exploring marine and aviation, or planning a visit — our team is here to help.</p>
+                        </div>
+                        <form class="contact-form reveal-up" action="#" method="post" novalidate>
+                            <div class="field--row">
+                                <div class="field">
+                                    <label class="field__label" for="a2-name">Name</label>
+                                    <input class="field__input" id="a2-name" name="name" type="text" autocomplete="name" required>
+                                </div>
+                                <div class="field">
+                                    <label class="field__label" for="a2-phone">Phone</label>
+                                    <input class="field__input" id="a2-phone" name="phone" type="tel" autocomplete="tel">
+                                </div>
+                            </div>
+                            <div class="field--row">
+                                <div class="field">
+                                    <label class="field__label" for="a2-email">Email</label>
+                                    <input class="field__input" id="a2-email" name="email" type="email" autocomplete="email" required>
+                                </div>
+                                <div class="field">
+                                    <label class="field__label" for="a2-interest">Brand of Interest</label>
+                                    <input class="field__input" id="a2-interest" name="interest" type="text" placeholder="Lamborghini · Pagani · Lotus · …">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="field__label" for="a2-message">Message</label>
+                                <textarea class="field__textarea" id="a2-message" name="message" rows="5"></textarea>
+                            </div>
+                            <button class="btn btn--solid" type="submit"><span>Contact Us</span><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
+                        </form>
+                    </div>
+
+                    <div class="contact-photo reveal-up">
+                        <img src="assets/images/about.jpg" alt="Prestige Imports showroom, North Miami Beach">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ FINAL CTA ═══════════ -->
+        <section class="section cta-band" data-reveal>
+            <div class="sub-wrap">
+                <span class="eyebrow-stamp eyebrow-stamp--light reveal-up" style="margin: 0 auto;">Experience Prestige</span>
+                <h2 class="t-h2 cta-band__title reveal-up" style="margin-top: var(--sp-2);">Cars. Marine. Auto Spa. Energy.</h2>
+                <p class="t-body reveal-up" style="color: rgba(237,234,228,0.66); max-width: 60ch; margin: var(--sp-3) auto 0;">Here at Prestige Imports, we love luxury automobiles and enjoy sharing this passion with others. Whether you're purchasing your first exotic or adding to a world-class collection — and even if your dream car isn't in your garage just yet — we'd love to welcome you to our showroom and the South Florida luxury lifestyle.</p>
+                <div class="cta-band__actions reveal-up">
+                    <a class="btn btn--on-dark btn--solid" href="https://maps.google.com/?q=14780+Biscayne+Blvd+North+Miami+Beach+FL" target="_blank" rel="noopener"><span>Visit Our Showroom</span><i class="ph ph-map-pin" aria-hidden="true"></i></a>
+                    <a class="btn btn--on-dark" href="srp.html"><span>Explore Inventory</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- Leaflet — open-source map. Pins the dealership; OpenStreetMap tiles (B&W via CSS). -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+        (function () {
+            var el = document.getElementById('about-map');
+            if (!el || typeof L === 'undefined') return;
+            var coords = [25.9087, -80.1620];   // 14780 Biscayne Blvd, North Miami Beach, FL
+            var map = L.map(el, { scrollWheelZoom: false, attributionControl: true }).setView(coords, 17);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+            L.marker(coords).addTo(map)
+                .bindPopup('<b>Prestige Imports</b><br>14780 Biscayne Blvd<br>North Miami Beach, FL 33181');
+        })();
+    </script>
+
+
+    <!-- ════════════════════════════════════════════════════════════
+         FOOTER — reused from main.css (.site-footer), identical to SRP/VDP.
+         ════════════════════════════════════════════════════════════ -->
+    <footer class="site-footer" id="contact">
+        <div class="site-footer__inner">
+
+            <div class="site-footer__top">
+
+                <div class="site-footer__identity">
+                    <a href="index.html" class="site-footer__logo" aria-label="Prestige Imports — Home">
+                        <img src="assets/images/prestige_logo.svg" alt="Prestige Imports">
+                    </a>
+                    <p class="site-footer__tagline">A second-generation, family-owned dealership for luxury, exotic, and collector automobiles. South Florida, since 1977.</p>
+                    <address class="site-footer__address">
+                        <p>14780 Biscayne Blvd<br>North Miami Beach, FL 33181</p>
+                        <p>
+                            <a href="tel:+18332906287">+1 (833) 290-6287</a>
+                        </p>
+                    </address>
+                    <ul class="site-footer__social" aria-label="Social media">
+                        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="ph ph-instagram-logo" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="ph ph-facebook-logo" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><i class="ph ph-youtube-logo" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ph ph-linkedin-logo" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+
+                <nav class="site-footer__nav" aria-label="Footer navigation">
+
+                <div class="site-footer__col">
+                    <h3 class="site-footer__col-title">Inventory</h3>
+                    <ul class="site-footer__links">
+                        <li><a href="srp.html">All Inventory</a></li>
+                        <li><a href="srp.html?cond=new">New</a></li>
+                        <li><a href="srp.html?cond=preowned">Pre-Owned</a></li>
+                        <li><a href="srp.html?sort=new-arrivals">New Arrivals</a></li>
+                    </ul>
+                </div>
+
+                <div class="site-footer__col">
+                    <h3 class="site-footer__col-title">Service</h3>
+                    <ul class="site-footer__links">
+                        <li><a href="index.html#service">About Service</a></li>
+                        <li><a href="index.html#service">Schedule Appointment</a></li>
+                        <li><a href="index.html#service">Parts</a></li>
+                        <li><a href="index.html#sell">Sell Your Vehicle</a></li>
+                    </ul>
+                </div>
+
+                <div class="site-footer__col">
+                    <h3 class="site-footer__col-title">Connect</h3>
+                    <ul class="site-footer__links">
+                        <li><a href="about_our_dealership.html">About Us</a></li>
+                        <li><a href="about_our_dealership.html">Our Team</a></li>
+                        <li><a href="about_our_dealership.html">Heritage</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                </nav>
+
+            </div>
+
+            <div class="site-footer__rule" aria-hidden="true"></div>
+
+            <div class="site-footer__hours-band">
+                <div class="site-footer__hours">
+                    <div class="site-footer__hours-row">
+                        <span class="site-footer__hours-label">Store Hours</span>
+                        <span class="site-footer__hours-groups">
+                            <span>Mon – Fri &middot; 9:00 AM – 7:00 PM</span>
+                            <span>Saturday &middot; 10:00 AM – 6:00 PM</span>
+                            <span>Sunday &middot; Closed</span>
+                        </span>
+                    </div>
+                    <div class="site-footer__hours-row">
+                        <span class="site-footer__hours-label">Service Hours</span>
+                        <span class="site-footer__hours-groups">
+                            <span>Mon – Fri &middot; 8:00 AM – 5:30 PM</span>
+                            <span>Saturday – Sunday &middot; Closed</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="site-footer__actions">
+                    <a href="tel:+18332906287" class="btn btn--on-dark btn--solid">
+                        <span>Call</span>
+                        <i class="ph ph-phone" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://maps.google.com/?q=14780+Biscayne+Blvd+North+Miami+Beach+FL" target="_blank" rel="noopener" class="btn btn--on-dark btn--ghost">
+                        <span>Get Directions</span>
+                        <i class="ph ph-map-pin" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="site-footer__rule" aria-hidden="true"></div>
+
+            <div class="site-footer__bottom">
+                <p class="site-footer__copy">&copy; 2025 Prestige Imports. All rights reserved.</p>
+                <ul class="site-footer__legal">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </div>
+
+            <p class="site-footer__powered">Powered by <a href="https://allautonetwork.com" target="_blank" rel="noopener">All Auto Network</a></p>
+
+        </div>
+    </footer>
+
+</body>
+</html>

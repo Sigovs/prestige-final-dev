@@ -1,0 +1,573 @@
+/* ============================================================
+   PRESTIGE IMPORTS — SUBPAGE LAYER  (About cluster + content pages)
+   Loads ON TOP of tokens.css + main.css. Reuses every design-system
+   primitive: tokens, .t-* type ramp, .eyebrow-stamp, .btn, .site-header,
+   .site-footer. Nothing here redefines the system — it only adds the
+   reusable content-page furniture:
+     compact photo sub-hero · prose column · stat row ·
+     media + text · brand strip · dark CTA band.
+   Interactive elements keep the system's two-state model:
+   one static colour, one on hover (no extra states).
+   ============================================================ */
+
+
+/* Shared content track — same formula as the home sections. */
+.sub-wrap {
+    width: min(92%, var(--container-max));
+    margin: 0 auto;
+}
+
+
+/* ============================================================
+   [1] SUB-HERO — compact full-bleed photo band.
+   The standard .site-header sits transparent over it (cream nav),
+   exactly like the homepage hero. Media follows Hero Media spec:
+   object-fit: cover + dark gradient overlay.
+   ============================================================ */
+.subhero {
+    position: relative;
+    min-height: 62vh;
+    display: flex;
+    align-items: flex-end;
+    /* clear the fixed 107px header, then breathe */
+    padding-top: calc(var(--header-h) + var(--sp-6));
+    padding-bottom: var(--sp-6);
+    background-color: var(--ink);
+    overflow: hidden;
+}
+.subhero__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+.subhero__media img,
+.subhero__media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* dark gradient — keeps cream type legible, subject stays centred */
+.subhero__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(28, 28, 28, 0.52) 0%,
+        rgba(28, 28, 28, 0.60) 50%,
+        rgba(28, 28, 28, 0.88) 100%
+    );
+}
+.subhero__inner {
+    position: relative;
+    z-index: 1;
+    width: min(92%, var(--container-max));
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+/* type on dark → cream (the only colour shift; structure stays t-*) */
+.subhero .eyebrow-stamp { margin-bottom: var(--sp-2); }      /* eyebrow → H1 = 16 */
+.subhero__title { color: var(--cream); }
+.subhero__lead {
+    color: var(--cream);
+    margin-top: var(--sp-3);                                 /* H1 → lead = 24 */
+    max-width: 54ch;
+}
+.subhero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    margin-top: 32px;                                        /* content → CTA = 32 */
+}
+
+
+/* ============================================================
+   [2] PROSE — single editorial column on --bg.
+   Heading-stack rhythm: eyebrow → H2 = 16, H2 → body = 24.
+   ============================================================ */
+.sub-prose {
+    max-width: var(--w-standard);                            /* 720 ≈ 60ch */
+}
+.sub-prose__title { margin-top: var(--sp-2); }               /* eyebrow → H2 = 16 */
+.sub-prose__body  { margin-top: var(--sp-3); color: var(--ink-soft); }   /* H2 → body = 24 */
+.sub-prose__body + .sub-prose__body { margin-top: var(--sp-2); }
+
+
+/* ============================================================
+   [3] STAT ROW — composed from existing type roles.
+   Number = display family (H1 scale) · label = t-micro.
+   Cells divided by --rule hairlines. No new colours.
+   ============================================================ */
+.statrow {
+    margin-top: var(--sp-6);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--rule);
+}
+.statrow__cell {
+    padding: var(--sp-4) var(--sp-3) var(--sp-4) 0;
+    border-bottom: 1px solid var(--rule);
+}
+.statrow__cell + .statrow__cell {
+    border-left: 1px solid var(--rule);
+    padding-left: var(--sp-3);
+}
+.statrow__num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 52px;
+    letter-spacing: -1px;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+}
+.statrow__label {
+    margin-top: var(--sp-2);
+    color: var(--ink-muted);
+}
+
+
+/* ============================================================
+   [4] MEDIA + TEXT — two-column feature. Alternates with --flip.
+   Media radius 5px (design-system media rule).
+   ============================================================ */
+.mediatext {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-6);
+    align-items: center;
+}
+.mediatext + .mediatext { margin-top: var(--sp-7); }
+.mediatext__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    display: block;
+}
+.mediatext--flip .mediatext__media { order: 2; }
+.mediatext__body-title { margin-bottom: var(--sp-3); }       /* H2 → body = 24 */
+.mediatext__body p { color: var(--ink-soft); }
+.mediatext__body p + p { margin-top: var(--sp-2); }
+/* Opener media — a defined frame for chapter openers / editorial beats.
+   Kept gently landscape (4:3) so wide shots aren't cropped into a tall slot. */
+.mediatext--portrait { align-items: center; }
+.mediatext--portrait .mediatext__media { aspect-ratio: 4 / 3; }
+.mediatext--portrait .mediatext__media img { height: 100%; }
+
+
+/* ============================================================
+   [5] BRANDS — reused verbatim from the home page (.section--brands /
+   .brand-card grid). No subpage CSS needed; it ships with main.css.
+
+   [6] CTA BAND — dark closing panel. Buttons use .btn--on-dark.
+   ============================================================ */
+.cta-band {
+    background-color: var(--ink);
+    text-align: center;
+}
+.cta-band__title { color: var(--cream); }
+
+/* Feature band — a .cta-band with a full-bleed photo behind it, darkened
+   for contrast. Centered cream content + CTA. Pairs with [data-parallax]. */
+.feature-band { position: relative; overflow: hidden; }
+.feature-band__media { position: absolute; inset: 0; z-index: 0; }
+.feature-band__media img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transform: scale(1.4); will-change: transform;     /* parallax rest state */
+}
+.feature-band__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(28,28,28,0.74) 0%, rgba(28,28,28,0.82) 100%);
+}
+.feature-band__inner { position: relative; z-index: 1; }
+.feature-band .cta-band__title { max-width: 18ch; margin-left: auto; margin-right: auto; }
+
+.cta-band__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--sp-2);
+    margin-top: 32px;                 /* content → CTA = 32 (design-system) */
+}
+
+
+/* ============================================================
+   SECTION INTRO — small shared header (eyebrow + heading + lead)
+   used by Departments / Testimonials / Contact. Heading-stack rhythm.
+   ============================================================ */
+.sub-head { max-width: var(--w-standard); margin-bottom: var(--sp-5); }
+.sub-head__title { margin-top: var(--sp-2); }                /* eyebrow → H2 = 16 */
+.sub-head__lead  { margin-top: var(--sp-3); color: var(--ink-soft); }  /* → lead = 24 */
+
+
+/* ============================================================
+   [7] DEPARTMENTS / BOXES — 4-up, icon (or number) + title + copy.
+   Base = connected hairline grid. Lines drawn with cell borders
+   (not a 1px gap) so every divider renders crisply — no sub-pixel
+   line dropping out. Modifiers:
+     --trio   3 columns (Land · Sea · Air)
+     --cards  separate, self-bordered cards with a hover lift
+     --tint   dark filled cards (cream text) — a different colour
+   ============================================================ */
+.dept-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+}
+.dept-grid--trio { grid-template-columns: repeat(3, 1fr); }   /* Land · Sea · Air */
+.dept {
+    background-color: var(--bg);
+    padding: var(--sp-4) var(--sp-3);
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+}
+.dept__icon {
+    font-size: 28px;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: var(--sp-3);
+    display: block;
+}
+.dept__title { margin-bottom: var(--sp-2); }
+.dept__copy { color: var(--ink-soft); }
+
+/* ── Separate cards — detached, self-bordered, hover lift ── */
+.dept-grid--cards {
+    border-top: 0;
+    border-left: 0;
+    gap: var(--sp-2);
+}
+.dept-grid--cards .dept {
+    border: 1px solid var(--rule);
+    border-radius: 5px;
+    transition:
+        transform 0.3s var(--ease),
+        box-shadow 0.3s var(--ease),
+        border-color 0.3s var(--ease),
+        background-color 0.3s var(--ease);
+}
+.dept-grid--cards .dept:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--pop);
+    border-color: var(--rule-strong);
+}
+
+/* Dark stats band — our radial vignette (lighter core, deepened corners),
+   same editorial treatment as the home .diff__bg section. */
+.statband {
+    background:
+        /* two light pools — top-left + bottom-right — over the base vignette */
+        radial-gradient(ellipse 70% 80% at 16% 8%,
+            rgba(237, 234, 228, 0.07) 0%, transparent 55%),
+        radial-gradient(ellipse 80% 85% at 88% 96%,
+            rgba(237, 234, 228, 0.055) 0%, transparent 58%),
+        radial-gradient(ellipse 120% 100% at 50% 42%,
+            #272727 0%,
+            var(--ink) 58%,
+            #151515 100%);
+}
+
+/* ── Ink — dark CONNECTED grid (cream text, hairline dividers in light) ── */
+.dept-grid--ink { border-color: rgba(237, 234, 228, 0.16); }
+.dept-grid--ink .dept {
+    background-color: transparent;
+    border-color: rgba(237, 234, 228, 0.16);
+}
+.dept-grid--ink .dept__num { color: var(--cream); }
+.dept-grid--ink .dept__copy { color: rgba(237, 234, 228, 0.62); }
+
+/* ── Tint — dark filled cards, cream text (a different colour) ── */
+.dept-grid--tint .dept {
+    background-color: var(--ink);
+    border-color: var(--ink);
+}
+.dept-grid--tint .dept__icon,
+.dept-grid--tint .dept__title { color: var(--cream); }
+.dept-grid--tint .dept__copy { color: rgba(237, 234, 228, 0.7); }
+.dept-grid--tint .dept:hover {
+    background-color: #111;
+    border-color: #111;
+}
+
+
+/* ============================================================
+   [8] TESTIMONIALS — reused verbatim from the home page
+   (.section--reviews slider). Ships with main.css + main.js.
+
+   [9] CONTACT — "Ask a Question" form + Leaflet map, two columns.
+   Inputs follow the system: squared (0 radius), 1px rule border,
+   ink focus, Inter. Submit is the standard .btn--solid.
+   ============================================================ */
+.contact-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-6);
+    align-items: start;
+}
+.contact-form { display: flex; flex-direction: column; gap: var(--sp-3); }
+.field { display: flex; flex-direction: column; gap: var(--sp-1); }
+.field--row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
+.field__label {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+}
+.field__input,
+.field__textarea {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    color: var(--ink);
+    background-color: #fff;
+    border: 1px solid var(--rule-strong);
+    border-radius: 0;                       /* squared — design-system */
+    padding: 13px 14px;
+    width: 100%;
+    transition: border-color 0.22s ease;    /* one static → one focus state */
+}
+.field__textarea { resize: vertical; min-height: 120px; }
+.field__input:focus,
+.field__textarea:focus { outline: none; border-color: var(--ink); }
+.contact-form .btn { align-self: flex-start; margin-top: var(--sp-1); }
+
+/* Contact: form + photo columns share height — the photo's bottom edge
+   lines up with the Contact Us button. (Visit's split keeps align: start.) */
+#contact-form .contact-split { align-items: stretch; }
+.contact-photo {
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: var(--bg-soft);
+    /* Desktop: no aspect-ratio — width = column, height = stretched to the form
+       (align-items: stretch). aspect-ratio + stretch would over-compute width. */
+}
+.contact-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Leaflet map — media radius 5px, framed with a hairline. */
+.about-map {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    border-radius: 5px;
+    border: 1px solid var(--rule);
+    overflow: hidden;
+    background-color: var(--bg-soft);
+    z-index: 0;                             /* keep tiles under the fixed header */
+}
+/* Black-and-white map — desaturate just the tiles; marker + controls stay normal. */
+.about-map .leaflet-tile-pane { filter: grayscale(1) contrast(1.04); }
+
+
+/* ============================================================
+   [10] FACT BOXES — stat boxes with a big number/word + copy.
+   Reuses the .dept-grid shell; swaps the icon for .dept__num.
+   ============================================================ */
+.dept__num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    color: var(--ink);
+    margin-bottom: var(--sp-2);
+    display: block;
+}
+
+
+/* ============================================================
+   [11] VISUAL BREAK — full-bleed image with a centered overlay
+   title + subtitle. Editorial pause between content blocks.
+   ============================================================ */
+.visualbreak {
+    position: relative;
+    min-height: 54vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background-color: var(--ink);
+}
+.visualbreak__media { position: absolute; inset: 0; z-index: 0; }
+.visualbreak__media img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    /* Parallax — the wide frame already crops this 2:1 image top & bottom,
+       so a gentle scale (zoomed-OUT vs the old 1.4) still leaves plenty of
+       vertical travel. --pscale = rest scale; main.js reads it + data-parallax
+       (travel %) and translates on scroll. */
+    --pscale: 1.12;
+    transform: scale(var(--pscale));
+    will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+    .visualbreak__media img { transform: none; }
+}
+.visualbreak__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(28, 28, 28, 0.55);
+}
+.visualbreak__inner {
+    position: relative;
+    z-index: 1;
+    width: min(92%, var(--container-max));
+}
+.visualbreak__title { color: var(--cream); }
+.visualbreak__sub {
+    color: rgba(237, 234, 228, 0.72);
+    margin: var(--sp-3) auto 0;
+    max-width: 56ch;
+}
+
+
+/* ============================================================
+   [12] IMAGE CARDS — 3-up large cards (Marine / Watersports /
+   Aviation). Portrait media, title + copy beneath.
+   ============================================================ */
+.imgcard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-3);
+}
+.imgcard__media {
+    display: block;
+    aspect-ratio: 4 / 5;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: var(--bg-soft);
+}
+.imgcard__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s var(--ease);   /* one static → one hover state */
+}
+.imgcard:hover .imgcard__media img { transform: scale(1.04); }
+.imgcard__title { margin-top: var(--sp-3); }
+.imgcard__copy { margin-top: var(--sp-1); color: var(--ink-soft); }
+
+
+/* ============================================================
+   [13] LOCATION BOX — address / phone / hours detail card,
+   paired with the map in the Visit section.
+   ============================================================ */
+.locbox { display: flex; flex-direction: column; gap: var(--sp-3); }
+.locbox__row { display: flex; flex-direction: column; gap: 4px; }
+.locbox__label {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+}
+.locbox__value { color: var(--ink-soft); }
+.locbox__value a { color: var(--ink); }
+.locbox .btn { align-self: flex-start; margin-top: var(--sp-1); }
+
+
+/* ============================================================
+   REVEAL — staircase entrance, same motion as the home sections
+   (40px rise · 0.8s · --ease · ~70ms cascade). Drive it by adding
+   [data-reveal] to the section + .reveal-up to each rising element.
+   The cascade resets per parent, so every group staircases on its own.
+   main.js toggles .is-visible on [data-reveal] elements in view.
+   ============================================================ */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity 0.8s var(--ease),
+        transform 0.8s var(--ease);
+}
+[data-reveal].is-visible .reveal-up { opacity: 1; transform: none; }
+[data-reveal].is-visible .reveal-up:nth-child(1) { transition-delay: 0.04s; }
+[data-reveal].is-visible .reveal-up:nth-child(2) { transition-delay: 0.11s; }
+[data-reveal].is-visible .reveal-up:nth-child(3) { transition-delay: 0.18s; }
+[data-reveal].is-visible .reveal-up:nth-child(4) { transition-delay: 0.25s; }
+[data-reveal].is-visible .reveal-up:nth-child(5) { transition-delay: 0.32s; }
+[data-reveal].is-visible .reveal-up:nth-child(6) { transition-delay: 0.39s; }
+[data-reveal].is-visible .reveal-up:nth-child(7) { transition-delay: 0.46s; }
+
+/* Directional slide-in — images enter from their side (left/right). */
+.reveal-left,
+.reveal-right {
+    opacity: 0;
+    will-change: transform, opacity;
+    transition:
+        opacity 0.9s var(--ease),
+        transform 0.9s var(--ease);
+}
+.reveal-left  { transform: translateX(-52px); }
+.reveal-right { transform: translateX(52px); }
+[data-reveal].is-visible .reveal-left,
+[data-reveal].is-visible .reveal-right { opacity: 1; transform: none; }
+
+/* Contain the horizontal travel so a slide never adds page scroll. */
+.mediatext { overflow-x: clip; }
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal-up,
+    .reveal-left,
+    .reveal-right { transition: none; opacity: 1; transform: none; }
+}
+
+
+/* ============================================================
+   MOBILE — ≤ 900px. 20px side-padding floor; columns stack.
+   Type follows the ramp's mobile sizes automatically.
+   ============================================================ */
+@media (max-width: 900px) {
+    .sub-wrap,
+    .subhero__inner {
+        width: auto;
+        margin: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .subhero { min-height: 56vh; }
+
+    .statrow { grid-template-columns: 1fr; }
+    .statrow__cell { padding: var(--sp-3) 0; }
+    .statrow__cell + .statrow__cell {
+        border-left: 0;
+        padding-left: 0;
+    }
+    .statrow__num { font-size: 40px; line-height: 44px; }
+
+    .mediatext {
+        grid-template-columns: 1fr;
+        gap: var(--sp-3);
+    }
+    .mediatext + .mediatext { margin-top: var(--sp-6); }
+    /* keep image above text regardless of flip */
+    .mediatext--flip .mediatext__media { order: 0; }
+
+    .dept-grid  { grid-template-columns: 1fr 1fr; }
+    .dept-grid--trio { grid-template-columns: 1fr; }
+    .imgcard-grid { grid-template-columns: 1fr; gap: var(--sp-4); }
+    .imgcard__media { aspect-ratio: 16 / 10; }
+    .visualbreak { min-height: 44vh; }
+
+    .contact-split {
+        grid-template-columns: 1fr;
+        gap: var(--sp-4);
+    }
+    .field--row { grid-template-columns: 1fr; }
+    .about-map { min-height: 300px; }
+    .contact-photo { aspect-ratio: 16 / 10; }   /* single column needs an explicit size */
+}
+
+@media (max-width: 600px) {
+    .dept-grid { grid-template-columns: 1fr; }
+}

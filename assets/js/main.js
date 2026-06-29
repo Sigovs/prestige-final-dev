@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navTargets = navLinks
         .map(link => {
             const href = link.getAttribute('href') || '';
-            if (!href.startsWith('#')) return null;
+            if (!href.startsWith('#') || href.length < 2) return null;   // skip bare "#"
             const el = document.querySelector(href);
             return el ? { link, el } : null;
         })
@@ -551,6 +551,38 @@ document.addEventListener('DOMContentLoaded', () => {
         revealEls.forEach(el => revealObserver.observe(el));
     } else {
         revealEls.forEach(el => el.classList.add('is-visible'));
+    }
+
+
+    // --- Parallax media ----------------------------------------------------
+    // Any [data-parallax] element drifts vertically as its section crosses
+    // the viewport (rAF-throttled). Paired with a CSS scale() so the image
+    // edge never shows. Disabled for reduced-motion.
+    const parallaxEls = Array.from(document.querySelectorAll('[data-parallax]')).map(el => {
+        const dist = parseFloat(el.getAttribute('data-parallax'));   // travel %; blank/NaN → default
+        const scale = getComputedStyle(el).getPropertyValue('--pscale').trim();
+        return { el, dist: isNaN(dist) ? 22 : dist, scale: scale || '1.4' };
+    });
+    if (parallaxEls.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        let ticking = false;
+        const updateParallax = () => {
+            const vh = window.innerHeight;
+            parallaxEls.forEach(p => {
+                const frame = p.el.parentElement;                // the media wrapper (≈ section box)
+                const r = frame.getBoundingClientRect();
+                if (r.bottom < 0 || r.top > vh) return;          // off-screen — skip
+                // progress: -1 (entering from below) → +1 (leaving past top)
+                const progress = (r.top + r.height / 2 - vh / 2) / vh;
+                p.el.style.transform = 'translate3d(0,' + (progress * -p.dist).toFixed(2) + '%,0) scale(' + p.scale + ')';
+            });
+            ticking = false;
+        };
+        const onParallaxScroll = () => {
+            if (!ticking) { ticking = true; requestAnimationFrame(updateParallax); }
+        };
+        window.addEventListener('scroll', onParallaxScroll, { passive: true });
+        window.addEventListener('resize', onParallaxScroll);
+        updateParallax();
     }
 
 
