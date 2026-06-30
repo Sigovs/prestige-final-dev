@@ -576,20 +576,32 @@
                 });
             }
 
-            // 2) Each milestone — photo cards rise from below (staggered),
-            //    year scales up, caption fades. (Float + hover-zoom are CSS.)
+            // 2) Each milestone — cards rise + stagger, photos reveal with a
+            //    clip-path wipe (mask) and blur-in, caption + small year fade,
+            //    and the giant year parallaxes behind the cards.
             gsap.utils.toArray('.tl-item').forEach(function (item) {
-                var left  = item.classList.contains('tl-item--left');
-                var cards = item.querySelectorAll('.tl-card');
-                var year  = item.querySelector('.tl-item__year');
-                var copy  = item.querySelector('.tl-item__copy');
+                var cards  = item.querySelectorAll('.tl-card');
+                var frames = item.querySelectorAll('.tl-card__frame');
+                var year   = item.querySelector('.tl-item__year');
+                var texts  = item.querySelectorAll('.tl-item__yearlabel, .tl-item__copy');
 
                 gsap.timeline({
                     scrollTrigger: { trigger: item, start: 'top 82%', toggleActions: 'play none none reverse' }
                 })
-                .from(cards, { y: 56, autoAlpha: 0, duration: 0.9, ease: 'power3.out', stagger: 0.12 }, 0)
-                .from(year,  { scale: 0.45, autoAlpha: 0, transformOrigin: (left ? 'right' : 'left') + ' center', duration: 0.8, ease: 'back.out(1.7)' }, 0.05)
-                .from(copy,  { y: 22, autoAlpha: 0, duration: 0.7, ease: 'power3.out' }, 0.2);
+                .from(cards, { y: 54, autoAlpha: 0, duration: 1.0, ease: 'power3.out', stagger: 0.12 }, 0)
+                .fromTo(frames,
+                    { clipPath: 'inset(0% 0% 100% 0%)', filter: 'blur(18px)' },
+                    { clipPath: 'inset(0% 0% 0% 0%)', filter: 'blur(0px)', duration: 1.1, ease: 'power3.out', stagger: 0.12, clearProps: 'clipPath,filter' }, 0)
+                .from(year,  { autoAlpha: 0, duration: 1.0, ease: 'power2.out' }, 0.1)
+                .from(texts, { autoAlpha: 0, filter: 'blur(8px)', duration: 0.7, ease: 'power3.out', stagger: 0.08, clearProps: 'filter' }, 0.25);
+
+                // parallax — the giant year drifts up behind the cards on scroll
+                if (year) {
+                    gsap.to(year, {
+                        y: -46, ease: 'none',
+                        scrollTrigger: { trigger: item, start: 'top bottom', end: 'bottom top', scrub: true }
+                    });
+                }
 
                 // mark the milestone "current" while it straddles the viewport
                 // centre — its axis node grows + pulses.
