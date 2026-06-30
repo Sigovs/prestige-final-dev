@@ -477,6 +477,198 @@
 
 
 /* ============================================================
+   [14] TIMELINE — scrollytelling heritage spine. A center axis,
+   milestones alternate left / right, each = photo + big year + copy.
+   Every <li> is its own [data-reveal] so it animates as it enters.
+   ============================================================ */
+.timeline {
+    position: relative;
+    width: min(92%, var(--container-max));
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+}
+.timeline::before {                       /* the faint axis track */
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    bottom: 10px;
+    width: 1px;
+    background: var(--rule);
+    transform: translateX(-50%);
+}
+.timeline__fill {                         /* the drawn-in progress line (GSAP scrubs scaleY) */
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    width: 2px;
+    height: calc(100% - 20px);
+    background: var(--ink);
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: top center;
+    z-index: 0;
+}
+.tl-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-6);
+    align-items: center;
+    padding: var(--sp-4) 0;
+}
+.tl-item::before {                        /* node on the axis */
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--ink);
+    border: 3px solid var(--bg);
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s var(--ease);
+    z-index: 1;
+}
+/* the current milestone's node grows + pulses while it's centred on screen */
+.tl-item.is-current::before {
+    transform: translate(-50%, -50%) scale(1.4);
+    animation: tl-pulse 1.7s ease-out infinite;
+}
+@keyframes tl-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(28, 28, 28, 0.32); }
+    70%  { box-shadow: 0 0 0 14px rgba(28, 28, 28, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(28, 28, 28, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .tl-item.is-current::before { animation: none; }
+}
+/* media = a row of small, neat photo cards — mixed portrait / landscape,
+   aligned toward the centre axis. */
+.tl-item__media {
+    display: flex;
+    gap: 5px;
+    align-items: flex-end;
+}
+.tl-item--left  .tl-item__media { justify-content: flex-end; }    /* hug the axis */
+.tl-item--right .tl-item__media { justify-content: flex-start; }
+.tl-card { flex: 0 0 auto; position: relative; }
+/* inner frame floats gently (separate transform layer from entrance / hover) */
+.tl-card__frame {
+    display: block;
+    animation: tl-float 5s ease-in-out infinite;
+    will-change: transform;
+}
+/* the photo shows WHOLE — height-driven, natural aspect, never cropped.
+   On hover it pops up +40% above its neighbours. */
+.tl-card__frame img {
+    display: block;
+    height: 172px;
+    width: auto;
+    max-width: 320px;
+    border-radius: 8px;
+    background-color: var(--bg-soft);
+    box-shadow: 0 2px 10px rgba(28, 28, 28, 0.12);
+    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+.tl-card:hover { z-index: 10; }
+.tl-card:hover .tl-card__frame img {
+    transform: scale(1.4);
+    box-shadow: 0 26px 52px -14px rgba(28, 28, 28, 0.45);
+}
+@keyframes tl-float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-7px); }
+}
+.tl-card:nth-child(1) .tl-card__frame { animation-delay: -0.2s; }
+.tl-card:nth-child(2) .tl-card__frame { animation-delay: -1.9s; }
+.tl-card:nth-child(3) .tl-card__frame { animation-delay: -3.5s; }
+@media (prefers-reduced-motion: reduce) {
+    .tl-card__frame { animation: none; }
+}
+/* GIANT year — faint grey watermark behind the cards; turns black when the
+   milestone is the current one on screen. */
+.tl-item__year {
+    position: absolute;
+    top: 62%;                             /* dropped a touch below centre so it peeks out behind the cards */
+    translate: 0 -50%;                    /* centring kept off `transform` so GSAP can parallax it */
+    z-index: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(150px, 15vw, 220px);
+    line-height: 0.8;
+    letter-spacing: -4px;
+    color: var(--bg-deep);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: color 0.6s var(--ease);
+}
+.tl-item--left  .tl-item__year { left: 0; }
+.tl-item--right .tl-item__year { right: 0; }
+.tl-item.is-current .tl-item__year { color: var(--ink); }
+/* small year repeated at the start of the caption — body font */
+.tl-item__yearlabel {
+    position: relative;
+    z-index: 1;
+    display: block;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    color: var(--ink);
+}
+.tl-item__copy {
+    position: relative;
+    z-index: 1;
+    margin-top: var(--sp-2);
+    color: var(--ink-soft);
+    animation: tl-float 7s ease-in-out infinite;   /* floating caption */
+}
+@media (prefers-reduced-motion: reduce) {
+    .tl-item__copy { animation: none; }
+}
+
+/* cards float in front of the giant year */
+.tl-item__media { position: relative; z-index: 1; }
+
+/* left = media left · body right · right = body left (right-aligned) · media right */
+.tl-item--left  .tl-item__media { grid-column: 1; }
+.tl-item--left  .tl-item__body  { grid-column: 2; padding-left: var(--sp-3); }
+.tl-item--right .tl-item__body  { grid-column: 1; text-align: right; padding-right: var(--sp-3); }
+.tl-item--right .tl-item__media { grid-column: 2; }
+
+
+/* ============================================================
+   [15] PULLQUOTE — large editorial quote on ink.
+   ============================================================ */
+.pullquote { background-color: var(--ink); text-align: center; }
+.pullquote__inner { width: min(92%, 920px); margin: 0 auto; }
+.pullquote__mark {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 0.5;
+    color: rgba(237, 234, 228, 0.22);
+}
+.pullquote__text {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 44px;
+    letter-spacing: -0.5px;
+    color: var(--cream);
+    margin-top: var(--sp-3);
+}
+.pullquote__cite {
+    margin-top: var(--sp-4);
+    color: rgba(237, 234, 228, 0.62);
+}
+
+
+/* ============================================================
    REVEAL — staircase entrance, same motion as the home sections
    (40px rise · 0.8s · --ease · ~70ms cascade). Drive it by adding
    [data-reveal] to the section + .reveal-up to each rising element.
@@ -584,6 +776,32 @@
     .field--row { grid-template-columns: 1fr; }
     .about-map { min-height: 300px; }
     .contact-photo { aspect-ratio: 16 / 10; }   /* single column needs an explicit size */
+
+    /* Timeline → single rail on the left, photo above text. */
+    .timeline::before { left: 7px; }
+    .timeline__fill { left: 7px; }
+    .tl-item {
+        grid-template-columns: 1fr;
+        gap: var(--sp-3);
+        padding: var(--sp-4) 0 var(--sp-4) 40px;
+    }
+    .tl-item::before { left: 7px; top: 34px; }
+    .tl-item--left  .tl-item__media,
+    .tl-item--left  .tl-item__body,
+    .tl-item--right .tl-item__media,
+    .tl-item--right .tl-item__body {
+        grid-column: 1;
+        text-align: left;
+        padding: 0;
+    }
+    .tl-item--left  .tl-item__media,
+    .tl-item--right .tl-item__media { justify-content: flex-start; flex-wrap: wrap; }
+    .tl-card__frame img { height: 118px; }
+    .tl-item__year { font-size: 84px; letter-spacing: -2px; left: 36px; right: auto; }
+    .tl-item--right .tl-item__year { left: 36px; right: auto; }
+
+    .pullquote__text { font-size: 26px; line-height: 34px; }
+    .pullquote__mark { font-size: 72px; }
 }
 
 @media (max-width: 600px) {

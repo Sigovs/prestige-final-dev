@@ -4562,6 +4562,63 @@ body { font-weight: 400; }
 }
 .srp-drop__cta .btn { white-space: nowrap; }
 
+
+/* ============================================================
+   NAV-DROP — compact nav dropdown (About → Our Dealership / Our Story).
+   Reuses the <details> open/close + .site-nav__link typography; the
+   panel is a small anchored card (not the full-width mega-menu).
+   ============================================================ */
+.nav-drop { position: relative; display: inline-flex; align-items: stretch; }
+.nav-drop__trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    list-style: none;
+    white-space: nowrap;
+}
+.nav-drop__trigger::-webkit-details-marker { display: none; }
+.site-nav .nav-drop__trigger::after { display: none; }   /* no underline on the summary */
+.nav-drop__caret { font-size: 11px; line-height: 1; transition: transform 0.3s var(--ease); }
+.nav-drop[open] .nav-drop__caret { transform: rotate(180deg); }
+
+.nav-drop__panel {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 12px;
+    min-width: 232px;
+    background-color: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    box-shadow: var(--pop);
+    padding: 8px;
+    z-index: 220;
+}
+.nav-drop[open] .nav-drop__panel { animation: srp-drop-in 0.3s var(--ease); }
+.nav-drop__item {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 4px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    transition: background-color 0.2s var(--ease);
+}
+.nav-drop__item:hover { background-color: rgba(28, 28, 28, 0.05); }
+.nav-drop__item span { display: block; }
+.nav-drop__item small {
+    display: block;
+    margin-top: 2px;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    color: var(--ink-muted);
+}
+
 /* ── Header search ───────────────────────────────────────── */
 .srp-search {
     position: relative;

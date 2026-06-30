@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 
     <link rel="stylesheet" href="assets/css/tokens.css">
-<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/main.css?v=11">
     <link rel="stylesheet" href="assets/css/vdp.css">
 
     <script src="assets/js/main.js" defer></script>
@@ -99,7 +99,16 @@
                 <a href="index.html#service" class="site-nav__link">Service</a>
                 <a href="#" class="site-nav__link">Store</a>
                 <a href="#" class="site-nav__link">Research</a>
-                <a href="about_our_dealership.html" class="site-nav__link">About</a>
+                <details class="nav-drop">
+                    <summary class="nav-drop__trigger site-nav__link">
+                        <span>About</span>
+                        <i class="ph ph-caret-down nav-drop__caret" aria-hidden="true"></i>
+                    </summary>
+                    <div class="nav-drop__panel">
+                        <a class="nav-drop__item" href="about_our_dealership.html"><span>Our Dealership</span><small>The house &amp; the experience</small></a>
+                        <a class="nav-drop__item" href="our_story.html"><span>Our Story</span><small>Heritage since 1977</small></a>
+                    </div>
+                </details>
                 <a href="#contact" class="site-nav__link">Contact Us</a>
             </nav>
             <button class="site-nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Menu">
@@ -118,7 +127,8 @@
                     <li><a class="site-menu__link" href="srp.html">Inventory</a></li>
                     <li><a class="site-menu__link" href="index.html#sell">Sell Your Vehicle</a></li>
                     <li><a class="site-menu__link" href="index.html#service">Service</a></li>
-                    <li><a class="site-menu__link" href="about_our_dealership.html">About</a></li>
+                    <li><a class="site-menu__link" href="about_our_dealership.html">Our Dealership</a></li>
+                    <li><a class="site-menu__link" href="our_story.html">Our Story</a></li>
                     <li><a class="site-menu__link" href="index.html#contact">Contact</a></li>
                 </ul>
             </div>

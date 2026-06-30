@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <title>Our Story — Prestige Imports</title>
+    <meta name="description" content="The Prestige Imports story — from a North Miami Beach gas station in 1977 to one of America's leading exotic dealerships. A second-generation, family-owned heritage of luxury automobiles.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/main.css?v=11">
+    <link rel="stylesheet" href="assets/css/subpage.css?v=11">
+
+    <script src="assets/js/main.js?v=4" defer></script>
+</head>
+<body class="page-about">
+
+    <!-- ════════════════════════════════════════════════════════════
+         HEADER — identical to Home / SRP / VDP (.site-header).
+         ════════════════════════════════════════════════════════════ -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a href="index.html" class="logo" aria-label="Prestige Imports — Home">
+                <img src="assets/images/prestige_logo.svg" alt="Prestige Imports">
+            </a>
+            <nav class="site-nav" aria-label="Primary">
+
+                <details class="srp-drop">
+                    <summary class="srp-drop__trigger site-nav__link">
+                        <span>Inventory</span>
+                        <i class="ph ph-caret-down srp-drop__caret" aria-hidden="true"></i>
+                    </summary>
+                    <div class="srp-drop__panel">
+                      <div class="srp-drop__inner">
+
+                        <div class="srp-drop__col">
+                            <p class="srp-drop__col-title">Shop</p>
+                            <ul class="srp-drop__list">
+                                <li><a class="srp-drop__item" href="srp.html"><span>View All</span><span class="srp-drop__count">149</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?cond=new"><span>New</span><span class="srp-drop__count">61</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?cond=preowned"><span>Pre-Owned</span><span class="srp-drop__count">88</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?sort=new-arrivals"><span>New Arrivals</span><span class="srp-drop__count">14</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="srp-drop__col">
+                            <p class="srp-drop__col-title">By Type</p>
+                            <ul class="srp-drop__list">
+                                <li><a class="srp-drop__item" href="srp.html?body=convertible"><span>Convertible</span><span class="srp-drop__count">31</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?body=coupe"><span>Coupe</span><span class="srp-drop__count">62</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?body=electric"><span>Electric</span><span class="srp-drop__count">11</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?body=hyper"><span>Hyper / Exotic</span><span class="srp-drop__count">9</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?body=sedan"><span>Sedan</span><span class="srp-drop__count">14</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?body=suv"><span>SUV</span><span class="srp-drop__count">28</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="srp-drop__col">
+                            <p class="srp-drop__col-title">Our Brands</p>
+                            <ul class="srp-drop__list">
+                                <li><a class="srp-drop__item" href="srp.html?make=czinger"><span>Czinger</span><span class="srp-drop__count">2</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?make=eccentrica"><span>Eccentrica</span><span class="srp-drop__count">1</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?make=gunther"><span>Gunther</span><span class="srp-drop__count">2</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?make=karma"><span>Karma</span><span class="srp-drop__count">4</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?make=lamborghini"><span>Lamborghini</span><span class="srp-drop__count">44</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?make=lotus"><span>Lotus</span><span class="srp-drop__count">6</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?make=pagani"><span>Pagani</span><span class="srp-drop__count">3</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="srp-drop__col">
+                            <p class="srp-drop__col-title">Pre-Owned Brands</p>
+                            <ul class="srp-drop__list">
+                                <li><a class="srp-drop__item" href="srp.html?make=bentley"><span>Bentley</span><span class="srp-drop__count">5</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?make=ferrari"><span>Ferrari</span><span class="srp-drop__count">7</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?make=mclaren"><span>McLaren</span><span class="srp-drop__count">6</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?make=mercedes-benz"><span>Mercedes-Benz</span><span class="srp-drop__count">15</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?make=porsche"><span>Porsche</span><span class="srp-drop__count">32</span></a></li>
+                                <li><a class="srp-drop__item" href="srp.html?all-makes"><span>All makes →</span><span class="srp-drop__count"></span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="srp-drop__cta">
+                            <a class="btn btn--solid" href="srp.html">View All Inventory</a>
+                        </div>
+
+                      </div>
+                    </div>
+                </details>
+
+                <a href="index.html#sell" class="site-nav__link">Sell Your Vehicle</a>
+                <a href="index.html#service" class="site-nav__link">Service</a>
+                <a href="#" class="site-nav__link">Store</a>
+                <a href="#" class="site-nav__link">Research</a>
+                <details class="nav-drop">
+                    <summary class="nav-drop__trigger site-nav__link is-active">
+                        <span>About</span>
+                        <i class="ph ph-caret-down nav-drop__caret" aria-hidden="true"></i>
+                    </summary>
+                    <div class="nav-drop__panel">
+                        <a class="nav-drop__item" href="about_our_dealership.html"><span>Our Dealership</span><small>The house &amp; the experience</small></a>
+                        <a class="nav-drop__item" href="our_story.html"><span>Our Story</span><small>Heritage since 1977</small></a>
+                    </div>
+                </details>
+                <a href="#contact" class="site-nav__link">Contact Us</a>
+            </nav>
+            <button class="site-nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Menu">
+                <span class="site-nav-toggle__label" data-when-closed="Menu" data-when-open="Close">Menu</span>
+                <span class="site-nav-toggle__icon" aria-hidden="true"><span></span><span></span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile full-screen menu (toggled by .site-nav-toggle; logic in main.js) -->
+    <div class="site-menu" id="site-menu" aria-hidden="true" aria-label="Main menu">
+        <div class="site-menu__grid">
+            <div class="site-menu__col">
+                <p class="site-menu__caption">Menu</p>
+                <ul class="site-menu__list">
+                    <li><a class="site-menu__link" href="srp.html">Inventory</a></li>
+                    <li><a class="site-menu__link" href="index.html#sell">Sell Your Vehicle</a></li>
+                    <li><a class="site-menu__link" href="index.html#service">Service</a></li>
+                    <li><a class="site-menu__link" href="about_our_dealership.html">Our Dealership</a></li>
+                    <li><a class="site-menu__link" href="our_story.html">Our Story</a></li>
+                    <li><a class="site-menu__link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="site-menu__col--meta">
+                <div class="site-menu__group">
+                    <p class="site-menu__caption">Visit</p>
+                    <address class="site-menu__address">14780 Biscayne Blvd<br>North Miami Beach, FL 33181</address>
+                </div>
+                <div class="site-menu__group">
+                    <p class="site-menu__caption">Contact</p>
+                    <a class="site-menu__contact" href="tel:+18332906287">+1 (833) 290-6287</a>
+                </div>
+            </div>
+        </div>
+        <p class="site-menu__sign">Prestige Imports — South Florida, since 1977</p>
+    </div>
+
+
+    <main class="page-about__main">
+
+        <!-- ═══════════ HERO ═══════════ -->
+        <section class="subhero" aria-labelledby="story-hero-title" data-reveal>
+            <div class="subhero__media" aria-hidden="true">
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="assets/videos/our_story_video_hero.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="subhero__inner">
+                <span class="eyebrow-stamp eyebrow-stamp--light reveal-side">Since 1977</span>
+                <h1 class="t-h1 subhero__title reveal-side" id="story-hero-title">Our Story.</h1>
+                <p class="t-lead subhero__lead reveal-side">From a North Miami Beach gas station to one of America's leading exotic dealerships — four decades, two generations, one family.</p>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ INTRO — the beginning ═══════════ -->
+        <section class="section" data-reveal>
+            <div class="sub-wrap" style="text-align: center;">
+                <span class="eyebrow-stamp reveal-up" style="margin: 0 auto;">The Beginning</span>
+                <h2 class="t-h2 reveal-up" style="margin-top: var(--sp-2);">It started with a gas station.</h2>
+                <p class="t-body reveal-up" style="max-width: 58ch; margin: var(--sp-3) auto 0; color: var(--ink-soft);">In 1977, Irv David opened Prestige Motorcar Imports on West Dixie Highway — built on excellent service and a personal commitment to every customer. What began as a used European car business would go on to pioneer Florida's exotic car market.</p>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ TIMELINE — scrollytelling heritage spine ═══════════ -->
+        <section class="section" data-reveal>
+
+            <ol class="timeline">
+                <span class="timeline__fill" aria-hidden="true"></span>
+
+                <li class="tl-item tl-item--left">
+                    <div class="tl-item__media">
+                        <figure class="tl-card tl-card--landscape"><span class="tl-card__frame"><img src="assets/images/story/1977_1.jpg" alt="Irv David's Prestige Motor Car Imports storefront, 1977"></span></figure>
+                        <figure class="tl-card tl-card--portrait"><span class="tl-card__frame"><img src="assets/images/story/1977_2.jpg" alt="Early Prestige Imports"></span></figure>
+                    </div>
+                    <div class="tl-item__body">
+                        <span class="tl-item__year">1977</span><span class="tl-item__yearlabel">1977</span>
+                        <p class="t-body tl-item__copy">Irv David opens Prestige Motorcar Imports on West Dixie Highway.</p>
+                    </div>
+                </li>
+
+                <li class="tl-item tl-item--right">
+                    <div class="tl-item__media">
+                        <figure class="tl-card tl-card--landscape"><span class="tl-card__frame"><img src="assets/images/story/1980_1.jpg" alt="Prestige's early exotic inventory"></span></figure>
+                        <figure class="tl-card tl-card--portrait"><span class="tl-card__frame"><img src="assets/images/story/1980_2.jpg" alt="Prestige Imports lot"></span></figure>
+                        <figure class="tl-card tl-card--landscape"><span class="tl-card__frame"><img src="assets/images/story/1980_3.jpg" alt="Exotic cars on the lot"></span></figure>
+                    </div>
+                    <div class="tl-item__body">
+                        <span class="tl-item__year">1980</span><span class="tl-item__yearlabel">1980</span>
+                        <p class="t-body tl-item__copy">Builds Miami's finest exotic used-car inventory.</p>
+                    </div>
+                </li>
+
+                <li class="tl-item tl-item--left">
+                    <div class="tl-item__media">
+                        <figure class="tl-card tl-card--portrait"><span class="tl-card__frame"><img src="assets/images/story/1983_1.jpg" alt="The trailer sales office on Biscayne Boulevard"></span></figure>
+                    </div>
+                    <div class="tl-item__body">
+                        <span class="tl-item__year">1983</span><span class="tl-item__yearlabel">1983</span>
+                        <p class="t-body tl-item__copy">Buys land on Biscayne Boulevard — a trailer becomes the first sales office.</p>
+                    </div>
+                </li>
+
+                <li class="tl-item tl-item--right">
+                    <div class="tl-item__media">
+                        <figure class="tl-card tl-card--landscape"><span class="tl-card__frame"><img src="assets/images/story/1985_1.jpg" alt="The Prestige showroom under construction"></span></figure>
+                        <figure class="tl-card tl-card--portrait"><span class="tl-card__frame"><img src="assets/images/story/1985_2.jpg" alt="Showroom construction"></span></figure>
+                    </div>
+                    <div class="tl-item__body">
+                        <span class="tl-item__year">1985</span><span class="tl-item__yearlabel">1985</span>
+                        <p class="t-body tl-item__copy">Maserati franchise acquired; the new showroom rises from the ground.</p>
+                    </div>
+                </li>
+
+                <li class="tl-item tl-item--left">
+                    <div class="tl-item__media">
+                        <figure class="tl-card tl-card--landscape"><span class="tl-card__frame"><img src="assets/images/story/1986_1.jpg" alt="Grand opening of the Prestige Imports showroom"></span></figure>
+                    </div>
+                    <div class="tl-item__body">
+                        <span class="tl-item__year">1986</span><span class="tl-item__yearlabel">1986</span>
+                        <p class="t-body tl-item__copy">Grand opening of the new Prestige Imports showroom.</p>
+                    </div>
+                </li>
+
+                <li class="tl-item tl-item--right">
+                    <div class="tl-item__media">
+                        <figure class="tl-card tl-card--portrait"><span class="tl-card__frame"><img src="assets/images/story/1988_1.jpg" alt="The last American Countach plaque for Irv David"></span></figure>
+                    </div>
+                    <div class="tl-item__body">
+                        <span class="tl-item__year">1988</span><span class="tl-item__yearlabel">1988</span>
+                        <p class="t-body tl-item__copy">Lamborghini and Lotus franchises join the house.</p>
+                    </div>
+                </li>
+
+                <li class="tl-item tl-item--left">
+                    <div class="tl-item__media">
+                        <figure class="tl-card tl-card--landscape"><span class="tl-card__frame"><img src="assets/images/story/1989_1.jpg" alt="The last North American Lamborghini Countach"></span></figure>
+                        <figure class="tl-card tl-card--portrait"><span class="tl-card__frame"><img src="assets/images/story/1989_2.jpg" alt="Countach detail"></span></figure>
+                    </div>
+                    <div class="tl-item__body">
+                        <span class="tl-item__year">1989</span><span class="tl-item__yearlabel">1989</span>
+                        <p class="t-body tl-item__copy">The last North American Lamborghini Countach is built for Irv David.</p>
+                    </div>
+                </li>
+
+                <li class="tl-item tl-item--right">
+                    <div class="tl-item__media">
+                        <figure class="tl-card tl-card--portrait"><span class="tl-card__frame"><img src="assets/images/story/1990_1.jpg" alt="Ferruccio Lamborghini at the Diablo unveiling"></span></figure>
+                    </div>
+                    <div class="tl-item__body">
+                        <span class="tl-item__year">1990</span><span class="tl-item__yearlabel">1990</span>
+                        <p class="t-body tl-item__copy">Ferruccio Lamborghini signs at the Diablo unveiling in Monte Carlo.</p>
+                    </div>
+                </li>
+
+                <li class="tl-item tl-item--left">
+                    <div class="tl-item__media">
+                        <figure class="tl-card tl-card--landscape"><span class="tl-card__frame"><img src="assets/images/story/2011_1.jpg" alt="Prestige acquires the Pagani franchise"></span></figure>
+                    </div>
+                    <div class="tl-item__body">
+                        <span class="tl-item__year">2011</span><span class="tl-item__yearlabel">2011</span>
+                        <p class="t-body tl-item__copy">Brett acquires the Pagani franchise and founds the Ride2Revive Foundation.</p>
+                    </div>
+                </li>
+
+                <li class="tl-item tl-item--right">
+                    <div class="tl-item__media">
+                        <figure class="tl-card tl-card--portrait"><span class="tl-card__frame"><img src="assets/images/story/2012_1.jpg" alt="The AU79 gold Aventador project"></span></figure>
+                        <figure class="tl-card tl-card--landscape"><span class="tl-card__frame"><img src="assets/images/story/2012_2.jpg" alt="AU79 Aventador"></span></figure>
+                    </div>
+                    <div class="tl-item__body">
+                        <span class="tl-item__year">2012</span><span class="tl-item__yearlabel">2012</span>
+                        <p class="t-body tl-item__copy">The AU79 gold Aventador debuts; the Sharpie Lamborghini wins a Picasso Award.</p>
+                    </div>
+                </li>
+
+                <li class="tl-item tl-item--left">
+                    <div class="tl-item__media">
+                        <figure class="tl-card tl-card--landscape"><span class="tl-card__frame"><img src="assets/images/story/2014_1.jpg" alt="Brett David racing the Lamborghini Super Trofeo at Sebring"></span></figure>
+                        <figure class="tl-card tl-card--portrait"><span class="tl-card__frame"><img src="assets/images/story/2014_2.jpg" alt="Lamborghini Super Trofeo"></span></figure>
+                        <figure class="tl-card tl-card--landscape"><span class="tl-card__frame"><img src="assets/images/story/2014_3.jpg" alt="Lamborghini Veneno delivery"></span></figure>
+                    </div>
+                    <div class="tl-item__body">
+                        <span class="tl-item__year">2014</span><span class="tl-item__yearlabel">2014</span>
+                        <p class="t-body tl-item__copy">Brett races the Lamborghini Super Trofeo World Final; a Veneno — #2 of 3 — is delivered.</p>
+                    </div>
+                </li>
+
+                <li class="tl-item tl-item--right">
+                    <div class="tl-item__media">
+                        <figure class="tl-card tl-card--portrait"><span class="tl-card__frame"><img src="assets/images/story/2015_1.jpg" alt="Horacio Pagani presents Project Vulcan"></span></figure>
+                        <figure class="tl-card tl-card--landscape"><span class="tl-card__frame"><img src="assets/images/story/2015_2.jpg" alt="Project Vulcan Huayra"></span></figure>
+                    </div>
+                    <div class="tl-item__body">
+                        <span class="tl-item__year">2015</span><span class="tl-item__yearlabel">2015</span>
+                        <p class="t-body tl-item__copy">Horacio Pagani presents Project Vulcan; the Audi store sells in a record deal.</p>
+                    </div>
+                </li>
+
+                <li class="tl-item tl-item--left">
+                    <div class="tl-item__media">
+                        <figure class="tl-card tl-card--landscape"><span class="tl-card__frame"><img src="assets/images/story/2017_1.jpg" alt="Pagani Newport Beach grand opening"></span></figure>
+                        <figure class="tl-card tl-card--portrait"><span class="tl-card__frame"><img src="assets/images/story/2017_2.jpg" alt="40th anniversary Showroom 2.0"></span></figure>
+                        <figure class="tl-card tl-card--landscape"><span class="tl-card__frame"><img src="assets/images/story/2017_3.jpg" alt="Showroom 2.0"></span></figure>
+                    </div>
+                    <div class="tl-item__body">
+                        <span class="tl-item__year">2017</span><span class="tl-item__yearlabel">2017</span>
+                        <p class="t-body tl-item__copy">Pagani Newport Beach opens; the 40th-anniversary Showroom 2.0 debuts.</p>
+                    </div>
+                </li>
+
+                <li class="tl-item tl-item--right">
+                    <div class="tl-item__media">
+                        <figure class="tl-card tl-card--landscape"><span class="tl-card__frame"><img src="assets/images/story/2020_1.jpg" alt="The new Lamborghini Miami showroom, aerial"></span></figure>
+                        <figure class="tl-card tl-card--portrait"><span class="tl-card__frame"><img src="assets/images/story/2020_2.jpg" alt="Lamborghini Miami showroom"></span></figure>
+                        <figure class="tl-card tl-card--landscape"><span class="tl-card__frame"><img src="assets/images/story/2020_3.jpg" alt="Showroom interior"></span></figure>
+                    </div>
+                    <div class="tl-item__body">
+                        <span class="tl-item__year">2020</span><span class="tl-item__yearlabel">2020</span>
+                        <p class="t-body tl-item__copy">The new Lamborghini Miami showroom is completed.</p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+
+        <!-- ═══════════ PULLQUOTE — CEO ═══════════ -->
+        <section class="section pullquote" data-reveal>
+            <div class="pullquote__inner">
+                <span class="pullquote__mark reveal-side" aria-hidden="true">&ldquo;</span>
+                <p class="pullquote__text reveal-side">Being a second-generation dealership in this era lets us redefine our focus — while we keep our core belief: the highest level of service and product for our customers.</p>
+                <p class="pullquote__cite reveal-side">Brett David &middot; CEO, Prestige Imports</p>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ NEXT GENERATION ═══════════ -->
+        <section class="section" style="background-color: var(--bg-soft);" data-reveal>
+            <div class="sub-wrap">
+                <div class="mediatext">
+                    <div class="mediatext__media reveal-left">
+                        <img src="assets/images/story/2014_1.jpg" alt="Brett David, second-generation CEO">
+                    </div>
+                    <div class="mediatext__body">
+                        <span class="eyebrow-stamp reveal-side">The Next Generation</span>
+                        <h2 class="t-h2 mediatext__body-title reveal-side" style="margin-top: var(--sp-2);">A nineteen-year-old takes the wheel.</h2>
+                        <p class="t-body reveal-side">After Irv's passing in 2007, his son Brett — just nineteen — stepped in as CEO. He expanded the house with Pagani, Karma, and a state-of-the-art Lamborghini Miami.</p>
+                        <p class="t-body reveal-side">Progressive thinking, the same family standard: the highest level of service and product, carried into a new era.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ STATS BAND ═══════════ -->
+        <section class="section statband" data-reveal>
+            <div class="sub-wrap">
+                <div class="dept-grid dept-grid--ink reveal-up">
+                    <div class="dept">
+                        <span class="dept__num">Est.<br>1977</span>
+                        <p class="t-small dept__copy">Where it all began.</p>
+                    </div>
+                    <div class="dept">
+                        <span class="dept__num">Second<br>Generation</span>
+                        <p class="t-small dept__copy">Family-owned and led.</p>
+                    </div>
+                    <div class="dept">
+                        <span class="dept__num">Seven<br>Brands</span>
+                        <p class="t-small dept__copy">Under one roof.</p>
+                    </div>
+                    <div class="dept">
+                        <span class="dept__num">44+<br>Years</span>
+                        <p class="t-small dept__copy">And the next chapter ahead.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ RIDE2REVIVE — feature band ═══════════ -->
+        <section class="section cta-band feature-band" data-reveal>
+            <div class="feature-band__media" aria-hidden="true">
+                <!-- placeholder — swap for a Ride2Revive photo -->
+                <img src="assets/images/Upgrade_Your_Collection.jpg" alt="" data-parallax>
+            </div>
+            <div class="sub-wrap feature-band__inner">
+                <span class="eyebrow-stamp eyebrow-stamp--light reveal-side" style="margin: 0 auto;">Giving Back</span>
+                <h2 class="t-h2 cta-band__title reveal-side" style="margin-top: var(--sp-2);">Ride2Revive.</h2>
+                <p class="t-body reveal-side" style="color: rgba(237,234,228,0.82); max-width: 58ch; margin: var(--sp-3) auto 0;">Founded in 2011, Ride2Revive gives children facing life-threatening illnesses the thrill of a lifetime behind the world's most extraordinary cars — in partnership with Make-A-Wish, Joe DiMaggio Children's Hospital, Nicklaus Children's, and more.</p>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ BRANDS — the franchises today (reused) ═══════════ -->
+        <section class="section section--brands" id="brands" aria-labelledby="story-brands-heading" data-reveal>
+            <div class="container">
+                <header class="brands__header">
+                    <span class="eyebrow-stamp reveal-side">Officially Authorized</span>
+                    <h2 class="brands__heading reveal-side" id="story-brands-heading">
+                        <span class="brands__heading-primary">The House Today.</span>
+                        <span class="brands__heading-secondary">Seven brands, one family.</span>
+                    </h2>
+                    <p class="brands__intro reveal-side">Lamborghini, Pagani, Lotus, Czinger, Gunther Werks, Eccentrica, and Karma — the marques Prestige represents today.</p>
+                </header>
+
+                <ul class="brands__grid" aria-label="Authorized brands">
+                    <li class="brand-card reveal-up"><a href="srp.html?make=lamborghini" class="brand-card__link"><div class="brand-card__media"><img src="assets/images/Lamborghini_logo.svg" alt="Lamborghini"></div><h3 class="brand-card__name">Lamborghini</h3><span class="brand-card__city">Miami</span><span class="brand-card__cta"><span>Explore Brand</span><i class="ph ph-arrow-right" aria-hidden="true"></i></span></a></li>
+                    <li class="brand-card reveal-up"><a href="srp.html?make=pagani" class="brand-card__link"><div class="brand-card__media"><img src="assets/images/Pagani_logo.svg" alt="Pagani"></div><h3 class="brand-card__name">Pagani</h3><span class="brand-card__city">Miami</span><span class="brand-card__cta"><span>Explore Brand</span><i class="ph ph-arrow-right" aria-hidden="true"></i></span></a></li>
+                    <li class="brand-card reveal-up"><a href="srp.html?make=lotus" class="brand-card__link"><div class="brand-card__media"><img src="assets/images/lotus_logo.svg" alt="Lotus"></div><h3 class="brand-card__name">Lotus</h3><span class="brand-card__city">Miami</span><span class="brand-card__cta"><span>Explore Brand</span><i class="ph ph-arrow-right" aria-hidden="true"></i></span></a></li>
+                    <li class="brand-card reveal-up"><a href="srp.html?make=czinger" class="brand-card__link"><div class="brand-card__media"><img src="assets/images/czinger_logo.svg" alt="Czinger"></div><h3 class="brand-card__name">Czinger</h3><span class="brand-card__city">Miami</span><span class="brand-card__cta"><span>Explore Brand</span><i class="ph ph-arrow-right" aria-hidden="true"></i></span></a></li>
+                    <li class="brand-card reveal-up"><a href="srp.html?make=gunther" class="brand-card__link"><div class="brand-card__media"><img src="assets/images/gunther_logo.svg" alt="Gunther Werks"></div><h3 class="brand-card__name">Gunther Werks</h3><span class="brand-card__city">Miami</span><span class="brand-card__cta"><span>Explore Brand</span><i class="ph ph-arrow-right" aria-hidden="true"></i></span></a></li>
+                    <li class="brand-card reveal-up"><a href="srp.html?make=eccentrica" class="brand-card__link"><div class="brand-card__media"><img src="assets/images/eccentrica_logo.svg" alt="Eccentrica"></div><h3 class="brand-card__name">Eccentrica</h3><span class="brand-card__city">Miami</span><span class="brand-card__cta"><span>Explore Brand</span><i class="ph ph-arrow-right" aria-hidden="true"></i></span></a></li>
+                    <li class="brand-card reveal-up"><a href="srp.html?make=karma" class="brand-card__link"><div class="brand-card__media"><img src="assets/images/karma_logo.svg" alt="Karma"></div><h3 class="brand-card__name">Karma</h3><span class="brand-card__city">Miami</span><span class="brand-card__cta"><span>Explore Brand</span><i class="ph ph-arrow-right" aria-hidden="true"></i></span></a></li>
+                </ul>
+            </div>
+        </section>
+
+
+        <!-- ═══════════ FINAL CTA ═══════════ -->
+        <section class="section cta-band" data-reveal>
+            <div class="sub-wrap">
+                <span class="eyebrow-stamp eyebrow-stamp--light reveal-side" style="margin: 0 auto;">The Next Chapter</span>
+                <h2 class="t-h2 cta-band__title reveal-side" style="margin-top: var(--sp-2);">Be part of the story.</h2>
+                <p class="t-body reveal-side" style="color: rgba(237,234,228,0.66); max-width: 54ch; margin: var(--sp-3) auto 0;">Forty-four years in, the drive is the same. Come write the next chapter with us.</p>
+                <div class="cta-band__actions reveal-up">
+                    <a class="btn btn--on-dark btn--solid" href="srp.html"><span>Explore Inventory</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+                    <a class="btn btn--on-dark" href="about_our_dealership.html"><span>About the Dealership</span></a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ════════════════════════════════════════════════════════════
+         FOOTER — reused from main.css (.site-footer), identical to SRP/VDP.
+         ════════════════════════════════════════════════════════════ -->
+    <footer class="site-footer" id="contact">
+        <div class="site-footer__inner">
+
+            <div class="site-footer__top">
+
+                <div class="site-footer__identity">
+                    <a href="index.html" class="site-footer__logo" aria-label="Prestige Imports — Home">
+                        <img src="assets/images/prestige_logo.svg" alt="Prestige Imports">
+                    </a>
+                    <p class="site-footer__tagline">A second-generation, family-owned dealership for luxury, exotic, and collector automobiles. South Florida, since 1977.</p>
+                    <address class="site-footer__address">
+                        <p>14780 Biscayne Blvd<br>North Miami Beach, FL 33181</p>
+                        <p>
+                            <a href="tel:+18332906287">+1 (833) 290-6287</a>
+                        </p>
+                    </address>
+                    <ul class="site-footer__social" aria-label="Social media">
+                        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="ph ph-instagram-logo" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="ph ph-facebook-logo" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><i class="ph ph-youtube-logo" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ph ph-linkedin-logo" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+
+                <nav class="site-footer__nav" aria-label="Footer navigation">
+
+                <div class="site-footer__col">
+                    <h3 class="site-footer__col-title">Inventory</h3>
+                    <ul class="site-footer__links">
+                        <li><a href="srp.html">All Inventory</a></li>
+                        <li><a href="srp.html?cond=new">New</a></li>
+                        <li><a href="srp.html?cond=preowned">Pre-Owned</a></li>
+                        <li><a href="srp.html?sort=new-arrivals">New Arrivals</a></li>
+                    </ul>
+                </div>
+
+                <div class="site-footer__col">
+                    <h3 class="site-footer__col-title">Service</h3>
+                    <ul class="site-footer__links">
+                        <li><a href="index.html#service">About Service</a></li>
+                        <li><a href="index.html#service">Schedule Appointment</a></li>
+                        <li><a href="index.html#service">Parts</a></li>
+                        <li><a href="index.html#sell">Sell Your Vehicle</a></li>
+                    </ul>
+                </div>
+
+                <div class="site-footer__col">
+                    <h3 class="site-footer__col-title">Connect</h3>
+                    <ul class="site-footer__links">
+                        <li><a href="about_our_dealership.html">About Us</a></li>
+                        <li><a href="about_our_dealership.html">Our Team</a></li>
+                        <li><a href="about_our_dealership.html">Heritage</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                </nav>
+
+            </div>
+
+            <div class="site-footer__rule" aria-hidden="true"></div>
+
+            <div class="site-footer__hours-band">
+                <div class="site-footer__hours">
+                    <div class="site-footer__hours-row">
+                        <span class="site-footer__hours-label">Store Hours</span>
+                        <span class="site-footer__hours-groups">
+                            <span>Mon – Fri &middot; 9:00 AM – 7:00 PM</span>
+                            <span>Saturday &middot; 10:00 AM – 6:00 PM</span>
+                            <span>Sunday &middot; Closed</span>
+                        </span>
+                    </div>
+                    <div class="site-footer__hours-row">
+                        <span class="site-footer__hours-label">Service Hours</span>
+                        <span class="site-footer__hours-groups">
+                            <span>Mon – Fri &middot; 8:00 AM – 5:30 PM</span>
+                            <span>Saturday – Sunday &middot; Closed</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="site-footer__actions">
+                    <a href="tel:+18332906287" class="btn btn--on-dark btn--solid">
+                        <span>Call</span>
+                        <i class="ph ph-phone" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://maps.google.com/?q=14780+Biscayne+Blvd+North+Miami+Beach+FL" target="_blank" rel="noopener" class="btn btn--on-dark btn--ghost">
+                        <span>Get Directions</span>
+                        <i class="ph ph-map-pin" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="site-footer__rule" aria-hidden="true"></div>
+
+            <div class="site-footer__bottom">
+                <p class="site-footer__copy">&copy; 2025 Prestige Imports. All rights reserved.</p>
+                <ul class="site-footer__legal">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </div>
+
+            <p class="site-footer__powered">Powered by <a href="https://allautonetwork.com" target="_blank" rel="noopener">All Auto Network</a></p>
+
+        </div>
+    </footer>
+
+
+    <!-- GSAP — Apple-style scroll-driven timeline -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        (function () {
+            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            gsap.registerPlugin(ScrollTrigger);
+
+            // 1) Draw the centre line as the timeline scrolls past.
+            var fill = document.querySelector('.timeline__fill');
+            var timelineEl = document.querySelector('.timeline');
+            if (fill && timelineEl) {
+                gsap.fromTo(fill, { scaleY: 0 }, {
+                    scaleY: 1, ease: 'none',
+                    scrollTrigger: { trigger: timelineEl, start: 'top 55%', end: 'bottom 65%', scrub: 0.4 }
+                });
+            }
+
+            // 2) Each milestone — photo cards rise from below (staggered),
+            //    year scales up, caption fades. (Float + hover-zoom are CSS.)
+            gsap.utils.toArray('.tl-item').forEach(function (item) {
+                var left  = item.classList.contains('tl-item--left');
+                var cards = item.querySelectorAll('.tl-card');
+                var year  = item.querySelector('.tl-item__year');
+                var copy  = item.querySelector('.tl-item__copy');
+
+                gsap.timeline({
+                    scrollTrigger: { trigger: item, start: 'top 82%', toggleActions: 'play none none reverse' }
+                })
+                .from(cards, { y: 56, autoAlpha: 0, duration: 0.9, ease: 'power3.out', stagger: 0.12 }, 0)
+                .from(year,  { scale: 0.45, autoAlpha: 0, transformOrigin: (left ? 'right' : 'left') + ' center', duration: 0.8, ease: 'back.out(1.7)' }, 0.05)
+                .from(copy,  { y: 22, autoAlpha: 0, duration: 0.7, ease: 'power3.out' }, 0.2);
+
+                // mark the milestone "current" while it straddles the viewport
+                // centre — its axis node grows + pulses.
+                ScrollTrigger.create({
+                    trigger: item, start: 'top center', end: 'bottom center',
+                    onToggle: function (self) { item.classList.toggle('is-current', self.isActive); }
+                });
+            });
+
+            ScrollTrigger.refresh();
+        })();
+    </script>
+
+</body>
+</html>
