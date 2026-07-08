@@ -17,6 +17,7 @@ Deployed via **GitHub Pages** from `main` → https://sigovs.github.io/prestige-
 | `about_our_dealership.html` | About → Our Dealership (subpage) |
 | `our_story.html` | About → Our Story (GSAP scrollytelling timeline) |
 | `service.html` | Service → Our Services (subpage) |
+| `contact.html` | Contact Us (subpage — channel cards, form + Leaflet map, hours) |
 | `design.html` | Internal design-system reference (no site nav) |
 
 Nav dropdowns: **About** (Our Dealership / Our Story) and **Service** (Service +
@@ -36,7 +37,10 @@ All subpages are built by copying `about_our_dealership.html` and swapping conte
 **do not create bespoke one-off pages.** Components: `.subhero`, `.sub-prose` /
 `.sub-head`, `.statrow`, `.dept-grid` (+ `--cards` / `--tint` / `--ink` / `--trio`),
 `.mediatext` (+ `--flip` / `--portrait`), `.visualbreak` (+ `--tall`, image OR
-`<video>`), `.imgcard-grid`, `.contact-form` + `.about-map` (Leaflet, B&W), 
+`<video>`), `.imgcard-grid`, `.contact-form` + `.about-map` (Leaflet, B&W),
+`.contact-split` (form | map), `.field--row` (2-up inputs), `.segmented`
+(connected Call/Text/Email radio toggle), `.hours` (2-col hours table),
+`.dept__phone` (click-to-call in `.dept` cards),
 `.feature-band` (photo bg + dark overlay + centered CTA), `.cta-band`, `.pullquote`,
 `.statband` (dark radial band), `.timeline` (our_story only).
 

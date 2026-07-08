@@ -707,6 +707,73 @@
 
 
 /* ============================================================
+   [16] CONTACT EXTRAS — channel-card phone, segmented toggle, hours.
+   ============================================================ */
+/* Click-to-call number inside a channel card (.dept). */
+.dept__phone {
+    display: inline-block;
+    margin-top: var(--sp-3);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: -0.3px;
+    color: var(--ink);
+    text-decoration: none;
+    font-variant-numeric: tabular-nums;
+}
+.dept__phone:hover { text-decoration: underline; text-underline-offset: 4px; }
+.dept-grid--tint .dept__phone { color: var(--cream); }
+
+/* Segmented toggle — radio group as connected squared buttons (.btn language). */
+.segmented { display: inline-flex; border: 1px solid var(--rule-strong); }
+.segmented__opt { display: inline-flex; }
+.segmented__opt input {
+    position: absolute;
+    width: 1px; height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+.segmented__opt span {
+    display: block;
+    padding: 12px 22px;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.22s var(--ease), color 0.22s var(--ease);
+}
+.segmented__opt + .segmented__opt span { border-left: 1px solid var(--rule-strong); }
+.segmented__opt input:checked + span { background-color: var(--ink); color: var(--cream); }
+.segmented__opt input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: -3px; }
+
+/* Hours table — Sales / Service columns on hairlines. */
+.hours { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-6); }
+.hours__col-title {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin: 0 0 var(--sp-2);
+}
+.hours__row {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--sp-3);
+    padding: 12px 0;
+    border-top: 1px solid var(--rule);
+}
+.hours__col .hours__row:last-child { border-bottom: 1px solid var(--rule); }
+.hours__day  { color: var(--ink-soft); }
+.hours__time { color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+
+/* ============================================================
    REVEAL — staircase entrance, same motion as the home sections
    (40px rise · 0.8s · --ease · ~70ms cascade). Drive it by adding
    [data-reveal] to the section + .reveal-up to each rising element.
@@ -814,6 +881,11 @@
     .field--row { grid-template-columns: 1fr; }
     .about-map { min-height: 300px; }
     .contact-photo { aspect-ratio: 16 / 10; }   /* single column needs an explicit size */
+
+    .hours { grid-template-columns: 1fr; gap: var(--sp-4); }
+    .segmented { display: flex; width: 100%; }
+    .segmented__opt { flex: 1; }
+    .segmented__opt span { text-align: center; padding: 12px 8px; }
 
     /* Timeline → single rail on the left, photo above text. */
     .timeline::before { left: 7px; }
