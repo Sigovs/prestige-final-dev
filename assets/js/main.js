@@ -586,6 +586,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
+    // --- Animated numbers -------------------------------------------------
+    // Any [data-count] element (containing just the target integer) spins up
+    // from 0 → its number the first time it scrolls into view. Reduced-motion
+    // leaves the final number in place (it's already the element's text).
+    const countEls = document.querySelectorAll('[data-count]');
+    if (countEls.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        && 'IntersectionObserver' in window) {
+        const countObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const el = entry.target;
+                obs.unobserve(el);
+                const target = parseInt((el.textContent || '').replace(/[^\d]/g, ''), 10);
+                if (isNaN(target)) return;
+                const duration = 1300;
+                let start = null;
+                const step = (now) => {
+                    if (start === null) start = now;
+                    const p = Math.min(1, (now - start) / duration);
+                    const eased = 1 - Math.pow(1 - p, 3);   // easeOutCubic
+                    el.textContent = Math.round(eased * target).toString();
+                    if (p < 1) requestAnimationFrame(step);
+                    else el.textContent = target.toString();
+                };
+                requestAnimationFrame(step);
+            });
+        }, { threshold: 0.6 });
+        countEls.forEach(el => countObserver.observe(el));
+    }
+
+
     // --- Services: direction-aware hover glow ----------------------------
     // On pointerenter, compute which edge the cursor came from and
     // expose it via --glow-x / --glow-y CSS vars for a subtle gradient.
