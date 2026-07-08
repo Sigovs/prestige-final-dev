@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 
     <link rel="stylesheet" href="assets/css/tokens.css">
-<link rel="stylesheet" href="assets/css/main.css?v=11">
+<link rel="stylesheet" href="assets/css/main.css?v=18">
     <link rel="stylesheet" href="assets/css/srp.css">
 
     <script src="assets/js/main.js" defer></script>
@@ -96,19 +96,41 @@
                 </details>
 
                 <a href="index.html#sell" class="site-nav__link">Sell Your Vehicle</a>
-                <a href="index.html#service" class="site-nav__link">Service</a>
+                <div class="nav-drop">
+                    <button type="button" aria-haspopup="true" class="nav-drop__trigger site-nav__link">
+                        <span>Service</span>
+                        <i class="ph ph-caret-down nav-drop__caret" aria-hidden="true"></i>
+                    </button>
+                    <div class="nav-drop__panel nav-drop__panel--wide">
+                        <div class="nav-drop__cols">
+                            <div class="nav-drop__group">
+                                <p class="nav-drop__group-title">Service</p>
+                                <a class="nav-drop__item" href="service.html"><span>Our Services</span></a>
+                                <a class="nav-drop__item" href="#"><span>Schedule Service</span></a>
+                                <a class="nav-drop__item" href="#"><span>Service / Parts Specials</span></a>
+                            </div>
+                            <div class="nav-drop__group">
+                                <p class="nav-drop__group-title">Order Parts</p>
+                                <a class="nav-drop__item" href="#"><span>Lamborghini Parts</span></a>
+                                <a class="nav-drop__item" href="#"><span>Lotus Parts</span></a>
+                                <a class="nav-drop__item" href="#"><span>Pagani Parts</span></a>
+                                <a class="nav-drop__item" href="#"><span>KARMA Parts</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <a href="#" class="site-nav__link">Store</a>
                 <a href="#" class="site-nav__link">Research</a>
-                <details class="nav-drop">
-                    <summary class="nav-drop__trigger site-nav__link">
+                <div class="nav-drop">
+                    <button type="button" aria-haspopup="true" class="nav-drop__trigger site-nav__link">
                         <span>About</span>
                         <i class="ph ph-caret-down nav-drop__caret" aria-hidden="true"></i>
-                    </summary>
+                    </button>
                     <div class="nav-drop__panel">
                         <a class="nav-drop__item" href="about_our_dealership.html"><span>Our Dealership</span><small>The house &amp; the experience</small></a>
                         <a class="nav-drop__item" href="our_story.html"><span>Our Story</span><small>Heritage since 1977</small></a>
                     </div>
-                </details>
+                </div>
                 <a href="#contact" class="site-nav__link">Contact Us</a>
             </nav>
             <button class="site-nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Menu">

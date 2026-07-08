@@ -4570,24 +4570,38 @@ body { font-weight: 400; }
    ============================================================ */
 .nav-drop { position: relative; display: inline-flex; align-items: stretch; }
 .nav-drop__trigger {
+    /* button reset only — colour, typography, hover/active states all come
+       from the .site-nav__link class it also carries, so "About" dims on
+       hover exactly like the other nav links (never disappears). */
     display: inline-flex;
     align-items: center;
     gap: 6px;
     cursor: pointer;
-    list-style: none;
     white-space: nowrap;
+    background: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
 }
-.nav-drop__trigger::-webkit-details-marker { display: none; }
-.site-nav .nav-drop__trigger::after { display: none; }   /* no underline on the summary */
+.site-nav .nav-drop__trigger::after { display: none; }   /* no underline on the trigger */
+/* Match the Inventory dropdown trigger exactly (both nav dropdowns read the
+   same): lighter weight, no tracking, dims to full white on hover. */
+.site-nav .nav-drop__trigger {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: rgba(255, 255, 255, 0.62);
+}
+.site-nav .nav-drop:hover .nav-drop__trigger,
+.site-nav .nav-drop__trigger:hover { color: #ffffff; }
 .nav-drop__caret { font-size: 11px; line-height: 1; transition: transform 0.3s var(--ease); }
-.nav-drop[open] .nav-drop__caret { transform: rotate(180deg); }
+.nav-drop:hover .nav-drop__caret,
+.nav-drop:focus-within .nav-drop__caret { transform: rotate(180deg); }
 
 .nav-drop__panel {
     position: absolute;
     top: 100%;
     left: 50%;
-    transform: translateX(-50%);
-    margin-top: 12px;
     min-width: 232px;
     background-color: #fff;
     border: 1px solid var(--rule);
@@ -4595,8 +4609,31 @@ body { font-weight: 400; }
     box-shadow: var(--pop);
     padding: 8px;
     z-index: 220;
+    /* Hover-reveal. translateX(-50%) stays in EVERY state so the panel never
+       jumps sideways (the old shared keyframe dropped the centering). */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(4px);
+    transition: opacity 0.24s var(--ease), transform 0.24s var(--ease), visibility 0s linear 0.24s;
+    pointer-events: none;
 }
-.nav-drop[open] .nav-drop__panel { animation: srp-drop-in 0.3s var(--ease); }
+/* Invisible bridge over the gap so moving to the panel never drops :hover. */
+.nav-drop__panel::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -14px;
+    height: 14px;
+}
+.nav-drop:hover .nav-drop__panel,
+.nav-drop:focus-within .nav-drop__panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(12px);
+    transition: opacity 0.24s var(--ease), transform 0.24s var(--ease);
+    pointer-events: auto;
+}
 .nav-drop__item {
     display: block;
     padding: 10px 12px;
@@ -4617,6 +4654,20 @@ body { font-weight: 400; }
     font-weight: 400;
     letter-spacing: 0.3px;
     color: var(--ink-muted);
+}
+/* Wider dropdown with two column groups (Service → Service + Order Parts). */
+.nav-drop__panel--wide { min-width: 468px; }
+.nav-drop__cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
+.nav-drop__group-title {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin: 4px 8px 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
 }
 
 /* ── Header search ───────────────────────────────────────── */
