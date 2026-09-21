@@ -18,12 +18,22 @@ Deployed via **GitHub Pages** from `main` → https://sigovs.github.io/prestige-
 | `our_story.html` | About → Our Story (GSAP scrollytelling timeline) |
 | `service.html` | Service → Our Services (subpage) |
 | `contact.html` | Contact Us (subpage — channel cards, form + Leaflet map, hours) |
+| `index_v2.html` | **Sept 2026 v2 review set** — Home with the September asset/copy updates (new hero videos, Services images, Auto Spa copy, Sell video). `index.html` is untouched. |
+| `service_v2.html` | Sept 2026 v2 — Our Services with hero3 video; The Difference / both visual breaks / Marques / Amenities / both CTA bands are **commented out inline** (`<template data-cut>` — delete the tags to restore). `service.html` untouched. |
+| `schedule_service.html` | Sept 2026 — Service → Schedule Service lead form: pinned shop-photo rail + 3-chapter form; rail photo follows the chapter (`[data-rail]` in main.js). |
 | `design.html` | Internal design-system reference (no site nav) |
 
 Nav dropdowns: **About** (Our Dealership / Our Story) and **Service** (Service +
 Order Parts, 2 columns). Both use `.nav-drop` (hover-open, `<button>`+panel).
 Inventory uses the older `.srp-drop` mega-menu. Order-Parts / Schedule / Specials
 links are `#` placeholders (pages not built yet).
+
+**v2 review set (Sept 2026):** `index_v2.html`, `service_v2.html` and
+`schedule_service.html` link only to each other (logo → index_v2, Service →
+service_v2, Schedule → schedule_service) so a reviewer stays inside v2; the
+original pages are byte-identical to before the update. To go live, copy the
+v2 files over the originals and point their links back at `index.html` /
+`service.html`. Raw client files are in `UPDATES SEPTEMBER 2026/` (untracked).
 
 ## CSS layering
 `assets/css/tokens.css` (design tokens — colors/type/spacing, single source of truth)
@@ -65,10 +75,10 @@ All subpages are built by copying `about_our_dealership.html` and swapping conte
 ## ⚠️ Deploy + cache (read before editing CSS)
 
 - Push to `main` → Pages rebuilds (~1–2 min). Commit straight to main.
-- **CSS/JS are versioned:** `main.css?v=N`, `subpage.css?v=N`, `main.js?v=4`.
+- **CSS/JS are versioned:** `main.css?v=N`, `subpage.css?v=N`, `main.js?v=N`.
   **When you edit main.css or subpage.css you MUST bump `?v=N` on all pages**
   (index, srp, vdp, about_our_dealership, our_story, service, design) or the browser
-  serves stale styles. Currently at **`?v=18`**. Subpages also carry a
+  serves stale styles. Currently `main.css?v=19`; v2 pages carry `subpage.css?v=20` + `main.js?v=6` (additive CSS/JS for the schedule page). Subpages also carry a
   `no-cache` meta. Always hard-refresh (**Cmd+Shift+R**) to see changes.
 - `.claude/` (agent memory) is gitignored — it does NOT travel with the repo.
 - Videos live in `assets/videos/` (some >50MB — GitHub warns but accepts <100MB;

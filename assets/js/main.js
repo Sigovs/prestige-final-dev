@@ -554,6 +554,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
+    // --- Pinned rail follows the chapter in view ---------------------------
+    // A [data-rail] holds [data-rail-img="n"] / [data-rail-cap="n"] layers;
+    // sibling [data-rail-chapter="n"] blocks scroll past it. The chapter that
+    // crosses the upper-middle of the viewport activates its layer (crossfade
+    // in CSS; instant under reduced motion). Bound to the role, not the page.
+    const rail = document.querySelector('[data-rail]');
+    const railChapters = document.querySelectorAll('[data-rail-chapter]');
+
+    if (rail && railChapters.length && 'IntersectionObserver' in window) {
+        const setRail = n => {
+            rail.querySelectorAll('[data-rail-img]').forEach(el => el.classList.toggle('is-active', el.dataset.railImg === n));
+            rail.querySelectorAll('[data-rail-cap]').forEach(el => el.classList.toggle('is-active', el.dataset.railCap === n));
+        };
+        const railObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) setRail(entry.target.dataset.railChapter);
+            });
+        }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });   // a band around 40% down the viewport
+
+        railChapters.forEach(el => railObserver.observe(el));
+    }
+
+
     // --- Parallax media ----------------------------------------------------
     // Any [data-parallax] element drifts vertically as its section crosses
     // the viewport (rAF-throttled). Paired with a CSS scale() so the image

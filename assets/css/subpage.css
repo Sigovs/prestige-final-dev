@@ -917,3 +917,264 @@
 @media (max-width: 600px) {
     .dept-grid { grid-template-columns: 1fr; }
 }
+
+
+/* ============================================================
+   [10] SCHEDULE SERVICE — the sheet. (schedule_service.html)
+   One idea: the form is filled in standing in the shop. A pinned
+   photographic rail (5/12) holds the left edge while the form's three
+   numbered chapters (6/12) scroll past it; the rail photo follows the
+   chapter in view (main.js [data-rail]). Everything below sits on the
+   system: tokens, .t-*, .field, .btn, 5px media radius, hairline rules.
+   ============================================================ */
+.sched {
+    background-color: var(--bg);
+    --sched-header: 76px;                       /* .site-header.is-scrolled height (main.css) — the bar the rail pins under */
+}
+.sched__grid {
+    display: grid;
+    grid-template-columns: 5fr 1fr 6fr;         /* rail · air · form  (12-col: 5 / 1 / 6) */
+    align-items: start;
+}
+
+/* — Rail: pinned under the fixed header, one viewport tall. — */
+.sched__rail {
+    grid-column: 1;
+    position: sticky;
+    top: calc(var(--sched-header) + var(--sp-3));
+    height: calc(100vh - var(--sched-header) - var(--sp-5));
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+}
+.sched__rail-media {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+    border-radius: 5px;                         /* media radius — design-system */
+    overflow: hidden;
+    background-color: var(--bg-deep);
+}
+.sched__rail-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    opacity: 0;
+    transition: opacity 0.9s var(--ease);       /* crossfade over travel — motion-taste */
+}
+/* The two bay shots carry a stamp in their bottom-right corner: run them 18%
+   taller than the frame, top-anchored, so the frame's overflow crops that band. */
+.sched__rail-img[data-rail-img="1"],
+.sched__rail-img[data-rail-img="2"] { height: 118%; object-position: 50% 0; }
+.sched__rail-img[data-rail-img="3"] { object-position: 62% 50%; }   /* keep the car + cab */
+.sched__rail-img.is-active { opacity: 1; }
+/* Caption — cream micro-label on a short dark foot; the photos' floors are
+   pale, so the caption gets its own ground rather than a scrim over the image. */
+.sched__rail-caption {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    margin: 0;
+    padding: 14px 18px;
+    background: linear-gradient(180deg, rgba(28,28,28,0) 0%, rgba(28,28,28,0.72) 38%, rgba(28,28,28,0.86) 100%);
+    display: grid;                              /* stack captions in one cell → no height jump */
+}
+.sched__rail-cap {
+    grid-area: 1 / 1;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    color: var(--cream);
+    opacity: 0;
+    transition: opacity 0.6s var(--ease);
+}
+.sched__rail-cap.is-active { opacity: 1; }
+
+/* Facts — the department on hairlines; content, not wallpaper. */
+.sched__facts { margin: 0; border-top: 1px solid var(--rule); }
+.sched__fact {
+    display: grid;
+    grid-template-columns: 132px 1fr;
+    gap: var(--sp-2);
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+}
+.sched__fact-k { margin: 0; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; color: var(--ink-soft); }   /* 8.5:1 on --bg */
+.sched__fact-v { margin: 0; color: var(--ink); }
+.sched__fact-v a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule-strong); }
+.sched__fact-v a:hover { border-bottom-color: var(--ink); }
+
+/* — Form: three chapters on hairlines; each exhales downward. — */
+.sched__form { grid-column: 3; display: flex; flex-direction: column; min-width: 0; }
+.sched__chapter {
+    padding: var(--sp-4) 0 var(--sp-6);        /* 36 above · 80 below — mass above centre, exhale below */
+    border-top: 1px solid var(--rule);
+}
+.sched__chapter:first-child { padding-top: 0; border-top: 0; }
+.sched__chapter-head {
+    display: flex;
+    align-items: baseline;
+    gap: var(--sp-2);
+    margin-bottom: var(--sp-4);                 /* head → fields = 36 */
+}
+.sched__num {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--ink-soft);                     /* AA on --bg; muted measured 3.7:1 */
+    font-variant-numeric: tabular-nums;
+}
+.sched__chapter-title { color: var(--ink); }
+.sched__fields { display: flex; flex-direction: column; gap: var(--sp-3); }
+.sched__chapter-shot { display: none; }        /* desktop: the rail carries the photo; shown ≤900px */
+
+/* Labels — functional text, so 14px sentence case (typography floor);
+   the uppercase tracked voice stays with eyebrows and chapter numbers. */
+.sched__label {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink-soft);
+}
+.sched__req { color: var(--ink-muted); }
+.sched__form .field__input::placeholder,
+.sched__form .field__textarea::placeholder { color: var(--ink-muted); }
+
+/* Select — the system input with the nav's caret. */
+.sched__select { position: relative; }
+.sched__select .field__input {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 44px;
+    cursor: pointer;
+}
+.sched__select-caret {
+    position: absolute;
+    right: 14px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: var(--ink-muted);
+    pointer-events: none;
+}
+.sched__form .field__input[type="date"] { min-height: 49px; }        /* match text inputs in WebKit */
+.sched__form .field__input[type="date"]::-webkit-calendar-picker-indicator { opacity: 0.55; cursor: pointer; }
+
+/* Checks — squared boxes on hairline rows, two columns, ≥44px targets. */
+.sched__checks {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--sp-4);
+}
+.sched__checks legend { padding: 0; margin-bottom: var(--sp-1); grid-column: 1 / -1; }
+.sched__check {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 46px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+    cursor: pointer;
+}
+.sched__check input {
+    position: absolute;
+    opacity: 0;
+    width: 1px; height: 1px;
+    pointer-events: none;
+}
+.sched__check-box {
+    flex: 0 0 18px;
+    width: 18px; height: 18px;
+    border: 1px solid var(--rule-strong);
+    background-color: #fff;
+    position: relative;
+    transition: background-color 0.22s ease, border-color 0.22s ease;
+}
+.sched__check-box::after {                     /* the tick — drawn, not an icon font */
+    content: '';
+    position: absolute;
+    left: 5px; top: 1px;
+    width: 5px; height: 10px;
+    border: solid var(--cream);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) scale(0);
+    transition: transform 0.22s var(--ease);
+}
+.sched__check-text {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 22px;
+    color: var(--ink);
+}
+.sched__check:hover .sched__check-box { border-color: var(--ink); }
+.sched__check input:checked + .sched__check-box { background-color: var(--ink); border-color: var(--ink); }
+.sched__check input:checked + .sched__check-box::after { transform: rotate(45deg) scale(1); }
+.sched__check input:focus-visible + .sched__check-box { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+/* Consent + submit — the one row without a hairline; the button sits alone. */
+.sched__submit {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-3);
+    padding-top: var(--sp-4);
+    border-top: 1px solid var(--rule);
+}
+.sched__check--consent { align-items: flex-start; border-bottom: 0; padding: 0; min-height: 0; max-width: 60ch; }
+.sched__check--consent .sched__check-box { margin-top: 2px; }
+.sched__check--consent .sched__check-text { color: var(--ink-soft); }
+.sched__submit .btn { margin-top: var(--sp-1); }
+
+/* Find-us band — video variant of the feature band (no parallax scale). */
+.feature-band--video .feature-band__media video {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sched__rail-img, .sched__rail-cap { transition: none; }     /* photo still follows the chapter — instant */
+    .sched__check-box, .sched__check-box::after { transition: none; }
+}
+
+/* ≤ 1100px — the rail's photo gets narrow; give the form more of the track. */
+@media (max-width: 1100px) {
+    .sched__grid { grid-template-columns: 4fr 1fr 7fr; }
+    .sched__fact { grid-template-columns: 1fr; gap: 4px; }
+}
+
+/* ≤ 900px — recomposed, not stacked: the rail un-pins and becomes one photo
+   band above the form; each chapter then carries its own shop photo as a short
+   4:3 band over its heading, so the three photos still travel with their chapters. */
+@media (max-width: 900px) {
+    .sched__grid { grid-template-columns: 1fr; gap: var(--sp-5); }
+    .sched__rail { grid-column: 1; position: static; height: auto; }
+    .sched__form { grid-column: 1; }
+    .sched__rail-media { aspect-ratio: 4 / 3; flex: none; }
+    .sched__rail-img { transition: none; }
+    .sched__rail-img:not([data-rail-img="1"]),
+    .sched__rail-cap:not([data-rail-cap="1"]) { display: none; }   /* rail shows the bay only */
+    .sched__rail-img[data-rail-img="1"], .sched__rail-cap[data-rail-cap="1"] { opacity: 1; }
+    .sched__chapter { padding: var(--sp-4) 0 var(--sp-5); }
+    .sched__chapter-shot {                                            /* chapters 02 / 03 carry their photo */
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        object-position: 50% 30%;
+        border-radius: 5px;
+        margin-bottom: var(--sp-3);
+    }
+    .sched__checks { grid-template-columns: 1fr; }
+    /* Hero mobile crop — authored, not inherited: the 2.26:1 lift shot is
+       framed on the car's blue flank and the lift arm, not the underside. */
+    .subhero--schedule .subhero__media img { object-position: 74% 50%; }
+}
