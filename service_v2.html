@@ -242,27 +242,14 @@
         </div><!-- /.sticky-stack -->
 
 
-        <!-- ═══════════════════════════════════════════════════════════════════
-             COMMENTED OUT 2026-09-21 on the client's request ("'Beyond the average
-             garage' adds no value, same for everything underneath except the lead
-             form"; "The Difference repeats the factory-trained / OEM talking points").
-             Kept verbatim inside an inert <template> so the nested HTML comments
-             survive; nothing inside renders or loads. What went with it: both dark
-             tonal beats (the two visual breaks), the marque list, the amenities
-             photos. RESTORE: delete the <template> open/close tags.
-             Blocks: The Difference · Beyond the average garage · Marques We Service ·
-             Precision in every detail · Amenities · Schedule band.
-             ═══════════════════════════════════════════════════════════════════ -->
-        <template data-cut="2026-09-21">
-        <!-- ═══════════ THE DIFFERENCE (sticky) — VISUAL BREAK 1 overlaps it ═══════════ -->
-        <div class="sticky-stack">
-        <section class="section section--sticky" data-reveal>
+        <!-- ═══════════ THE DIFFERENCE — kept per client ("all seems decent up to The Difference"); no longer sticky, nothing overlaps it ═══════════ -->
+        <section class="section" data-reveal>
             <div class="sub-wrap">
                 <div class="sub-head">
                     <span class="eyebrow-stamp reveal-side">The Difference</span>
                     <h2 class="t-h2 sub-head__title reveal-side">Built for luxury and exotic care.</h2>
                 </div>
-                <div class="dept-grid dept-grid--cards" style="margin-bottom: var(--sp-7);">
+                <div class="dept-grid dept-grid--cards">
                     <div class="dept reveal-up">
                         <i class="ph ph-gear-six dept__icon" aria-hidden="true"></i>
                         <h3 class="t-h4 dept__title">Factory-Trained Technicians</h3>
@@ -288,6 +275,18 @@
         </section>
 
 
+        <!-- ═══════════════════════════════════════════════════════════════════
+             COMMENTED OUT 2026-09-21 on the client's request ("'Beyond the average
+             garage' adds no value, same for everything underneath except the lead
+             form"). The Difference stays — "all seems decent up to The Difference".
+             Kept verbatim inside an inert <template> so the nested HTML comments
+             survive; nothing inside renders or loads. What went with it: both dark
+             tonal beats (the two visual breaks), the marque list, the amenities
+             photos. RESTORE: delete the <template> open/close tags.
+             Blocks: Beyond the average garage · Marques We Service ·
+             Precision in every detail · Amenities · Schedule band.
+             ═══════════════════════════════════════════════════════════════════ -->
+        <template data-cut="2026-09-21">
         <!-- ═══════════ VISUAL BREAK 1 — tall image, overlaps The Difference ═══════════ -->
         <section class="visualbreak visualbreak--tall section--overlap" data-reveal>
             <div class="visualbreak__media" aria-hidden="true">
@@ -297,7 +296,6 @@
                 <h2 class="t-h1 visualbreak__title reveal-side">Beyond the average garage.</h2>
             </div>
         </section>
-        </div><!-- /.sticky-stack -->
 
 
         <!-- ═══════════ MARQUES WE SERVICE — media + text ═══════════ -->
@@ -379,7 +377,7 @@
         </template><!-- /cut 2026-09-21 -->
 
         <!-- ═══════════ SERVICE REQUEST — form + map ═══════════ -->
-        <section class="section" id="contact-form" aria-labelledby="svc-ask-heading" data-reveal><!-- v2: on --bg so the form is its own tonal beat after the soft Factory section -->
+        <section class="section" id="contact-form" style="background-color: var(--bg-soft);" aria-labelledby="svc-ask-heading" data-reveal>
             <div class="sub-wrap">
                 <div class="sub-head">
                     <span class="eyebrow-stamp reveal-side">Service Request</span>
