@@ -219,3 +219,139 @@
     }
     .qa__q { font-size: 19px; line-height: 26px; max-width: none; }
 }
+
+
+/* ============================================================
+   [6] SPECIALS — the empty state is the designed state
+   (specials_v2.html). The live page has no offers and says
+   "check back soon", which dead-ends a visitor who came ready to
+   spend. Here the absence is stated, then the page keeps going:
+   the standing advantages, then the form. .special is the offer
+   card the dealer fills when there IS something — styled now so
+   it drops in without a second design pass.
+   ============================================================ */
+.specials__none { max-width: var(--w-standard); }
+.specials__none-lead { color: var(--ink); }
+.specials__none-body { margin-top: var(--sp-3); color: var(--ink-soft); }
+
+/* Offer card — unused until an offer exists; see the markup template
+   in specials_v2.html. Squared, hairline, no shadow: a coupon here is
+   a plate, not a sticker. */
+.specials__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--sp-3);
+}
+.special {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+    padding: var(--sp-4);
+    border: 1px solid var(--rule-strong);
+    background-color: #fff;
+}
+.special__kind {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+}
+.special__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 28px;
+    color: var(--ink);
+}
+.special__terms { margin: 0; font-family: var(--font-sans); font-size: 15px; line-height: 24px; color: var(--ink-soft); }
+.special__expiry {
+    margin: auto 0 0;
+    padding-top: var(--sp-2);
+    border-top: 1px solid var(--rule);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+}
+.special__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule-strong);
+    padding-bottom: 4px;
+    align-self: flex-start;
+}
+.special__cta:hover { border-bottom-color: var(--ink); }
+
+/* A .dept that is itself a route — used by "No coupon needed", where
+   each tile leads to the page that carries the claim rather than
+   restating it here. The arrow is always visible: same reason as the
+   marque index, a hover-only route is no route on a touch screen. */
+.dept--link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.3s var(--ease);
+}
+.dept--link:hover { background-color: #fff; }
+.dept--link:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
+.dept__go {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: var(--sp-3);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--ink);
+}
+.dept__go i { transition: transform 0.3s var(--ease); }
+.dept--link:hover .dept__go i { transform: translateX(4px); }
+
+@media (prefers-reduced-motion: reduce) {
+    .dept--link, .dept__go i { transition: none; }
+    .dept--link:hover .dept__go i { transform: none; }
+}
+
+@media (max-width: 900px) {
+    .specials__grid { grid-template-columns: 1fr; }
+}
+
+/* Specials hero — the source puts a bright window band across the upper
+   frame, and a centred crop left the 50px title at 3.63:1. Anchoring low
+   trades that band for the shadowed floor: 4.10:1, and the car rides
+   higher in the frame for it. Measured, not guessed. */
+.subhero--specials .subhero__media img { object-position: 50% 86%; }
+
+@media (max-width: 900px) {
+    /* Authored for one column. The concrete structure behind the type is
+       mid-tone everywhere, so no crop clears it — measured, every
+       horizontal anchor sat between 3.9 and 4.1:1 on the lead. The scrim
+       is rebuilt into the reading band instead: 5.1:1 on both, with the
+       car and the shadow still doing their work. */
+    .subhero--specials .subhero__media::after {
+        background: linear-gradient(
+            180deg,
+            rgba(28, 28, 28, 0.60) 0%,
+            rgba(28, 28, 28, 0.68) 45%,
+            rgba(28, 28, 28, 0.74) 75%,
+            rgba(28, 28, 28, 0.90) 100%
+        );
+    }
+}
