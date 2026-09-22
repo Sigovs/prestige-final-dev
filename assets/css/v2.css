@@ -438,69 +438,80 @@
 
 /* ============================================================
    [11] NEWS & EVENTS  (news_events_v2.html)
-   Two devices, and neither is borrowed from the rest of the set.
-
-   .cal — the date IS the content, so it gets the weight: a numeral
-   block on the left at statrow scale, the event beside it, hairlines
-   between. An <ol> because these are in order, and <time> on every
-   date so the machine-readable value carries too.
-
-   .evrail — the client asked for a slideshow and supplied fourteen
-   frames. Native horizontal scroll with snap, not a JS carousel:
-   nothing autoplays, the visitor keeps the transport, and with
-   scripts off it is still a scrollable strip of photographs.
+   The client's whole objection to the old page was "no photo used
+   whatsoever", so the calendar is photographic: four portrait frames,
+   each carrying its date as a plate on the image and the event under
+   it. The frames are atmosphere from past events — never captioned as
+   the date they sit beside.
+   The strip below holds the ten the calendar does not use: native
+   horizontal scroll with snap, not a JS carousel. Nothing autoplays,
+   the visitor keeps the transport, and with scripts off it is still a
+   scrollable strip of photographs.
    ============================================================ */
-.cal {
+.evgrid {
     list-style: none;
     margin: 0;
     padding: 0;
-    border-top: 1px solid var(--rule);
-}
-.cal__item {
     display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: var(--sp-5);
-    align-items: baseline;
-    padding: var(--sp-4) 0;
-    border-bottom: 1px solid var(--rule);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--sp-3);
 }
-.cal__when {
+.evcard__media {
+    position: relative;
+    border-radius: 5px;                 /* media radius — design-system */
+    overflow: hidden;
+    background-color: var(--bg-deep);
+}
+.evcard__media img {
+    width: 100%;
+    height: clamp(300px, 30vw, 420px);
+    object-fit: cover;
+    display: block;
+}
+/* The date sits on the frame as a plate — its own opaque ground, so the
+   photograph underneath never decides whether it can be read. */
+.evcard__stamp {
+    position: absolute;
+    left: 0;
+    bottom: 0;
     display: flex;
     align-items: baseline;
-    gap: 10px;
+    gap: 8px;
+    padding: 10px 14px 12px;
+    background-color: var(--ink);
+    color: var(--cream);
     font-variant-numeric: tabular-nums;
 }
-.cal__month {
+.evcard__month {
     font-family: var(--font-sans);
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--ink-soft);
 }
-.cal__day {
+.evcard__day {
     font-family: var(--font-display);
-    white-space: nowrap;        /* "19–21" is one date, not two lines */
-    font-size: 50px;
+    font-size: 30px;
     font-weight: 700;
     line-height: 1;
-    letter-spacing: -1px;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+}
+.evcard__title {
+    margin: var(--sp-3) 0 0;
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
     color: var(--ink);
 }
-.cal__year {
+.evcard__when {
+    margin: 6px 0 0;
     font-family: var(--font-sans);
     font-size: 14px;
+    line-height: 22px;
     color: var(--ink-soft);
 }
-.cal__title {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 30px;
-    color: var(--ink);
-}
-.cal__note { margin: 4px 0 0; font-family: var(--font-sans); font-size: 15px; line-height: 24px; color: var(--ink-soft); }
 
 /* ── The photo strip ── */
 .evrail {
@@ -531,9 +542,17 @@
 .evrail__hint { margin: 0; color: var(--ink-soft); }
 
 @media (max-width: 900px) {
-    .cal__item { grid-template-columns: 1fr; gap: var(--sp-1); padding: var(--sp-3) 0; }
-    .cal__day { font-size: 40px; }
+    .evgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-2); }
+    .evcard__media img { height: 46vw; }
+    .evcard__day { font-size: 24px; }
+    .evcard__title { font-size: 17px; line-height: 24px; }
     .evrail { padding-top: var(--sp-4); padding-bottom: var(--sp-4); }
     .evrail__item { width: 74vw; }
     .evrail__item img { height: 92vw; }
+}
+
+@media (max-width: 600px) {
+    .evgrid { grid-template-columns: 1fr; gap: var(--sp-4); }
+    .evcard__media img { height: 78vw; }
+    .evcard__day { font-size: 30px; }
 }
