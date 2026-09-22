@@ -400,3 +400,38 @@
         );
     }
 }
+
+/* ============================================================
+   [10] MARQUE PARTS PAGES  (lamborghini_/pagani_/karma_parts_v2)
+   One spine, three marques. The coverage list reuses the warranty
+   page's .qa — a definition list on hairlines is what "model →
+   what we carry for it" actually is, and the set does not need a
+   fourth card grid to say it. --models tightens it, because these
+   answers are one line rather than a paragraph.
+   Lotus has no page here: it already has a working store.
+   ============================================================ */
+.qa--models .qa__item {
+    grid-template-columns: 4fr 8fr;
+    padding: var(--sp-3) 0;
+    align-items: baseline;
+}
+.qa--models .qa__q { font-size: 20px; line-height: 28px; max-width: none; }
+.qa--models .qa__a { font-size: 15px; line-height: 24px; }
+
+/* The cross-link row at the foot of a marque page — three, not four. */
+.brands__grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+@media (max-width: 900px) {
+    .qa--models .qa__item { grid-template-columns: 1fr; gap: 4px; padding: var(--sp-2) 0; }
+    .qa--models .qa__q { font-size: 18px; line-height: 26px; }
+    .brands__grid--three { grid-template-columns: 1fr; }
+    .brands__grid--three .brand-card { border-right: none; border-bottom: 1px solid var(--rule); }
+    .brands__grid--three .brand-card:last-child { border-bottom: none; }
+}
+
+/* Pagani hero — the marque page ran on a 960px thumbnail, which is not a
+   hero at any viewport. Replaced with the studio frame from the client's
+   own Pagani CDN (4999px, downscaled to 2560). The car sits low in the
+   source with a deep field of studio grey above it, so the frame anchors
+   below centre to keep the car whole and drop the empty air. */
+.subhero--pagani .subhero__media img { object-position: 50% 62%; }
