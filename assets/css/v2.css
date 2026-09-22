@@ -226,9 +226,44 @@
    card the dealer fills when there IS something — styled now so
    it drops in without a second design pass.
    ============================================================ */
-.specials__none { max-width: var(--w-standard); }
+/* Empty state: copy holds the measure, the part takes the space an offer
+   would have taken. The image is capped at 340px against a 444px original
+   so it still resolves on a 2x screen. */
+.specials__none {
+    display: grid;
+    grid-template-columns: minmax(0, var(--w-standard)) 1fr;
+    gap: var(--sp-5);
+    align-items: center;
+}
+.specials__none-copy { max-width: var(--w-standard); }
 .specials__none-lead { color: var(--ink); }
 .specials__none-body { margin-top: var(--sp-3); color: var(--ink-soft); }
+.specials__none-art {
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    justify-self: end;
+    align-self: end;
+    /* Sunk under the following section rather than sitting on top of it.
+       The first 94px of the drop only clears the gap to that section's top
+       edge; the rest is how deep the part goes. It works because both
+       sections are z-index:1 and the later one paints over the earlier —
+       so the cut is the real section edge, not a mask that has to be kept
+       in step with the background. Shallow on purpose: the edge grounds
+       the part, it does not swallow it. */
+    margin-bottom: -122px;
+}
+@media (max-width: 900px) {
+    .specials__none {
+        grid-template-columns: 1fr;
+        gap: var(--sp-4);
+    }
+    .specials__none-art {
+        justify-self: end;
+        max-width: 240px;
+        margin-bottom: -96px;
+    }
+}
 
 /* Offer card — unused until an offer exists; see the markup template
    in specials_v2.html. Squared, hairline, no shadow: a coupon here is
@@ -594,4 +629,95 @@
     .postgrid { grid-template-columns: 1fr; }
     .post__media img,
     .post--empty .post__media--empty { height: 62vw; }
+}
+
+/* ============================================================
+   [12] SINGLE POST  (news_post_v2.html)
+   The article template every post kind renders into. Body measure is
+   the system's --w-standard so a long read behaves like a long read;
+   the furniture (lede, subhead, inline figure, pull quote) all comes
+   from the existing type ramp rather than a second one.
+   ============================================================ */
+.article { max-width: var(--w-standard); }
+.article__lede {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 20px;
+    line-height: 32px;
+    color: var(--ink);
+}
+.article__p {
+    margin: var(--sp-3) 0 0;
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 30px;
+    color: var(--ink-soft);
+}
+.article__h2 {
+    margin: var(--sp-5) 0 0;
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 34px;
+    letter-spacing: -0.3px;
+    color: var(--ink);
+}
+/* An inline figure breaks the measure — it is the one thing in the body
+   allowed wider than the text, because a photograph at reading width is
+   a thumbnail. */
+.article__figure {
+    margin: var(--sp-5) 0 0;
+    width: 100%;
+}
+/* Above this width there is room to the right of the measure, so the figure
+   takes it: a photograph set to reading width is a thumbnail. */
+@media (min-width: 1100px) {
+    .article__figure { width: 880px; }
+}
+.article__figure img {
+    width: 100%;
+    height: clamp(280px, 38vw, 520px);
+    object-fit: cover;
+    display: block;
+    border-radius: 5px;             /* media radius — design-system */
+    background-color: var(--bg-deep);
+}
+.article__caption {
+    margin: 12px 0 0;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--ink-soft);
+}
+.article__foot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    margin-top: var(--sp-5);
+    padding-top: var(--sp-4);
+    border-top: 1px solid var(--rule);
+}
+
+/* The kind chip also has to sit on a photograph at the head of a post,
+   where the ink fill would disappear into the scrim. */
+.post__meta--head { margin-top: 0; margin-bottom: var(--sp-2); color: rgba(237, 234, 228, 0.82); }
+.post__kind--on-dark {
+    background-color: var(--cream);
+    color: var(--ink);
+    box-shadow: none;
+}
+
+/* A whole card is one link — the card was already the hit area. */
+.post__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+.post__link:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+@media (max-width: 900px) {
+    .article__lede { font-size: 18px; line-height: 29px; }
+    .article__p { font-size: 16px; line-height: 27px; }
+    .article__h2 { font-size: 22px; line-height: 30px; margin-top: var(--sp-4); }
+    .article__figure img { height: 62vw; }
 }
