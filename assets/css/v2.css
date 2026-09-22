@@ -75,3 +75,42 @@
     max-width: 260px;
 }
 .service__num { color: var(--ink-muted); }
+
+
+/* ============================================================
+   [3] COLLISION HERO — a finished car in the workshop bay
+   The source is 5481x2731 with the car on the LEFT and a deep black
+   field on the right; the hero's type sits bottom-left, so a plain
+   `cover` would put cream over a white car. The frame is widened past
+   the viewport and anchored left, which slides the car across to the
+   right half and leaves the dark doorway wall under the reading zone.
+   Legibility is fixed here, at the background layer, rather than by
+   deepening the scrim over everything.
+   ============================================================ */
+.subhero--collision .subhero__media img {
+    width: 155%;
+    max-width: none;            /* main.css:45 caps every img at 100% — the slide needs past it */
+    object-position: 0% 62%;
+}
+@media (max-width: 900px) {
+    /* Mobile is authored, not inherited. In one column the lead runs the full
+       width, so no horizontal slide clears the car's body — measured, it held
+       at 3.7:1 right across the left half, and sliding far enough to fix it
+       (82%) left a black rectangle with no car in it. So the crop keeps the
+       car and the scrim is rebuilt instead: weighted into the reading band
+       rather than deepened everywhere, which puts the lead at 5.2:1 with the
+       subject still the subject. */
+    .subhero--collision .subhero__media img {
+        width: 100%;
+        object-position: 42% 58%;
+    }
+    .subhero--collision .subhero__media::after {
+        background: linear-gradient(
+            180deg,
+            rgba(28, 28, 28, 0.58) 0%,
+            rgba(28, 28, 28, 0.72) 42%,
+            rgba(28, 28, 28, 0.76) 74%,
+            rgba(28, 28, 28, 0.90) 100%
+        );
+    }
+}
