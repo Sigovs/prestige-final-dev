@@ -49,6 +49,20 @@ the conversation — but it is not a product page until those arrive.
 The footer's Service column is identical on all eight v2 pages; regenerate it from
 one source if it drifts, which it did twice while these pages were being added.
 
+**The v2 set is walkable (Sept 2026).** Every page in it links only to other v2
+pages, and a crawl from `index_v2.html` reaches all sixteen with no broken target:
+`srp_v2`, `vdp_v2`, `about_our_dealership_v2`, `our_story_v2` and `contact_v2` are
+link-only copies of the originals — same content, nav and footer repointed — so a
+reviewer cannot fall out of the set and get stranded on a page whose nav predates
+the September round. Regenerate them from the originals if the originals change.
+
+**Still dead by design** (no page exists yet, listed so nobody hunts for a bug):
+Privacy / Terms / Sitemap, the Store and Research nav items, the News & Events
+links on the home page, and Explore Auto Spa / Marine / Prestige Energy. The seven
+marque tiles point at `srp_v2.html?make=…` for now — the inventory ignores the
+query, so it lands on the full list; the client's tracker defers real brand pages
+until after launch.
+
 **v2 review set (Sept 2026):** `index_v2.html`, `service_v2.html` and
 `schedule_service_v2.html` link only to each other (logo → index_v2, Service →
 service_v2, Schedule → schedule_service) so a reviewer stays inside v2; the
