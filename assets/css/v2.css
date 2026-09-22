@@ -83,12 +83,15 @@
    field on the right; the hero's type sits bottom-left, so a plain
    `cover` would put cream over a white car. The frame is widened past
    the viewport and anchored left, which slides the car across to the
-   right half and leaves the dark doorway wall under the reading zone.
+   right half and leaves the dark doorway wall under the reading zone —
+   far enough to clear the type, not so far that the car leaves frame.
    Legibility is fixed here, at the background layer, rather than by
    deepening the scrim over everything.
    ============================================================ */
 .subhero--collision .subhero__media img {
-    width: 155%;
+    width: 125%;                /* 155% slid the car's tail off the right edge — clipped by the
+                                   container, which is a bug and not a crop. At 125% the frame
+                                   reaches 80% of the source: the car whole, with air behind it. */
     max-width: none;            /* main.css:45 caps every img at 100% — the slide needs past it */
     object-position: 0% 62%;
 }
@@ -104,15 +107,8 @@
         width: 100%;
         object-position: 42% 58%;
     }
-    .subhero--collision .subhero__media::after {
-        background: linear-gradient(
-            180deg,
-            rgba(28, 28, 28, 0.58) 0%,
-            rgba(28, 28, 28, 0.72) 42%,
-            rgba(28, 28, 28, 0.76) 74%,
-            rgba(28, 28, 28, 0.90) 100%
-        );
-    }
+    /* its scrim now comes from the class-wide mobile rule at the end of
+       this file — measured there, not per page */
 }
 
 
@@ -333,25 +329,74 @@
     .specials__grid { grid-template-columns: 1fr; }
 }
 
-/* Specials hero — the source puts a bright window band across the upper
-   frame, and a centred crop left the 50px title at 3.63:1. Anchoring low
-   trades that band for the shadowed floor: 4.10:1, and the car rides
-   higher in the frame for it. Measured, not guessed. */
-.subhero--specials .subhero__media img { object-position: 50% 86%; }
+/* ============================================================
+   [7] SPECIALS HERO — the crop is decided by the car, not by the meter
+   First pass anchored the frame low (86%) because it measured better,
+   and it clipped the roofline: a car cut by its container is a bug, not
+   a crop. The order is the other way round — the frame is set where the
+   car reads whole, with air above it, and legibility is then bought at
+   the background layer.
+   At 50% 45% the car sits complete in frame but the type crosses its
+   body, so the scrim is rebuilt rather than deepened flat: measured,
+   the 50px title goes 3.62 → 4.4:1 and the lead 6.6 → 7.7:1. Same scrim
+   at every width, because the subject sits behind the type at every
+   width — there is nothing for a mobile variant to do differently here.
+   ============================================================ */
+.subhero--specials .subhero__media img { object-position: 50% 45%; }
+.subhero--specials .subhero__media::after {
+    background: linear-gradient(
+        180deg,
+        rgba(28, 28, 28, 0.60) 0%,
+        rgba(28, 28, 28, 0.66) 45%,
+        rgba(28, 28, 28, 0.72) 72%,
+        rgba(28, 28, 28, 0.90) 100%
+    );
+}
 
+/* ============================================================
+   [8] CONCIERGE HERO — where the crop is allowed to land
+   A 3:2 photograph in a 2.55:1 band loses something whichever way it
+   is cut; what matters is what the cut lands on. Centred, it sliced
+   the Huracán's front bumper along the bottom edge — a subject kissing
+   the frame, which reads as an accident. Anchored low the same band
+   cuts the top of the transporter's box instead: a large container
+   cropped by a letterbox reads as intended, and the car — the actual
+   subject — is whole. Contrast is unaffected (6.2:1 / 5.7:1), so the
+   scrim stays as the component defines it.
+   ============================================================ */
+.subhero--concierge .subhero__media img { object-position: 50% 74%; }
+
+/* Parts hero — the subject is the factory carton, and a centred crop cut
+   it off along the bottom edge. Anchored at 66% the box stands complete
+   on the shop floor and the Aventador's wheel becomes a deliberate close
+   crop, which is how a wheel is normally shown. 4.3:1 / 6.1:1. */
+.subhero--parts .subhero__media img { object-position: 50% 66%; }
+
+/* Warranty hero — centred, the raised car was a dark band along the top
+   and the lower half was empty workbench: the subject was not the
+   dominant mass. Anchored high, the car on the lift fills the frame and
+   the shop recedes under it, which is also what the page is about.
+   4.0:1 / 7.4:1. */
+.subhero--warranty .subhero__media img { object-position: 50% 26%; }
+
+
+/* ============================================================
+   [9] SUBHERO SCRIM ON MOBILE — a class fix, not three patches
+   The component's gradient was tuned against desktop type. At 390px the
+   lead drops to 16px and runs the full column, so it crosses whatever
+   the photograph has there — and measured one page at a time, the v2
+   heroes came in between 4.3 and 4.6:1 against a 4.5 floor. Rather than
+   deepen three heroes individually, the reading band is weighted once
+   for every subhero at this width. Verified on all six.
+   ============================================================ */
 @media (max-width: 900px) {
-    /* Authored for one column. The concrete structure behind the type is
-       mid-tone everywhere, so no crop clears it — measured, every
-       horizontal anchor sat between 3.9 and 4.1:1 on the lead. The scrim
-       is rebuilt into the reading band instead: 5.1:1 on both, with the
-       car and the shadow still doing their work. */
-    .subhero--specials .subhero__media::after {
+    .subhero .subhero__media::after {
         background: linear-gradient(
             180deg,
             rgba(28, 28, 28, 0.60) 0%,
-            rgba(28, 28, 28, 0.68) 45%,
-            rgba(28, 28, 28, 0.74) 75%,
-            rgba(28, 28, 28, 0.90) 100%
+            rgba(28, 28, 28, 0.70) 45%,
+            rgba(28, 28, 28, 0.76) 74%,
+            rgba(28, 28, 28, 0.92) 100%
         );
     }
 }
