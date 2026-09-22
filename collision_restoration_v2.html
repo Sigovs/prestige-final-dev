@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
-    <title>Our Service — Prestige Imports</title>
-    <meta name="description" content="Prestige Imports service — the largest Lamborghini service department in the country. Factory-trained technicians, genuine OEM parts, and expert care for luxury and exotic vehicles in North Miami Beach.">
+    <title>Certified Collision Center, Paint &amp; Concours Restoration — Prestige Imports</title>
+    <meta name="description" content="Factory-certified collision center and paint shop at Prestige Imports, North Miami Beach — structural and panel repair to manufacturer specification, color matching, paint correction, PPF, and concours restoration for luxury, exotic, and collector cars.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,9 +14,6 @@
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css">
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 
-    <!-- Leaflet — open-source map (leafletjs.com) for the Visit section -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 
     <link rel="stylesheet" href="assets/css/tokens.css">
     <link rel="stylesheet" href="assets/css/main.css?v=19">
@@ -176,293 +173,145 @@
 
     <main class="page-about__main">
 
-        <!-- ═══════════ HERO ═══════════ -->
-        <section class="subhero" aria-labelledby="svc-hero-title" data-reveal>
+        <!-- ═══════════ HERO — a car in the shop doorway ═══════════ -->
+        <section class="subhero subhero--collision" aria-labelledby="cr-hero-title" data-reveal>
             <div class="subhero__media" aria-hidden="true">
-                <video autoplay muted loop playsinline preload="metadata">
-                    <source src="assets/videos/hero3_sept26.mp4" type="video/mp4">
-                </video>
+                <img src="assets/images/services/Collision Paint &amp; Concours Restoration.jpg" alt="" fetchpriority="high">
             </div>
             <div class="subhero__inner">
-                <span class="eyebrow-stamp eyebrow-stamp--light reveal-side">Service</span>
-                <h1 class="t-h1 subhero__title reveal-side" id="svc-hero-title">Our Service.</h1>
-                <p class="t-lead subhero__lead reveal-side">The largest Lamborghini service department in the country — factory-trained care, genuine OEM parts, and expertise for every luxury and exotic vehicle.</p>
+                <span class="eyebrow-stamp eyebrow-stamp--light reveal-side">Collision &amp; Restoration</span>
+                <h1 class="t-h1 subhero__title reveal-side" id="cr-hero-title">Put right. Properly.</h1>
+                <p class="t-lead subhero__lead reveal-side">A factory-certified collision center and paint shop for luxury, exotic, and collector cars — repaired to manufacturer specification, with genuine parts, by technicians the manufacturer trained.</p>
                 <div class="subhero__actions reveal-up">
-                    <a class="btn btn--on-dark btn--solid" href="schedule_service_v2.html"><span>Schedule Service</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
-                    <a class="btn btn--on-dark" href="#"><span>Our Specials</span></a>
+                    <a class="btn btn--on-dark btn--solid" href="#estimate"><span>Request an Estimate</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+                    <a class="btn btn--on-dark" href="tel:+18332905148"><span>+1 (833) 290-5148</span><i class="ph ph-phone" aria-hidden="true"></i></a>
                 </div>
             </div>
         </section>
 
 
-        <!-- ═══════════ INTRO+STATS (sticky) — FACTORY overlaps it on scroll ═══════════ -->
-        <div class="sticky-stack">
-        <section class="section section--sticky" id="why" data-reveal>
+        <!-- ═══════════ WHY CERTIFIED ═══════════ -->
+        <section class="section section--overlap section--flat-top" data-reveal>
             <div class="sub-wrap">
                 <div class="sub-prose">
-                    <span class="eyebrow-stamp reveal-side">Why Prestige</span>
-                    <h2 class="t-h2 sub-prose__title reveal-side">Why choose us over the average garage?</h2>
-                    <p class="t-lead sub-prose__body reveal-side">When it's time to service your luxury automobile, you can count on Prestige Imports to get the job done — effectively, efficiently, and to the standard these cars deserve.</p>
-                    <p class="t-body sub-prose__body reveal-side">We're the largest Lamborghini service department in the country, with factory-trained technicians and the knowledge, experience, and equipment for the full range of luxury and premium vehicles — from routine maintenance to repairs and parts replacement.</p>
-
-                    <div class="statrow reveal-up">
-                        <div class="statrow__cell">
-                            <div class="statrow__num">#<span data-count>1</span></div>
-                            <div class="t-micro statrow__label">Largest Lamborghini service in the U.S.</div>
-                        </div>
-                        <div class="statrow__cell">
-                            <div class="statrow__num">OEM</div>
-                            <div class="t-micro statrow__label">Genuine factory-approved parts</div>
-                        </div>
-                        <div class="statrow__cell">
-                            <div class="statrow__num"><span data-count>14</span>+</div>
-                            <div class="t-micro statrow__label">Luxury &amp; exotic marques serviced</div>
-                        </div>
-                    </div>
+                    <span class="eyebrow-stamp reveal-side">Certified</span>
+                    <h2 class="t-h2 sub-prose__title reveal-side">Why certification isn't a formality here.</h2>
+                    <p class="t-lead sub-prose__body reveal-side">Any body shop can straighten steel. These cars aren't steel — aluminum structures, carbon panels, bonded joints, and factory paint systems that a general shop has neither the training nor the equipment to put back correctly.</p>
+                    <p class="t-body sub-prose__body reveal-side">Certification means the manufacturer trained our technicians and approved the equipment they work with. Repairs are carried out to manufacturer specification using genuine parts — which is also what protects the car's value. A documented, certified repair is the difference between a car with history and a car with a problem.</p>
                 </div>
             </div>
         </section>
 
 
-        <!-- ═══════════ FACTORY EXPERTISE — media + text ═══════════ -->
-        <section class="section section--overlap section--flat-top" style="background-color: var(--bg-soft);" data-reveal>
-            <div class="sub-wrap">
-                <div class="mediatext">
-                    <div class="mediatext__media reveal-left">
-                        <img src="assets/images/service/service_bay1.jpg" alt="A technician in the Prestige Imports service department">
-                    </div>
-                    <div class="mediatext__body">
-                        <span class="eyebrow-stamp reveal-side">Factory Expertise</span>
-                        <h2 class="t-h2 mediatext__body-title reveal-side" style="margin-top: var(--sp-2);">Trained on the cars we service.</h2>
-                        <p class="t-body reveal-side">Our technicians are professionally trained for high-end models — certified experts with top-notch equipment who know these cars inside and out.</p>
-                        <p class="t-body reveal-side">Proper service by the right hands extends your vehicle's lifespan and keeps it performing exactly as it was engineered to.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        </div><!-- /.sticky-stack -->
-
-
-        <!-- ═══════════ THE DIFFERENCE — kept per client ("all seems decent up to The Difference"); no longer sticky, nothing overlaps it ═══════════ -->
-        <section class="section" data-reveal>
+        <!-- ═══════════ WHAT'S COVERED — connected grid ═══════════ -->
+        <section class="section section--overlap section--flat-top" style="background-color: var(--bg-soft);" aria-labelledby="cr-covered" data-reveal>
             <div class="sub-wrap">
                 <div class="sub-head">
-                    <span class="eyebrow-stamp reveal-side">The Difference</span>
-                    <h2 class="t-h2 sub-head__title reveal-side">Built for luxury and exotic care.</h2>
+                    <span class="eyebrow-stamp reveal-side">The Work</span>
+                    <h2 class="t-h2 sub-head__title reveal-side" id="cr-covered">From a parking-lot scrape to a full restoration.</h2>
                 </div>
-                <div class="dept-grid dept-grid--cards">
+                <div class="dept-grid">
                     <div class="dept reveal-up">
-                        <i class="ph ph-gear-six dept__icon" aria-hidden="true"></i>
-                        <h3 class="t-h4 dept__title">Factory-Trained Technicians</h3>
-                        <p class="t-small dept__copy">Certified specialists trained on high-end models — not generalists.</p>
+                        <i class="ph ph-wrench dept__icon" aria-hidden="true"></i>
+                        <h3 class="t-h4 dept__title">Collision Repair</h3>
+                        <p class="t-small dept__copy">Structural and panel repair to manufacturer specification, with genuine OEM parts.</p>
+                    </div>
+                    <div class="dept reveal-up">
+                        <i class="ph ph-paint-brush dept__icon" aria-hidden="true"></i>
+                        <h3 class="t-h4 dept__title">Paint &amp; Refinish</h3>
+                        <p class="t-small dept__copy">Color matching, blending, and specialty finishes applied in a controlled booth.</p>
                     </div>
                     <div class="dept reveal-up">
                         <i class="ph ph-shield-check dept__icon" aria-hidden="true"></i>
-                        <h3 class="t-h4 dept__title">Genuine OEM Parts</h3>
-                        <p class="t-small dept__copy">Factory-approved parts, always — quality we won't compromise.</p>
+                        <h3 class="t-h4 dept__title">Correction &amp; Protection</h3>
+                        <p class="t-small dept__copy">Paint correction, ceramic coating, and paint protection film.</p>
                     </div>
                     <div class="dept reveal-up">
-                        <i class="ph ph-wrench dept__icon" aria-hidden="true"></i>
-                        <h3 class="t-h4 dept__title">The Right Equipment</h3>
-                        <p class="t-small dept__copy">Top-notch tools and diagnostics built for luxury and exotic marques.</p>
-                    </div>
-                    <div class="dept reveal-up">
-                        <i class="ph ph-list-checks dept__icon" aria-hidden="true"></i>
-                        <h3 class="t-h4 dept__title">Large Parts Inventory</h3>
-                        <p class="t-small dept__copy">An extensive stock on hand, with direct parts ordering for customers.</p>
+                        <i class="ph ph-medal dept__icon" aria-hidden="true"></i>
+                        <h3 class="t-h4 dept__title">Concours Restoration</h3>
+                        <p class="t-small dept__copy">Body and finish work for collector cars being taken back to show standard.</p>
                     </div>
                 </div>
             </div>
         </section>
 
 
-        <!-- ═══════════════════════════════════════════════════════════════════
-             COMMENTED OUT 2026-09-21 on the client's request ("'Beyond the average
-             garage' adds no value, same for everything underneath except the lead
-             form"). The Difference stays — "all seems decent up to The Difference".
-             Kept verbatim inside an inert <template> so the nested HTML comments
-             survive; nothing inside renders or loads. What went with it: both dark
-             tonal beats (the two visual breaks), the marque list, the amenities
-             photos. RESTORE: delete the <template> open/close tags.
-             Blocks: Beyond the average garage · Marques We Service ·
-             Precision in every detail · Amenities · Schedule band.
-             ═══════════════════════════════════════════════════════════════════ -->
-        <template data-cut="2026-09-21">
-        <!-- ═══════════ VISUAL BREAK 1 — tall image, overlaps The Difference ═══════════ -->
-        <section class="visualbreak visualbreak--tall section--overlap" data-reveal>
-            <div class="visualbreak__media" aria-hidden="true">
-                <img src="assets/images/service/service_bay2.jpg" alt="" data-parallax="30">
-            </div>
-            <div class="visualbreak__inner">
-                <h2 class="t-h1 visualbreak__title reveal-side">Beyond the average garage.</h2>
-            </div>
-        </section>
-
-
-        <!-- ═══════════ MARQUES WE SERVICE — media + text ═══════════ -->
+        <!-- ═══════════ THE PAINT — media + text ═══════════ -->
         <section class="section" data-reveal>
             <div class="sub-wrap">
                 <div class="mediatext mediatext--flip">
                     <div class="mediatext__media reveal-right">
-                        <img src="assets/images/service/Marques We Service.jpg" alt="Exotic marques serviced at Prestige Imports">
+                        <img src="assets/images/services/collision_sept26.jpg" alt="A technician spraying a panel in the Prestige Imports paint booth">
                     </div>
                     <div class="mediatext__body">
-                        <span class="eyebrow-stamp reveal-side">Marques We Service</span>
-                        <h2 class="t-h2 mediatext__body-title reveal-side" style="margin-top: var(--sp-2);">Every luxury and exotic marque.</h2>
-                        <p class="t-body reveal-side">Audi, Aston Martin, Bentley, BMW, Ferrari, Lamborghini, Lotus, Maserati, Mercedes-Benz, Pagani, Porsche, Rolls-Royce, Land Rover — and other luxury vehicles.</p>
-                        <p class="t-body reveal-side">Whatever you drive, it's in expert hands.</p>
+                        <span class="eyebrow-stamp reveal-side">Paint</span>
+                        <h2 class="t-h2 mediatext__body-title reveal-side" style="margin-top: var(--sp-2);">Color, matched — not approximated.</h2>
+                        <p class="t-body reveal-side">On a factory color that has spent years in the Florida sun, the match is the entire job. A panel that is merely close is a panel that everybody notices, from three feet away, in daylight.</p>
+                        <p class="t-body reveal-side">So the booth, the materials, and the time spent mixing are not where we save money — they are the reason the repair disappears.</p>
                     </div>
                 </div>
             </div>
         </section>
 
 
-        <!-- ═══════════ VISUAL BREAK 2 — video ═══════════ -->
-        <section class="visualbreak visualbreak--tall section--overlap" data-reveal>
-            <div class="visualbreak__media" aria-hidden="true">
-                <video autoplay muted loop playsinline preload="metadata">
-                    <source src="assets/videos/hero3.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="visualbreak__inner">
-                <h2 class="t-h1 visualbreak__title reveal-side">Precision in every detail.</h2>
-            </div>
-        </section>
-
-
-        <!-- ═══════════ AMENITIES — image cards ═══════════ -->
-        <section class="section section--overlap section--flat-top" style="background-color: var(--bg-soft);" data-reveal>
+        <!-- ═══════════ ESTIMATE — short form + facts ═══════════ -->
+        <section class="section section--overlap section--flat-top" id="estimate" style="background-color: var(--bg-soft);" aria-labelledby="cr-form-title" data-reveal>
             <div class="sub-wrap">
                 <div class="sub-head">
-                    <span class="eyebrow-stamp reveal-side">More Than a Service Bay</span>
-                    <h2 class="t-h2 sub-head__title reveal-side">Care from drop-off to return.</h2>
-                </div>
-                <div class="imgcard-grid">
-                    <article class="imgcard reveal-up">
-                        <div class="imgcard__media"><img src="assets/images/services/Concierge Pickup, Delivery &amp; Enclosed Transport.jpg" alt="Concierge pickup, delivery and enclosed transport"></div>
-                        <h3 class="t-h4 imgcard__title">Concierge Pickup &amp; Delivery</h3>
-                        <p class="t-small imgcard__copy">We collect your vehicle and return it — including enclosed transport.</p>
-                    </article>
-                    <article class="imgcard reveal-up">
-                        <div class="imgcard__media"><img src="assets/images/services/Collision Paint &amp; Concours Restoration.jpg" alt="Collision, paint and concours restoration"></div>
-                        <h3 class="t-h4 imgcard__title">Collision &amp; Restoration</h3>
-                        <p class="t-small imgcard__copy">Collision, paint, and concours-grade restoration under one roof.</p>
-                    </article>
-                    <article class="imgcard reveal-up">
-                        <div class="imgcard__media"><img src="assets/images/spa/auto_hero.jpg" alt="Detailing at Prestige Auto Spa"></div>
-                        <h3 class="t-h4 imgcard__title">Detailing</h3>
-                        <p class="t-small imgcard__copy">Premium detailing to finish — your car leaves better than it arrived.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ═══════════ SCHEDULE — feature band ═══════════ -->
-        <section class="section cta-band feature-band section--overlap section--flat-top" data-reveal>
-            <div class="feature-band__media" aria-hidden="true">
-                <img src="assets/images/service/Schedule your service.jpg" alt="" data-parallax>
-            </div>
-            <div class="sub-wrap feature-band__inner">
-                <span class="eyebrow-stamp eyebrow-stamp--light reveal-side" style="margin: 0 auto;">Book Now</span>
-                <h2 class="t-h2 cta-band__title reveal-side" style="margin-top: var(--sp-2);">Schedule your service.</h2>
-                <p class="t-body reveal-side" style="color: rgba(237,234,228,0.82); max-width: 54ch; margin: var(--sp-3) auto 0;">Quick appointments where possible. Book online or call our service line directly at <a href="tel:+18332905148" style="color: var(--cream);">+1 (833) 290-5148</a>.</p>
-                <div class="cta-band__actions reveal-up">
-                    <a class="btn btn--on-dark btn--solid" href="schedule_service_v2.html"><span>Schedule Service</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
-                    <a class="btn btn--on-dark" href="#"><span>Our Specials</span></a>
-                </div>
-            </div>
-        </section>
-
-
-        </template><!-- /cut 2026-09-21 -->
-
-        <!-- ═══════════ SERVICE REQUEST — form + map ═══════════ -->
-        <section class="section" id="contact-form" style="background-color: var(--bg-soft);" aria-labelledby="svc-ask-heading" data-reveal>
-            <div class="sub-wrap">
-                <div class="sub-head">
-                    <span class="eyebrow-stamp reveal-side">Service Request</span>
-                    <h2 class="t-h2 sub-head__title reveal-side" id="svc-ask-heading">Tell us what your car needs.</h2>
-                    <p class="t-body sub-head__lead reveal-side">Send a request and our service team will be in touch — or call <a href="tel:+18332905148">+1 (833) 290-5148</a>.</p>
+                    <span class="eyebrow-stamp reveal-side">Request an Estimate</span>
+                    <h2 class="t-h2 sub-head__title reveal-side" id="cr-form-title">Tell us what happened.</h2>
+                    <p class="t-body sub-head__lead reveal-side">Our team will call to walk through it and ask for photos of the damage — or reach the collision center directly at <a href="tel:+18332905148">+1 (833) 290-5148</a>.</p>
                 </div>
 
                 <div class="contact-split">
                     <form class="contact-form reveal-up" action="#" method="post" novalidate>
                         <div class="field--row">
                             <div class="field">
-                                <label class="field__label" for="svc-name">Name</label>
-                                <input class="field__input" id="svc-name" name="name" type="text" autocomplete="name" required>
+                                <label class="field__label sched__label" for="cr-name">Name <span class="sched__req" aria-hidden="true">*</span></label>
+                                <input class="field__input" id="cr-name" name="name" type="text" autocomplete="name" required>
                             </div>
                             <div class="field">
-                                <label class="field__label" for="svc-phone">Phone</label>
-                                <input class="field__input" id="svc-phone" name="phone" type="tel" autocomplete="tel">
+                                <label class="field__label sched__label" for="cr-phone">Phone <span class="sched__req" aria-hidden="true">*</span></label>
+                                <input class="field__input" id="cr-phone" name="phone" type="tel" autocomplete="tel" required>
                             </div>
                         </div>
                         <div class="field--row">
                             <div class="field">
-                                <label class="field__label" for="svc-email">Email</label>
-                                <input class="field__input" id="svc-email" name="email" type="email" autocomplete="email" required>
+                                <label class="field__label sched__label" for="cr-email">Email <span class="sched__req" aria-hidden="true">*</span></label>
+                                <input class="field__input" id="cr-email" name="email" type="email" autocomplete="email" required>
                             </div>
                             <div class="field">
-                                <label class="field__label" for="svc-vehicle">Vehicle</label>
-                                <input class="field__input" id="svc-vehicle" name="vehicle" type="text" placeholder="Year · Make · Model">
+                                <label class="field__label sched__label" for="cr-vehicle">Vehicle <span class="sched__req" aria-hidden="true">*</span></label>
+                                <input class="field__input" id="cr-vehicle" name="vehicle" type="text" placeholder="Year · Make · Model" required>
                             </div>
                         </div>
                         <div class="field">
-                            <label class="field__label" for="svc-message">What does it need?</label>
-                            <textarea class="field__textarea" id="svc-message" name="message" rows="5"></textarea>
+                            <span class="field__label sched__label">Is this an insurance claim?</span>
+                            <div class="segmented" role="radiogroup" aria-label="Is this an insurance claim?">
+                                <label class="segmented__opt"><input type="radio" name="claim" value="yes"><span>Yes</span></label>
+                                <label class="segmented__opt"><input type="radio" name="claim" value="no"><span>No</span></label>
+                                <label class="segmented__opt"><input type="radio" name="claim" value="unsure" checked><span>Not sure</span></label>
+                            </div>
                         </div>
-                        <button class="btn btn--solid" type="submit"><span>Request Service</span><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
+                        <div class="field">
+                            <label class="field__label sched__label" for="cr-what">What happened? <span class="sched__req" aria-hidden="true">*</span></label>
+                            <textarea class="field__textarea" id="cr-what" name="message" rows="4" placeholder="A scrape, a collision, paint that has gone flat, a restoration you're planning — in your own words." required></textarea>
+                        </div>
+                        <button class="btn btn--solid" type="submit"><span>Request Estimate</span><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
                     </form>
 
-                    <div class="about-map" id="about-map" role="img" aria-label="Map showing Prestige Imports service at 14780 Biscayne Blvd, North Miami Beach, FL"></div>
+                    <dl class="sched__facts reveal-up">
+                        <div class="sched__fact"><dt class="t-caption sched__fact-k">Hours</dt><dd class="t-small sched__fact-v">Mon – Fri &middot; 8:00 AM – 5:30 PM</dd></div>
+                        <div class="sched__fact"><dt class="t-caption sched__fact-k">Direct line</dt><dd class="t-small sched__fact-v"><a href="tel:+18332905148">+1 (833) 290-5148</a></dd></div>
+                        <div class="sched__fact"><dt class="t-caption sched__fact-k">Dealership</dt><dd class="t-small sched__fact-v">14780 Biscayne Blvd, North Miami Beach, FL 33181</dd></div>
+                        <div class="sched__fact"><dt class="t-caption sched__fact-k">Can't drive it?</dt><dd class="t-small sched__fact-v"><a href="concierge_transport_v2.html">We collect the car</a></dd></div>
+                    </dl>
                 </div>
             </div>
         </section>
-
-
-        <!-- COMMENTED OUT 2026-09-21 (client): final "Book your next service." band. RESTORE: delete the <template> tags. -->
-        <template data-cut="2026-09-21">
-        <!-- ═══════════ FINAL CTA ═══════════ -->
-        <section class="section cta-band section--overlap" data-reveal>
-            <div class="sub-wrap">
-                <span class="eyebrow-stamp eyebrow-stamp--light reveal-side" style="margin: 0 auto;">Keep It Running</span>
-                <h2 class="t-h2 cta-band__title reveal-side" style="margin-top: var(--sp-2);">Book your next service.</h2>
-                <p class="t-body reveal-side" style="color: rgba(237,234,228,0.66); max-width: 52ch; margin: var(--sp-3) auto 0;">Factory-trained care and genuine parts — the standard your car was built for.</p>
-                <div class="cta-band__actions reveal-up">
-                    <a class="btn btn--on-dark btn--solid" href="schedule_service_v2.html"><span>Schedule Service</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
-                    <a class="btn btn--on-dark" href="#"><span>Our Specials</span></a>
-                </div>
-            </div>
-        </section>
-
-        </template><!-- /cut 2026-09-21 -->
 
     </main>
 
-
-    <!-- Leaflet — open-source map. Pins the dealership; OpenStreetMap tiles (B&W via CSS). -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script>
-        (function () {
-            var el = document.getElementById('about-map');
-            if (!el || typeof L === 'undefined') return;
-            var coords = [25.9087, -80.1620];   // 14780 Biscayne Blvd, North Miami Beach, FL
-            var map = L.map(el, { scrollWheelZoom: false, attributionControl: true }).setView(coords, 17);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-            }).addTo(map);
-            L.marker(coords).addTo(map)
-                .bindPopup('<b>Prestige Imports</b><br>14780 Biscayne Blvd<br>North Miami Beach, FL 33181');
-        })();
-    </script>
-
-
-    <!-- ════════════════════════════════════════════════════════════
-         FOOTER — reused from main.css (.site-footer), identical to SRP/VDP.
-         ════════════════════════════════════════════════════════════ -->
     <footer class="site-footer" id="contact">
         <div class="site-footer__inner">
 

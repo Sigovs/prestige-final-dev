@@ -1,0 +1,77 @@
+/* ============================================================
+   PRESTIGE IMPORTS — V2 LAYER  (Sept 2026 review set)
+   Loaded ONLY by *_v2.html, after main.css / subpage.css.
+   The original pages never link this file, so they render exactly
+   as they did before the September round.
+   Holds two things and nothing else:
+     [1] the Services cards that now have a destination;
+     [2] contrast / type-floor corrections inside that same block.
+   ============================================================ */
+
+
+/* ============================================================
+   [1] SERVICES CARDS THAT LEAD SOMEWHERE
+   "Beyond the Sale" lists four offers; two of them now have their
+   own page. The whole card is the target (it was already
+   position:relative + cursor:pointer, designed to be clicked and
+   never wired), and the caret is what tells a card with a
+   destination apart from one without — a route has to be
+   findable AND distinguishable from the thing beside it.
+   ============================================================ */
+.service__link {
+    color: inherit;
+    text-decoration: none;
+}
+/* Stretched link — the card is the hit area, the <a> stays the
+   accessible name. Sits under the caret, above nothing else. */
+.service__link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 5px;
+}
+.service__link:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+}
+.service__go {
+    display: inline-block;
+    margin-left: 7px;
+    font-size: 14px;
+    vertical-align: -1px;
+    color: var(--ink-muted);
+    transition:
+        transform 0.3s var(--ease),
+        color 0.3s ease;
+}
+.service--linked:hover .service__go {
+    transform: translate(2px, -2px);
+    color: var(--ink);
+}
+/* A card with no destination must not claim to be clickable. */
+.service:not(.service--linked) { cursor: default; }
+
+@media (prefers-reduced-motion: reduce) {
+    .service__go { transition: color 0.3s ease; }
+    .service--linked:hover .service__go { transform: none; }
+}
+
+
+/* ============================================================
+   [2] CONTRAST + TYPE FLOOR inside the Services block
+   Measured on the rendered card ground (--bg-soft #EAEAEA):
+     .service__body  rgba(28,28,28,.55) @12.5px → 3.63:1  (needs 4.5)
+     .service__num   rgba(28,28,28,.40) @10px   → 2.41:1
+   The body copy is content a visitor has to read: it goes to the
+   14px floor and to --ink-soft (7.8:1). The numerals are an
+   ornamental index — the title carries the meaning — so they keep
+   their size, are hidden from assistive tech, and are only lifted
+   far enough to stop reading as a rendering fault.
+   ============================================================ */
+.service__body {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 260px;
+}
+.service__num { color: var(--ink-muted); }

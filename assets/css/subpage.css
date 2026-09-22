@@ -202,6 +202,9 @@
     text-align: center;
 }
 .cta-band__title { color: var(--cream); }
+/* A section intro sitting on the dark .statband takes the same cream. */
+.statband .sub-head__title { color: var(--cream); }
+.statband .sub-head__lead  { color: rgba(237, 234, 228, 0.72); }
 
 /* Feature band — a .cta-band with a full-bleed photo behind it, darkened
    for contrast. Centered cream content + CTA. Pairs with [data-parallax]. */
@@ -312,7 +315,8 @@
     background-color: transparent;
     border-color: rgba(237, 234, 228, 0.16);
 }
-.dept-grid--ink .dept__num { color: var(--cream); }
+.dept-grid--ink .dept__num,
+.dept-grid--ink .dept__title { color: var(--cream); }
 .dept-grid--ink .dept__copy { color: rgba(237, 234, 228, 0.62); }
 
 /* ── Tint — dark filled cards, cream text (a different colour) ── */
@@ -1042,7 +1046,7 @@
     text-transform: none;
     color: var(--ink-soft);
 }
-.sched__req { color: var(--ink-muted); }
+.sched__req { color: var(--ink-soft); }      /* muted measured 3.38:1 on --bg-soft — below AA */
 .sched__form .field__input::placeholder,
 .sched__form .field__textarea::placeholder { color: var(--ink-muted); }
 

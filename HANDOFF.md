@@ -20,7 +20,9 @@ Deployed via **GitHub Pages** from `main` → https://sigovs.github.io/prestige-
 | `contact.html` | Contact Us (subpage — channel cards, form + Leaflet map, hours) |
 | `index_v2.html` | **Sept 2026 v2 review set** — Home with the September asset/copy updates (new hero videos, Services images, Auto Spa copy, Sell video). `index.html` is untouched. |
 | `service_v2.html` | Sept 2026 v2 — Our Services with hero3 video; The Difference / both visual breaks / Marques / Amenities / both CTA bands are **commented out inline** (`<template data-cut>` — delete the tags to restore). `service.html` untouched. |
-| `schedule_service.html` | Sept 2026 — Service → Schedule Service lead form: pinned shop-photo rail + 3-chapter form; rail photo follows the chapter (`[data-rail]` in main.js). |
+| `schedule_service_v2.html` | Sept 2026 — Service → Schedule Service lead form: pinned shop-photo rail + 3-chapter form; rail photo follows the chapter (`[data-rail]` in main.js). |
+| `concierge_transport_v2.html` | Sept 2026 — landing page for "Beyond the Sale" card 01. Hero → proposition + statrow → three numbered steps on the dark `.statband` → enclosed-transport mediatext → "Request a pickup" form. |
+| `collision_restoration_v2.html` | Sept 2026 — landing page for card 02. Hero → why certification → connected 4-up coverage grid → paint mediatext → "Request an estimate" form (carries the insurance-claim `.segmented`). |
 | `design.html` | Internal design-system reference (no site nav) |
 
 Nav dropdowns: **About** (Our Dealership / Our Story) and **Service** (Service +
@@ -28,10 +30,26 @@ Order Parts, 2 columns). Both use `.nav-drop` (hover-open, `<button>`+panel).
 Inventory uses the older `.srp-drop` mega-menu. Order-Parts / Schedule / Specials
 links are `#` placeholders (pages not built yet).
 
+**Service landing pages (Sept 2026).** The client asked for a page per "Beyond
+the Sale" element. Cards 01 and 02 are built and are now links (caret affordance);
+03 Parts and 04 Warranty are deliberately still flat — a card with no destination
+must not look clickable. Both new pages reuse the existing subpage components
+(`.subhero`, `.sub-prose`, `.statrow`, `.statband` + `.dept-grid--ink`,
+`.mediatext`, `.contact-form`, `.sched__facts`); no decorative full-bleed breaks,
+because the client cut exactly those from Our Services as "adding no value".
+Copy facts came from the live site's `clp-*` pages, rewritten — the live SEO copy
+itself was not carried over. **Still missing from the client:** the enclosed-transport
+coverage area, which is why neither page states a radius (the form asks for the
+car's location instead).
+
 **v2 review set (Sept 2026):** `index_v2.html`, `service_v2.html` and
-`schedule_service.html` link only to each other (logo → index_v2, Service →
+`schedule_service_v2.html` link only to each other (logo → index_v2, Service →
 service_v2, Schedule → schedule_service) so a reviewer stays inside v2; the
-original pages are byte-identical to before the update. To go live, copy the
+original pages are byte-identical to before the update (they stay on
+`subpage.css?v=19` and never link `v2.css`; the v2 pages are on `?v=21`).
+`assets/css/v2.css` is the v2-only layer: the Services-card links plus the
+contrast / 14px-floor corrections inside that block (`.service__body` was
+12.5px at 3.63:1). To go live, copy the
 v2 files over the originals and point their links back at `index.html` /
 `service.html`. Raw client files are in `UPDATES SEPTEMBER 2026/` (untracked).
 
