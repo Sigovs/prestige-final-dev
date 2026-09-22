@@ -22,6 +22,7 @@ Deployed via **GitHub Pages** from `main` → https://sigovs.github.io/prestige-
 | `service_v2.html` | Sept 2026 v2 — Our Services with hero3 video; The Difference / both visual breaks / Marques / Amenities / both CTA bands are **commented out inline** (`<template data-cut>` — delete the tags to restore). `service.html` untouched. |
 | `schedule_service_v2.html` | Sept 2026 — Service → Schedule Service lead form: pinned shop-photo rail + 3-chapter form; rail photo follows the chapter (`[data-rail]` in main.js). |
 | `concierge_transport_v2.html` | Sept 2026 — landing page for "Beyond the Sale" card 01. Hero → proposition + statrow → three numbered steps on the dark `.statband` → enclosed-transport mediatext → "Request a pickup" form. |
+| `oem_parts_v2.html` | Sept 2026 — landing page for card 03. Hero → why OEM → the marque index (reuses the home `.brand-card`) → order form (VIN / part number / fit-it segmented). The four Order-Parts nav items and the index cards all point here and preselect the marque via `[data-fill]` in main.js. |
 | `collision_restoration_v2.html` | Sept 2026 — landing page for card 02. Hero → why certification → connected 4-up coverage grid → paint mediatext → "Request an estimate" form (carries the insurance-claim `.segmented`). |
 | `design.html` | Internal design-system reference (no site nav) |
 
@@ -31,8 +32,8 @@ Inventory uses the older `.srp-drop` mega-menu. Order-Parts / Schedule / Special
 links are `#` placeholders (pages not built yet).
 
 **Service landing pages (Sept 2026).** The client asked for a page per "Beyond
-the Sale" element. Cards 01 and 02 are built and are now links (caret affordance);
-03 Parts and 04 Warranty are deliberately still flat — a card with no destination
+the Sale" element. Cards 01, 02 and 03 are built and are now links (caret affordance);
+04 Warranty is deliberately still flat — a card with no destination
 must not look clickable. Both new pages reuse the existing subpage components
 (`.subhero`, `.sub-prose`, `.statrow`, `.statband` + `.dept-grid--ink`,
 `.mediatext`, `.contact-form`, `.sched__facts`); no decorative full-bleed breaks,

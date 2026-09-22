@@ -114,3 +114,60 @@
         );
     }
 }
+
+
+/* ============================================================
+   [4] OEM PARTS — the marque index  (oem_parts_v2.html)
+   The page's spine is "which marque, which part", so it reuses the
+   home page's .brand-card rather than inventing a fourth card style.
+   The home grid is five across (seven brands, two rows); parts is the
+   four we are the authorized source for, so the track is re-counted.
+   ============================================================ */
+.brands__grid--parts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+/* On the home page the marque name is visually hidden (the accessible name
+   rides on the logo's alt) and "Explore Brand" only fades in on hover —
+   there the tile IS the brand and the whole card is plainly one target.
+   Here the index is the page's spine and "Order Parts" is the route, so
+   both are shown: a route that exists only on hover does not exist at all
+   on a touch screen. */
+.brands__grid--parts .brand-card__name {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    clip: auto;
+    clip-path: none;
+    white-space: normal;
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: var(--ink);
+}
+.brands__grid--parts .brand-card__cta {
+    opacity: 1;
+    transform: none;
+}
+.brands__grid--parts .brand-card__link { gap: 14px; }
+
+/* The note under the index — the marques that are not on it. */
+.parts__note {
+    margin: var(--sp-4) 0 0;
+    max-width: 62ch;
+    color: var(--ink-soft);
+}
+
+@media (max-width: 900px) {
+    .brands__grid--parts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .brands__grid--parts .brand-card:nth-child(2n) { border-right: none; }
+    .brands__grid--parts .brand-card:nth-child(-n+2) { border-bottom: 1px solid var(--rule); }
+}
+@media (max-width: 600px) {
+    .brands__grid--parts { grid-template-columns: 1fr; }
+    .brands__grid--parts .brand-card { border-right: none; border-bottom: 1px solid var(--rule); }
+    .brands__grid--parts .brand-card:last-child { border-bottom: none; }
+}

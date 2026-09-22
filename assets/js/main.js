@@ -554,6 +554,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
+    // --- Links that preselect a form control -------------------------------
+    // A link carrying [data-fill="<selector>"] + [data-fill-value] sets that
+    // control before the browser jumps to the anchor, so "Lamborghini Parts"
+    // lands on the order form with the marque already chosen. Cross-page links
+    // pass the value in the hash and it is applied on arrival. Bound to the
+    // attribute, not to a page, and the form still works with JS switched off —
+    // the control is simply left on its default.
+    const applyFill = (sel, value) => {
+        const field = document.querySelector(sel);
+        if (!field || !value) return false;
+        const ok = field.tagName === 'SELECT'
+            ? [...field.options].some(o => { if (o.value === value || o.textContent.trim() === value) { field.value = o.value || o.textContent.trim(); return true; } return false; })
+            : (field.value = value, true);
+        if (ok) field.dispatchEvent(new Event('change', { bubbles: true }));
+        return ok;
+    };
+
+    document.querySelectorAll('[data-fill][data-fill-value]').forEach(link => {
+        link.addEventListener('click', () => {
+            const sel = link.getAttribute('data-fill');
+            const value = link.getAttribute('data-fill-value');
+            // same page: set it now. other page: carry it in the hash.
+            if (!applyFill(sel, value)) {
+                const href = link.getAttribute('href') || '';
+                if (href.includes('#')) link.setAttribute('href', href + (href.includes('=') ? '&' : ':') + encodeURIComponent(value));
+            }
+        });
+    });
+
+    // arriving from another page — hash looks like "#order:Lamborghini"
+    if (location.hash.includes(':')) {
+        const [frag, raw] = location.hash.slice(1).split(':');
+        const target = document.getElementById(frag);
+        const source = document.querySelector(`[data-fill][data-fill-value="${CSS.escape(decodeURIComponent(raw))}"]`);
+        if (source) applyFill(source.getAttribute('data-fill'), decodeURIComponent(raw));
+        if (target) target.scrollIntoView();
+    }
+
+
     // --- Pinned rail follows the chapter in view ---------------------------
     // A [data-rail] holds [data-rail-img="n"] / [data-rail-cap="n"] layers;
     // sibling [data-rail-chapter="n"] blocks scroll past it. The chapter that
