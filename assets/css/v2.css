@@ -437,122 +437,161 @@
 .subhero--pagani .subhero__media img { object-position: 50% 62%; }
 
 /* ============================================================
-   [11] NEWS & EVENTS  (news_events_v2.html)
-   The client's whole objection to the old page was "no photo used
-   whatsoever", so the calendar is photographic: four portrait frames,
-   each carrying its date as a plate on the image and the event under
-   it. The frames are atmosphere from past events — never captioned as
-   the date they sit beside.
-   The strip below holds the ten the calendar does not use: native
-   horizontal scroll with snap, not a JS carousel. Nothing autoplays,
-   the visitor keeps the transport, and with scripts off it is still a
-   scrollable strip of photographs.
+   [11] NEWS & EVENTS — a post index, not a calendar
+   (news_events_v2.html)
+   The page is a blog index: three kinds of post — Event, Recap and
+   News — share one grid and one card, and the kind is a chip rather
+   than a separate layout, so a new post of any kind drops in without
+   a design decision. A lead post sits above it for whatever is next.
+   The card is photograph-first because the client's objection to the
+   old page was that it had none.
    ============================================================ */
-.evgrid {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+
+/* ── Lead post ── */
+.lead {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: var(--sp-3);
+    grid-template-columns: 5fr 7fr;
+    gap: var(--sp-5);
+    align-items: center;
+    margin-bottom: var(--sp-7);
 }
-.evcard__media {
-    position: relative;
+.lead__media {
     border-radius: 5px;                 /* media radius — design-system */
     overflow: hidden;
     background-color: var(--bg-deep);
 }
-.evcard__media img {
+.lead__media img {
     width: 100%;
-    height: clamp(300px, 30vw, 420px);
+    height: clamp(300px, 34vw, 460px);
     object-fit: cover;
     display: block;
 }
-/* The date sits on the frame as a plate — its own opaque ground, so the
-   photograph underneath never decides whether it can be read. */
-.evcard__stamp {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    padding: 10px 14px 12px;
-    background-color: var(--ink);
-    color: var(--cream);
-    font-variant-numeric: tabular-nums;
+.lead__title {
+    margin: var(--sp-2) 0 0;
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 46px;
+    letter-spacing: -0.5px;
+    color: var(--ink);
 }
-.evcard__month {
+.lead__excerpt {
+    margin: var(--sp-3) 0 var(--sp-4);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 28px;
+    color: var(--ink-soft);
+    max-width: 54ch;
+}
+
+/* ── The grid ── */
+.postgrid__head { margin-top: var(--sp-6); }
+.postgrid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--sp-5) var(--sp-3);
+}
+.post__media {
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: var(--bg-deep);
+}
+.post__media img {
+    width: 100%;
+    height: clamp(220px, 21vw, 300px);
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s var(--ease);
+}
+.post:hover .post__media img { transform: scale(1.03); }
+
+/* meta line: what kind of post, and when — the kind is a chip because
+   it is a category, and the date is plain because it is a fact */
+.post__meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: var(--sp-3);
     font-family: var(--font-sans);
     font-size: 14px;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+}
+.post__kind {
+    display: inline-flex;
+    align-items: center;
+    height: 22px;
+    padding: 0 9px;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
+    line-height: 22px;
+    background-color: var(--ink);
+    color: var(--cream);
 }
-.evcard__day {
-    font-family: var(--font-display);
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: -0.5px;
-    white-space: nowrap;
+/* Recap and News read as secondary to a dated Event — outline, not fill.
+   The label is never the only carrier: the copy says which it is too. */
+.post__kind--recap,
+.post__kind--news {
+    background-color: transparent;
+    color: var(--ink);
+    box-shadow: inset 0 0 0 1px var(--rule-strong);
 }
-.evcard__title {
-    margin: var(--sp-3) 0 0;
+.post__title {
+    margin: var(--sp-2) 0 0;
     font-family: var(--font-display);
     font-size: 20px;
     font-weight: 600;
     line-height: 27px;
     color: var(--ink);
 }
-.evcard__when {
+.post__excerpt {
     margin: 6px 0 0;
     font-family: var(--font-sans);
-    font-size: 14px;
-    line-height: 22px;
+    font-size: 15px;
+    line-height: 24px;
     color: var(--ink-soft);
 }
 
-/* ── The photo strip ── */
-.evrail {
+/* The placeholder has to look like one — an empty frame, not a photograph. */
+.post--empty .post__media--empty {
     display: flex;
-    gap: var(--sp-2);
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
-    scroll-padding-left: max(4vw, 20px);
-    padding: var(--sp-5) max(4vw, 20px);
-    /* the strip is full-bleed inside a .section, so it needs its own gutter */
+    align-items: center;
+    justify-content: center;
+    height: clamp(220px, 21vw, 300px);
+    background-color: transparent;
+    border: 1px dashed var(--rule-strong);
 }
-.evrail:focus-visible { outline: 2px solid var(--ink); outline-offset: -4px; }
-.evrail__item {
-    margin: 0;
-    flex: 0 0 auto;
-    width: clamp(240px, 26vw, 380px);
-    scroll-snap-align: start;
+.post__plus {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--ink-muted);
 }
-.evrail__item img {
-    width: 100%;
-    height: clamp(320px, 34vw, 480px);
-    object-fit: cover;
-    display: block;
-    border-radius: 5px;            /* media radius — design-system */
-    background-color: var(--bg-deep);
+.post--empty .post__title,
+.post--empty .post__excerpt { color: var(--ink-soft); }
+
+@media (prefers-reduced-motion: reduce) {
+    .post__media img { transition: none; }
+    .post:hover .post__media img { transform: none; }
 }
-.evrail__hint { margin: 0; color: var(--ink-soft); }
 
 @media (max-width: 900px) {
-    .evgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-2); }
-    .evcard__media img { height: 46vw; }
-    .evcard__day { font-size: 24px; }
-    .evcard__title { font-size: 17px; line-height: 24px; }
-    .evrail { padding-top: var(--sp-4); padding-bottom: var(--sp-4); }
-    .evrail__item { width: 74vw; }
-    .evrail__item img { height: 92vw; }
+    .lead { grid-template-columns: 1fr; gap: var(--sp-3); margin-bottom: var(--sp-5); }
+    .lead__media img { height: 60vw; }
+    .lead__title { font-size: 30px; line-height: 36px; }
+    .postgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-4) var(--sp-2); }
+    .post__media img,
+    .post--empty .post__media--empty { height: 36vw; }
+    .post__title { font-size: 17px; line-height: 24px; }
 }
-
 @media (max-width: 600px) {
-    .evgrid { grid-template-columns: 1fr; gap: var(--sp-4); }
-    .evcard__media img { height: 78vw; }
-    .evcard__day { font-size: 30px; }
+    .postgrid { grid-template-columns: 1fr; }
+    .post__media img,
+    .post--empty .post__media--empty { height: 62vw; }
 }

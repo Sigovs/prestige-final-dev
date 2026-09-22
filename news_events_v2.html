@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="assets/css/tokens.css">
     <link rel="stylesheet" href="assets/css/main.css?v=19">
     <link rel="stylesheet" href="assets/css/subpage.css?v=21">
-    <link rel="stylesheet" href="assets/css/v2.css?v=22">
+    <link rel="stylesheet" href="assets/css/v2.css?v=24">
 
     <script src="assets/js/main.js?v=9" defer></script>
 </head>
@@ -190,104 +190,173 @@
         </section>
 
 
-        <!-- ═══════════ THE CALENDAR ═══════════════════════════════════════
-             The four dates are the client's own, supplied 2026-09; the
-             weekdays they gave check out against the calendar, which is how
-             the years below were settled (Nov 7–8 and Nov 14 are Saturdays
-             and a Sunday in 2026; Jan 17 is a Sunday in 2027, and Feb 19–21
-             falls Friday to Sunday that year).
-
-             The photograph on each card is ATMOSPHERE, from the client's own
-             library of past events — it is never captioned as the event it
-             sits beside, and its alt text describes the frame rather than
-             claiming one. Nothing else about these events is stated, because
-             nothing else was given: no times, no venues, no ticketing.
-             ════════════════════════════════════════════════════════════ -->
-        <section class="section section--overlap section--flat-top" id="calendar" aria-labelledby="ne-calendar" data-reveal>
+        <!-- ═══════════ THE INDEX ══════════════════════════════════════════
+             This is a POST index, not a calendar. Three kinds of post share
+             one grid:
+               Event  — a date the client has given us. The four here are
+                        theirs, and the weekdays they supplied check out
+                        against the calendar, which is how the years were set.
+               Recap  — a photograph from their own library with a title that
+                        describes the frame. NO DATE IS SHOWN on these: the
+                        EXIF is unreliable (one file carries 2021 on a car
+                        announced in 2023, another the 1 Jan default), and a
+                        wrong date is worse than none.
+               News   — nothing real exists yet, so the card is a visible
+                        placeholder rather than an invented article.
+             Nothing here states a time, a venue or a ticket price, because
+             none was given. Do not invent them.
+             ═══════════════════════════════════════════════════════════ -->
+        <section class="section section--overlap section--flat-top" id="calendar" aria-labelledby="ne-index" data-reveal>
             <div class="sub-wrap">
-                <div class="sub-head">
-                    <span class="eyebrow-stamp reveal-side">On The Calendar</span>
-                    <h2 class="t-h2 sub-head__title reveal-side" id="ne-calendar">Four dates in the diary.</h2>
-                    <p class="t-body sub-head__lead reveal-side">The dates are fixed; the detail follows closer to each one. Call the showroom and we&rsquo;ll tell you what&rsquo;s open.</p>
+
+                <!-- Lead post — the next date on the list -->
+                <article class="lead reveal-up">
+                    <div class="lead__media">
+                        <img src="assets/images/events/ev12.jpg" alt="Porsches lined up at the Miami circuit" width="900" height="1125">
+                    </div>
+                    <div class="lead__body">
+                        <div class="post__meta">
+                            <span class="post__kind post__kind--event">Event</span>
+                            <time datetime="2026-11-07">Sat 7 – Sun 8 Nov 2026</time>
+                        </div>
+                        <h2 class="lead__title" id="ne-index">Time To Drive</h2>
+                        <p class="lead__excerpt">Two days in November — the next thing on the calendar. The date is fixed; timings and detail follow closer to the weekend. Call the showroom and we&rsquo;ll tell you what&rsquo;s open.</p>
+                        <a class="btn btn--solid" href="contact_v2.html"><span>Ask About It</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+
+                <div class="sub-head postgrid__head">
+                    <span class="eyebrow-stamp reveal-side">More</span>
+                    <h2 class="t-h2 sub-head__title reveal-side">Everything else on the wire.</h2>
+                    <p class="t-body sub-head__lead reveal-side">Dates we&rsquo;re holding, evenings that already happened, and the odd piece of news.</p>
                 </div>
 
-                <ol class="evgrid">
-                    <li class="evcard reveal-up">
-                        <div class="evcard__media">
-                            <img src="assets/images/events/ev12.jpg" alt="Porsches lined up at the Miami circuit" loading="lazy" width="900" height="1125">
-                            <span class="evcard__stamp" aria-hidden="true">
-                                <span class="evcard__month">Nov</span>
-                                <span class="evcard__day">7–8</span>
-                            </span>
-                        </div>
-                        <h3 class="evcard__title">Time To Drive</h3>
-                        <p class="evcard__when"><time datetime="2026-11-07">Saturday and Sunday, 2026</time></p>
-                    </li>
-                    <li class="evcard reveal-up">
-                        <div class="evcard__media">
+                <ol class="postgrid">
+                    <li class="post reveal-up">
+                        <div class="post__media">
                             <img src="assets/images/events/ev05.jpg" alt="A convoy led by a Lamborghini Urus" loading="lazy" width="900" height="1125">
-                            <span class="evcard__stamp" aria-hidden="true">
-                                <span class="evcard__month">Nov</span>
-                                <span class="evcard__day">14</span>
-                            </span>
                         </div>
-                        <h3 class="evcard__title">Movember Bull Run</h3>
-                        <p class="evcard__when"><time datetime="2026-11-14">Saturday, 2026</time></p>
+                        <div class="post__meta">
+                            <span class="post__kind post__kind--event">Event</span>
+                            <time datetime="2026-11-14">Sat 14 Nov 2026</time>
+                        </div>
+                        <h3 class="post__title">Movember Bull Run</h3>
+                        <p class="post__excerpt">A Saturday run in November. Detail follows closer to the day.</p>
                     </li>
-                    <li class="evcard reveal-up">
-                        <div class="evcard__media">
+                    <li class="post reveal-up">
+                        <div class="post__media">
                             <img src="assets/images/events/ev04.jpg" alt="A Lamborghini Huracán STO on the road" loading="lazy" width="900" height="1125">
-                            <span class="evcard__stamp" aria-hidden="true">
-                                <span class="evcard__month">Jan</span>
-                                <span class="evcard__day">17</span>
-                            </span>
                         </div>
-                        <h3 class="evcard__title">Ride2Revive</h3>
-                        <p class="evcard__when"><time datetime="2027-01-17">Sunday, 2027</time></p>
+                        <div class="post__meta">
+                            <span class="post__kind post__kind--event">Event</span>
+                            <time datetime="2027-01-17">Sun 17 Jan 2027</time>
+                        </div>
+                        <h3 class="post__title">Ride2Revive</h3>
+                        <p class="post__excerpt">A Sunday ride in January. Detail follows closer to the day.</p>
                     </li>
-                    <li class="evcard reveal-up">
-                        <div class="evcard__media">
+                    <li class="post reveal-up">
+                        <div class="post__media">
                             <img src="assets/images/events/ev08.jpg" alt="A Pagani Huayra on the lawn at a concours" loading="lazy" width="900" height="1125">
-                            <span class="evcard__stamp" aria-hidden="true">
-                                <span class="evcard__month">Feb</span>
-                                <span class="evcard__day">19–21</span>
-                            </span>
                         </div>
-                        <h3 class="evcard__title">10th Annual Miami Concours</h3>
-                        <p class="evcard__when"><time datetime="2027-02-19">Friday to Sunday, 2027</time></p>
+                        <div class="post__meta">
+                            <span class="post__kind post__kind--event">Event</span>
+                            <time datetime="2027-02-19">19–21 Feb 2027</time>
+                        </div>
+                        <h3 class="post__title">10th Annual Miami Concours</h3>
+                        <p class="post__excerpt">Friday to Sunday. Detail follows closer to the weekend.</p>
+                    </li>
+                    <li class="post reveal-up">
+                        <div class="post__media">
+                            <img src="assets/images/events/ev11.jpg" alt="A Lamborghini Revuelto unveiled on a lit stage" loading="lazy" width="900" height="1125">
+                        </div>
+                        <div class="post__meta">
+                            <span class="post__kind post__kind--recap">Recap</span>
+                        </div>
+                        <h3 class="post__title">Revuelto, under the lights</h3>
+                        <p class="post__excerpt">The cover comes off in front of the people who will own them.</p>
+                    </li>
+                    <li class="post reveal-up">
+                        <div class="post__media">
+                            <img src="assets/images/events/ev02.jpg" alt="Guests photographing a Pagani at an evening reveal" loading="lazy" width="900" height="1125">
+                        </div>
+                        <div class="post__meta">
+                            <span class="post__kind post__kind--recap">Recap</span>
+                        </div>
+                        <h3 class="post__title">The room when the cover comes off</h3>
+                        <p class="post__excerpt">A Pagani, a full house, and several hundred phones.</p>
+                    </li>
+                    <li class="post reveal-up">
+                        <div class="post__media">
+                            <img src="assets/images/events/ev14.jpg" alt="A Lamborghini Revuelto on its plinth at an outdoor launch" loading="lazy" width="900" height="1125">
+                        </div>
+                        <div class="post__meta">
+                            <span class="post__kind post__kind--recap">Recap</span>
+                        </div>
+                        <h3 class="post__title">Revuelto on the lawn</h3>
+                        <p class="post__excerpt">Out of the showroom and onto the grass, where the crowd is.</p>
+                    </li>
+                    <li class="post reveal-up">
+                        <div class="post__media">
+                            <img src="assets/images/events/ev03.jpg" alt="A Pagani Huayra BC on display at an outdoor show" loading="lazy" width="900" height="1125">
+                        </div>
+                        <div class="post__meta">
+                            <span class="post__kind post__kind--recap">Recap</span>
+                        </div>
+                        <h3 class="post__title">Huayra BC, out in the open</h3>
+                        <p class="post__excerpt">Roped off, in daylight, with people three deep around it.</p>
+                    </li>
+                    <li class="post reveal-up">
+                        <div class="post__media">
+                            <img src="assets/images/events/ev06.jpg" alt="A Lamborghini race car in the paddock" loading="lazy" width="900" height="1125">
+                        </div>
+                        <div class="post__meta">
+                            <span class="post__kind post__kind--recap">Recap</span>
+                        </div>
+                        <h3 class="post__title">Race weekend, from the garage</h3>
+                        <p class="post__excerpt">The side of motorsport that happens before anyone goes out.</p>
+                    </li>
+                    <li class="post reveal-up">
+                        <div class="post__media">
+                            <img src="assets/images/events/ev10.jpg" alt="Guests at an evening reception" loading="lazy" width="900" height="1125">
+                        </div>
+                        <div class="post__meta">
+                            <span class="post__kind post__kind--recap">Recap</span>
+                        </div>
+                        <h3 class="post__title">An evening at the showroom</h3>
+                        <p class="post__excerpt">Not every event involves driving anywhere.</p>
+                    </li>
+                    <li class="post reveal-up">
+                        <div class="post__media">
+                            <img src="assets/images/events/ev13.jpg" alt="Czinger 21Cs on a mountain road at dusk" loading="lazy" width="900" height="1125">
+                        </div>
+                        <div class="post__meta">
+                            <span class="post__kind post__kind--recap">Recap</span>
+                        </div>
+                        <h3 class="post__title">Czingers, out of the city</h3>
+                        <p class="post__excerpt">Two of them, a long road, and the last of the light.</p>
+                    </li>
+                    <li class="post reveal-up">
+                        <div class="post__media">
+                            <img src="assets/images/events/ev07.jpg" alt="A hypercar parked outside a Miami storefront" loading="lazy" width="900" height="1125">
+                        </div>
+                        <div class="post__meta">
+                            <span class="post__kind post__kind--recap">Recap</span>
+                        </div>
+                        <h3 class="post__title">Parked where people can see it</h3>
+                        <p class="post__excerpt">A hypercar on a Miami street, doing its other job.</p>
+                    </li>
+                    <li class="post post--empty reveal-up">
+                        <div class="post__media post__media--empty" aria-hidden="true">
+                            <span class="post__plus">+</span>
+                        </div>
+                        <div class="post__meta">
+                            <span class="post__kind post__kind--news">News</span>
+                            <span>Placeholder</span>
+                        </div>
+                        <h3 class="post__title">An article goes here.</h3>
+                        <p class="post__excerpt">The third kind of post: a model announcement, a result, a piece of news from the wider car world. Written in the CMS, it drops into this grid beside the events and the recaps.</p>
                     </li>
                 </ol>
-            </div>
-        </section>
-
-
-        <!-- ═══════════ THE GALLERY — the client's own event photography ═══════════ -->
-        <section class="section section--overlap section--flat-top" style="background-color: var(--bg-soft);" aria-labelledby="ne-gallery" data-reveal>
-            <div class="sub-wrap">
-                <div class="sub-head">
-                    <span class="eyebrow-stamp reveal-side">Recently</span>
-                    <h2 class="t-h2 sub-head__title reveal-side" id="ne-gallery">What they actually look like.</h2>
-                    <p class="t-body sub-head__lead reveal-side">Ten more frames from the last few seasons — launches, track days, concours lawns and the evenings in between.</p>
-                </div>
-            </div>
-
-            <!-- Full-bleed rail: native horizontal scroll, snap per frame, no
-                 autoplay. The visitor keeps the transport. -->
-            <div class="evrail" tabindex="0" role="region" aria-label="Photographs from recent Prestige Imports events">
-                <figure class="evrail__item"><img src="assets/images/events/ev01.jpg" alt="The Prestige Imports showroom, with a Ferrari Testarossa parked outside" loading="lazy" width="900" height="720"></figure>
-                <figure class="evrail__item"><img src="assets/images/events/ev02.jpg" alt="Guests photographing a Pagani at an evening reveal" loading="lazy" width="900" height="1125"></figure>
-                <figure class="evrail__item"><img src="assets/images/events/ev03.jpg" alt="A Pagani Huayra BC on display at an outdoor show" loading="lazy" width="900" height="1125"></figure>
-                <figure class="evrail__item"><img src="assets/images/events/ev06.jpg" alt="A Lamborghini race car in the paddock" loading="lazy" width="900" height="1125"></figure>
-                <figure class="evrail__item"><img src="assets/images/events/ev07.jpg" alt="A hypercar parked outside a Miami storefront" loading="lazy" width="900" height="1125"></figure>
-                <figure class="evrail__item"><img src="assets/images/events/ev09.jpg" alt="Guests and cars in the pit lane at sunset" loading="lazy" width="900" height="1125"></figure>
-                <figure class="evrail__item"><img src="assets/images/events/ev10.jpg" alt="Guests at an evening reception" loading="lazy" width="900" height="1125"></figure>
-                <figure class="evrail__item"><img src="assets/images/events/ev11.jpg" alt="A Lamborghini Revuelto unveiled on a lit stage" loading="lazy" width="900" height="1125"></figure>
-                <figure class="evrail__item"><img src="assets/images/events/ev13.jpg" alt="Czinger 21Cs on a mountain road at dusk" loading="lazy" width="900" height="1125"></figure>
-                <figure class="evrail__item"><img src="assets/images/events/ev14.jpg" alt="A Lamborghini Revuelto on its plinth at a launch" loading="lazy" width="900" height="1125"></figure>
-            </div>
-
-            <div class="sub-wrap">
-                <p class="t-small evrail__hint reveal-up">Scroll the strip sideways &mdash; or use the arrow keys.</p>
             </div>
         </section>
 
