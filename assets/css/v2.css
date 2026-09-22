@@ -171,3 +171,51 @@
     .brands__grid--parts .brand-card { border-right: none; border-bottom: 1px solid var(--rule); }
     .brands__grid--parts .brand-card:last-child { border-bottom: none; }
 }
+
+
+/* ============================================================
+   [5] Q&A — the warranty page's own device  (warranty_v2.html)
+   Warranty has no process to number, no coverage to grid and no
+   marques to index: what an owner has is questions. So the spine is
+   an editorial question list — the question holds the left track and
+   the answer the right, separated by a hairline, with no box around
+   either. It is a <dl> because that is what it is, and it is the one
+   place on the v2 set where long-form answers carry a section.
+   Deliberately NOT another card grid: this set already has three.
+   ============================================================ */
+.qa { margin: 0; }
+.qa__item {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: var(--sp-5);
+    padding: var(--sp-4) 0;
+    border-top: 1px solid var(--rule);
+}
+.qa__item:last-child { border-bottom: 1px solid var(--rule); }
+.qa__q {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: 0;
+    color: var(--ink);
+    max-width: 20ch;          /* the questions break where they mean to */
+}
+.qa__a {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--ink-soft);
+    max-width: 62ch;
+}
+
+@media (max-width: 900px) {
+    .qa__item {
+        grid-template-columns: 1fr;
+        gap: var(--sp-2);
+        padding: var(--sp-3) 0;
+    }
+    .qa__q { font-size: 19px; line-height: 26px; max-width: none; }
+}

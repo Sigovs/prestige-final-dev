@@ -23,6 +23,7 @@ Deployed via **GitHub Pages** from `main` → https://sigovs.github.io/prestige-
 | `schedule_service_v2.html` | Sept 2026 — Service → Schedule Service lead form: pinned shop-photo rail + 3-chapter form; rail photo follows the chapter (`[data-rail]` in main.js). |
 | `concierge_transport_v2.html` | Sept 2026 — landing page for "Beyond the Sale" card 01. Hero → proposition + statrow → three numbered steps on the dark `.statband` → enclosed-transport mediatext → "Request a pickup" form. |
 | `oem_parts_v2.html` | Sept 2026 — landing page for card 03. Hero → why OEM → the marque index (reuses the home `.brand-card`) → order form (VIN / part number / fit-it segmented). The four Order-Parts nav items and the index cards all point here and preselect the marque via `[data-fill]` in main.js. |
+| `warranty_v2.html` | Sept 2026 — landing page for card 04. Hero → why coverage matters on an exotic → a five-question editorial Q&A (`.qa`, the set's only long-form list) → coverage enquiry form. **Names no provider, plan, term or price — we have none.** |
 | `collision_restoration_v2.html` | Sept 2026 — landing page for card 02. Hero → why certification → connected 4-up coverage grid → paint mediatext → "Request an estimate" form (carries the insurance-claim `.segmented`). |
 | `design.html` | Internal design-system reference (no site nav) |
 
@@ -32,16 +33,19 @@ Inventory uses the older `.srp-drop` mega-menu. Order-Parts / Schedule / Special
 links are `#` placeholders (pages not built yet).
 
 **Service landing pages (Sept 2026).** The client asked for a page per "Beyond
-the Sale" element. Cards 01, 02 and 03 are built and are now links (caret affordance);
-04 Warranty is deliberately still flat — a card with no destination
-must not look clickable. Both new pages reuse the existing subpage components
+the Sale" element. All four cards are built and are links (caret affordance). Both new pages reuse the existing subpage components
 (`.subhero`, `.sub-prose`, `.statrow`, `.statband` + `.dept-grid--ink`,
 `.mediatext`, `.contact-form`, `.sched__facts`); no decorative full-bleed breaks,
 because the client cut exactly those from Our Services as "adding no value".
 Copy facts came from the live site's `clp-*` pages, rewritten — the live SEO copy
-itself was not carried over. **Still missing from the client:** the enclosed-transport
-coverage area, which is why neither page states a radius (the form asks for the
-car's location instead).
+itself was not carried over. **Still missing from the client:** the enclosed-transport coverage
+area (so no page states a radius — the form asks where the car is instead) and
+every warranty specific: provider, plan names, terms, transferability, price.
+`warranty_v2.html` is written to be honest without them — it explains and invites
+the conversation — but it is not a product page until those arrive.
+
+The footer's Service column is identical on all seven v2 pages; regenerate it from
+one source if it drifts, which it did twice while these pages were being added.
 
 **v2 review set (Sept 2026):** `index_v2.html`, `service_v2.html` and
 `schedule_service_v2.html` link only to each other (logo → index_v2, Service →
