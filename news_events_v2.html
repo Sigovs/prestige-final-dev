@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
-    <title>Our Service — Prestige Imports</title>
-    <meta name="description" content="Prestige Imports service — the largest Lamborghini service department in the country. Factory-trained technicians, genuine OEM parts, and expert care for luxury and exotic vehicles in North Miami Beach.">
+    <title>News &amp; Events — Prestige Imports, North Miami Beach</title>
+    <meta name="description" content="Track days, charity runs and concours weekends with Prestige Imports, North Miami Beach. Four confirmed dates from November 2026 through February 2027, and photographs from recent events.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,9 +14,6 @@
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css">
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 
-    <!-- Leaflet — open-source map (leafletjs.com) for the Visit section -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 
     <link rel="stylesheet" href="assets/css/tokens.css">
     <link rel="stylesheet" href="assets/css/main.css?v=19">
@@ -177,292 +174,139 @@
     <main class="page-about__main">
 
         <!-- ═══════════ HERO ═══════════ -->
-        <section class="subhero" aria-labelledby="svc-hero-title" data-reveal>
+        <section class="subhero subhero--news" aria-labelledby="ne-hero-title" data-reveal>
             <div class="subhero__media" aria-hidden="true">
-                <video autoplay muted loop playsinline preload="metadata">
-                    <source src="assets/videos/hero3_sept26.mp4" type="video/mp4">
-                </video>
+                <img src="assets/images/events/events_hero.jpg" alt="" fetchpriority="high" width="2560" height="1100">
             </div>
             <div class="subhero__inner">
-                <span class="eyebrow-stamp eyebrow-stamp--light reveal-side">Service</span>
-                <h1 class="t-h1 subhero__title reveal-side" id="svc-hero-title">Our Service.</h1>
-                <p class="t-lead subhero__lead reveal-side">The largest Lamborghini service department in the country — factory-trained care, genuine OEM parts, and expertise for every luxury and exotic vehicle.</p>
+                <span class="eyebrow-stamp eyebrow-stamp--light reveal-side">News &amp; Events</span>
+                <h1 class="t-h1 subhero__title reveal-side" id="ne-hero-title">The year, in<br>dates and people.</h1>
+                <p class="t-lead subhero__lead reveal-side">Track days, charity runs and concours weekends — the part of owning one of these cars that happens with other people around.</p>
                 <div class="subhero__actions reveal-up">
-                    <a class="btn btn--on-dark btn--solid" href="schedule_service_v2.html"><span>Schedule Service</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
-                    <a class="btn btn--on-dark" href="specials_v2.html"><span>Our Specials</span></a>
+                    <a class="btn btn--on-dark btn--solid" href="#calendar"><span>What's Coming</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+                    <a class="btn btn--on-dark" href="tel:+18332906287"><span>+1 (833) 290-6287</span><i class="ph ph-phone" aria-hidden="true"></i></a>
                 </div>
             </div>
         </section>
 
 
-        <!-- ═══════════ INTRO+STATS (sticky) — FACTORY overlaps it on scroll ═══════════ -->
-        <div class="sticky-stack">
-        <section class="section section--sticky" id="why" data-reveal>
-            <div class="sub-wrap">
-                <div class="sub-prose">
-                    <span class="eyebrow-stamp reveal-side">Why Prestige</span>
-                    <h2 class="t-h2 sub-prose__title reveal-side">Why choose us over the average garage?</h2>
-                    <p class="t-lead sub-prose__body reveal-side">When it's time to service your luxury automobile, you can count on Prestige Imports to get the job done — effectively, efficiently, and to the standard these cars deserve.</p>
-                    <p class="t-body sub-prose__body reveal-side">We're the largest Lamborghini service department in the country, with factory-trained technicians and the knowledge, experience, and equipment for the full range of luxury and premium vehicles — from routine maintenance to repairs and parts replacement.</p>
-
-                    <div class="statrow reveal-up">
-                        <div class="statrow__cell">
-                            <div class="statrow__num">#<span data-count>1</span></div>
-                            <div class="t-micro statrow__label">Largest Lamborghini service in the U.S.</div>
-                        </div>
-                        <div class="statrow__cell">
-                            <div class="statrow__num">OEM</div>
-                            <div class="t-micro statrow__label">Genuine factory-approved parts</div>
-                        </div>
-                        <div class="statrow__cell">
-                            <div class="statrow__num"><span data-count>14</span>+</div>
-                            <div class="t-micro statrow__label">Luxury &amp; exotic marques serviced</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ═══════════ FACTORY EXPERTISE — media + text ═══════════ -->
-        <section class="section section--overlap section--flat-top" style="background-color: var(--bg-soft);" data-reveal>
-            <div class="sub-wrap">
-                <div class="mediatext">
-                    <div class="mediatext__media reveal-left">
-                        <img src="assets/images/service/service_bay1.jpg" alt="A technician in the Prestige Imports service department">
-                    </div>
-                    <div class="mediatext__body">
-                        <span class="eyebrow-stamp reveal-side">Factory Expertise</span>
-                        <h2 class="t-h2 mediatext__body-title reveal-side" style="margin-top: var(--sp-2);">Trained on the cars we service.</h2>
-                        <p class="t-body reveal-side">Our technicians are professionally trained for high-end models — certified experts with top-notch equipment who know these cars inside and out.</p>
-                        <p class="t-body reveal-side">Proper service by the right hands extends your vehicle's lifespan and keeps it performing exactly as it was engineered to.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        </div><!-- /.sticky-stack -->
-
-
-        <!-- ═══════════ THE DIFFERENCE — kept per client ("all seems decent up to The Difference"); no longer sticky, nothing overlaps it ═══════════ -->
-        <section class="section" data-reveal>
+        <!-- ═══════════ THE CALENDAR ═══════════════════════════════════════
+             The four dates are the client's own, supplied 2026-09; the
+             weekdays they gave check out against the calendar, which is how
+             the years below were settled (Nov 7–8 and Nov 14 are Saturdays
+             and a Sunday in 2026; Jan 17 is a Sunday in 2027, and Feb 19–21
+             falls Friday to Sunday that year).
+             NOTHING else about these events is stated, because nothing else
+             was given — no times, no venues, no ticketing. Do not invent it.
+             ════════════════════════════════════════════════════════════ -->
+        <section class="section section--overlap section--flat-top" id="calendar" aria-labelledby="ne-calendar" data-reveal>
             <div class="sub-wrap">
                 <div class="sub-head">
-                    <span class="eyebrow-stamp reveal-side">The Difference</span>
-                    <h2 class="t-h2 sub-head__title reveal-side">Built for luxury and exotic care.</h2>
+                    <span class="eyebrow-stamp reveal-side">On The Calendar</span>
+                    <h2 class="t-h2 sub-head__title reveal-side" id="ne-calendar">Four dates in the diary.</h2>
+                    <p class="t-body sub-head__lead reveal-side">The dates are fixed; the detail follows closer to each one. Call the showroom and we&rsquo;ll tell you what&rsquo;s open.</p>
                 </div>
-                <div class="dept-grid dept-grid--cards">
-                    <div class="dept reveal-up">
-                        <i class="ph ph-gear-six dept__icon" aria-hidden="true"></i>
-                        <h3 class="t-h4 dept__title">Factory-Trained Technicians</h3>
-                        <p class="t-small dept__copy">Certified specialists trained on high-end models — not generalists.</p>
-                    </div>
-                    <div class="dept reveal-up">
-                        <i class="ph ph-shield-check dept__icon" aria-hidden="true"></i>
-                        <h3 class="t-h4 dept__title">Genuine OEM Parts</h3>
-                        <p class="t-small dept__copy">Factory-approved parts, always — quality we won't compromise.</p>
-                    </div>
-                    <div class="dept reveal-up">
-                        <i class="ph ph-wrench dept__icon" aria-hidden="true"></i>
-                        <h3 class="t-h4 dept__title">The Right Equipment</h3>
-                        <p class="t-small dept__copy">Top-notch tools and diagnostics built for luxury and exotic marques.</p>
-                    </div>
-                    <div class="dept reveal-up">
-                        <i class="ph ph-list-checks dept__icon" aria-hidden="true"></i>
-                        <h3 class="t-h4 dept__title">Large Parts Inventory</h3>
-                        <p class="t-small dept__copy">An extensive stock on hand, with direct parts ordering for customers.</p>
-                    </div>
-                </div>
+
+                <ol class="cal">
+                    <li class="cal__item reveal-up">
+                        <div class="cal__when">
+                            <span class="cal__month">Nov</span>
+                            <span class="cal__day"><time datetime="2026-11-07">7</time>–<time datetime="2026-11-08">8</time></span>
+                            <span class="cal__year">2026</span>
+                        </div>
+                        <div class="cal__what">
+                            <h3 class="cal__title">Time To Drive</h3>
+                            <p class="cal__note">Saturday and Sunday.</p>
+                        </div>
+                    </li>
+                    <li class="cal__item reveal-up">
+                        <div class="cal__when">
+                            <span class="cal__month">Nov</span>
+                            <span class="cal__day"><time datetime="2026-11-14">14</time></span>
+                            <span class="cal__year">2026</span>
+                        </div>
+                        <div class="cal__what">
+                            <h3 class="cal__title">Movember Bull Run</h3>
+                            <p class="cal__note">Saturday.</p>
+                        </div>
+                    </li>
+                    <li class="cal__item reveal-up">
+                        <div class="cal__when">
+                            <span class="cal__month">Jan</span>
+                            <span class="cal__day"><time datetime="2027-01-17">17</time></span>
+                            <span class="cal__year">2027</span>
+                        </div>
+                        <div class="cal__what">
+                            <h3 class="cal__title">Ride2Revive</h3>
+                            <p class="cal__note">Sunday.</p>
+                        </div>
+                    </li>
+                    <li class="cal__item reveal-up">
+                        <div class="cal__when">
+                            <span class="cal__month">Feb</span>
+                            <span class="cal__day"><time datetime="2027-02-19">19</time>–<time datetime="2027-02-21">21</time></span>
+                            <span class="cal__year">2027</span>
+                        </div>
+                        <div class="cal__what">
+                            <h3 class="cal__title">10th Annual Miami Concours</h3>
+                            <p class="cal__note">Friday to Sunday.</p>
+                        </div>
+                    </li>
+                </ol>
             </div>
         </section>
 
 
-        <!-- ═══════════════════════════════════════════════════════════════════
-             COMMENTED OUT 2026-09-21 on the client's request ("'Beyond the average
-             garage' adds no value, same for everything underneath except the lead
-             form"). The Difference stays — "all seems decent up to The Difference".
-             Kept verbatim inside an inert <template> so the nested HTML comments
-             survive; nothing inside renders or loads. What went with it: both dark
-             tonal beats (the two visual breaks), the marque list, the amenities
-             photos. RESTORE: delete the <template> open/close tags.
-             Blocks: Beyond the average garage · Marques We Service ·
-             Precision in every detail · Amenities · Schedule band.
-             ═══════════════════════════════════════════════════════════════════ -->
-        <template data-cut="2026-09-21">
-        <!-- ═══════════ VISUAL BREAK 1 — tall image, overlaps The Difference ═══════════ -->
-        <section class="visualbreak visualbreak--tall section--overlap" data-reveal>
-            <div class="visualbreak__media" aria-hidden="true">
-                <img src="assets/images/service/service_bay2.jpg" alt="" data-parallax="30">
-            </div>
-            <div class="visualbreak__inner">
-                <h2 class="t-h1 visualbreak__title reveal-side">Beyond the average garage.</h2>
-            </div>
-        </section>
-
-
-        <!-- ═══════════ MARQUES WE SERVICE — media + text ═══════════ -->
-        <section class="section" data-reveal>
-            <div class="sub-wrap">
-                <div class="mediatext mediatext--flip">
-                    <div class="mediatext__media reveal-right">
-                        <img src="assets/images/service/Marques We Service.jpg" alt="Exotic marques serviced at Prestige Imports">
-                    </div>
-                    <div class="mediatext__body">
-                        <span class="eyebrow-stamp reveal-side">Marques We Service</span>
-                        <h2 class="t-h2 mediatext__body-title reveal-side" style="margin-top: var(--sp-2);">Every luxury and exotic marque.</h2>
-                        <p class="t-body reveal-side">Audi, Aston Martin, Bentley, BMW, Ferrari, Lamborghini, Lotus, Maserati, Mercedes-Benz, Pagani, Porsche, Rolls-Royce, Land Rover — and other luxury vehicles.</p>
-                        <p class="t-body reveal-side">Whatever you drive, it's in expert hands.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ═══════════ VISUAL BREAK 2 — video ═══════════ -->
-        <section class="visualbreak visualbreak--tall section--overlap" data-reveal>
-            <div class="visualbreak__media" aria-hidden="true">
-                <video autoplay muted loop playsinline preload="metadata">
-                    <source src="assets/videos/hero3.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="visualbreak__inner">
-                <h2 class="t-h1 visualbreak__title reveal-side">Precision in every detail.</h2>
-            </div>
-        </section>
-
-
-        <!-- ═══════════ AMENITIES — image cards ═══════════ -->
-        <section class="section section--overlap section--flat-top" style="background-color: var(--bg-soft);" data-reveal>
+        <!-- ═══════════ THE GALLERY — the client's own event photography ═══════════ -->
+        <section class="section section--overlap section--flat-top" style="background-color: var(--bg-soft);" aria-labelledby="ne-gallery" data-reveal>
             <div class="sub-wrap">
                 <div class="sub-head">
-                    <span class="eyebrow-stamp reveal-side">More Than a Service Bay</span>
-                    <h2 class="t-h2 sub-head__title reveal-side">Care from drop-off to return.</h2>
-                </div>
-                <div class="imgcard-grid">
-                    <article class="imgcard reveal-up">
-                        <div class="imgcard__media"><img src="assets/images/services/Concierge Pickup, Delivery &amp; Enclosed Transport.jpg" alt="Concierge pickup, delivery and enclosed transport"></div>
-                        <h3 class="t-h4 imgcard__title">Concierge Pickup &amp; Delivery</h3>
-                        <p class="t-small imgcard__copy">We collect your vehicle and return it — including enclosed transport.</p>
-                    </article>
-                    <article class="imgcard reveal-up">
-                        <div class="imgcard__media"><img src="assets/images/services/Collision Paint &amp; Concours Restoration.jpg" alt="Collision, paint and concours restoration"></div>
-                        <h3 class="t-h4 imgcard__title">Collision &amp; Restoration</h3>
-                        <p class="t-small imgcard__copy">Collision, paint, and concours-grade restoration under one roof.</p>
-                    </article>
-                    <article class="imgcard reveal-up">
-                        <div class="imgcard__media"><img src="assets/images/spa/auto_hero.jpg" alt="Detailing at Prestige Auto Spa"></div>
-                        <h3 class="t-h4 imgcard__title">Detailing</h3>
-                        <p class="t-small imgcard__copy">Premium detailing to finish — your car leaves better than it arrived.</p>
-                    </article>
+                    <span class="eyebrow-stamp reveal-side">Recently</span>
+                    <h2 class="t-h2 sub-head__title reveal-side" id="ne-gallery">What they actually look like.</h2>
+                    <p class="t-body sub-head__lead reveal-side">Fourteen frames from the last few seasons — launches, track days, concours lawns and the evenings in between.</p>
                 </div>
             </div>
-        </section>
 
-
-        <!-- ═══════════ SCHEDULE — feature band ═══════════ -->
-        <section class="section cta-band feature-band section--overlap section--flat-top" data-reveal>
-            <div class="feature-band__media" aria-hidden="true">
-                <img src="assets/images/service/Schedule your service.jpg" alt="" data-parallax>
+            <!-- Full-bleed rail: native horizontal scroll, snap per frame, no
+                 autoplay. The visitor keeps the transport. -->
+            <div class="evrail" tabindex="0" role="region" aria-label="Photographs from recent Prestige Imports events">
+                <figure class="evrail__item"><img src="assets/images/events/ev01.jpg" alt="The Prestige Imports showroom, with a Ferrari Testarossa parked outside" loading="lazy" width="900" height="720"></figure>
+                <figure class="evrail__item"><img src="assets/images/events/ev02.jpg" alt="Guests photographing a Pagani at an evening reveal" loading="lazy" width="900" height="1125"></figure>
+                <figure class="evrail__item"><img src="assets/images/events/ev03.jpg" alt="A Pagani Huayra BC on display at an outdoor show" loading="lazy" width="900" height="1125"></figure>
+                <figure class="evrail__item"><img src="assets/images/events/ev04.jpg" alt="A Lamborghini Huracán STO on the road" loading="lazy" width="900" height="1125"></figure>
+                <figure class="evrail__item"><img src="assets/images/events/ev05.jpg" alt="A convoy led by a Lamborghini Urus passing under an overpass" loading="lazy" width="900" height="1125"></figure>
+                <figure class="evrail__item"><img src="assets/images/events/ev06.jpg" alt="A Lamborghini race car in the paddock" loading="lazy" width="900" height="1125"></figure>
+                <figure class="evrail__item"><img src="assets/images/events/ev07.jpg" alt="A hypercar parked outside a Miami storefront" loading="lazy" width="900" height="1125"></figure>
+                <figure class="evrail__item"><img src="assets/images/events/ev08.jpg" alt="A Pagani Huayra on the lawn at a concours" loading="lazy" width="900" height="1125"></figure>
+                <figure class="evrail__item"><img src="assets/images/events/ev09.jpg" alt="Guests and cars in the pit lane at sunset" loading="lazy" width="900" height="1125"></figure>
+                <figure class="evrail__item"><img src="assets/images/events/ev10.jpg" alt="Guests at an evening reception" loading="lazy" width="900" height="1125"></figure>
+                <figure class="evrail__item"><img src="assets/images/events/ev11.jpg" alt="A Lamborghini Revuelto unveiled on a lit stage" loading="lazy" width="900" height="1125"></figure>
+                <figure class="evrail__item"><img src="assets/images/events/ev12.jpg" alt="The Revuelto on its plinth at a Lamborghini launch" loading="lazy" width="900" height="1125"></figure>
+                <figure class="evrail__item"><img src="assets/images/events/ev13.jpg" alt="Porsches lined up at the Miami circuit" loading="lazy" width="900" height="1125"></figure>
+                <figure class="evrail__item"><img src="assets/images/events/ev14.jpg" alt="Czinger 21Cs on a mountain road at dusk" loading="lazy" width="900" height="1125"></figure>
             </div>
-            <div class="sub-wrap feature-band__inner">
-                <span class="eyebrow-stamp eyebrow-stamp--light reveal-side" style="margin: 0 auto;">Book Now</span>
-                <h2 class="t-h2 cta-band__title reveal-side" style="margin-top: var(--sp-2);">Schedule your service.</h2>
-                <p class="t-body reveal-side" style="color: rgba(237,234,228,0.82); max-width: 54ch; margin: var(--sp-3) auto 0;">Quick appointments where possible. Book online or call our service line directly at <a href="tel:+18332905148" style="color: var(--cream);">+1 (833) 290-5148</a>.</p>
-                <div class="cta-band__actions reveal-up">
-                    <a class="btn btn--on-dark btn--solid" href="schedule_service_v2.html"><span>Schedule Service</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
-                    <a class="btn btn--on-dark" href="specials_v2.html"><span>Our Specials</span></a>
-                </div>
-            </div>
-        </section>
 
-
-        </template><!-- /cut 2026-09-21 -->
-
-        <!-- ═══════════ SERVICE REQUEST — form + map ═══════════ -->
-        <section class="section" id="contact-form" style="background-color: var(--bg-soft);" aria-labelledby="svc-ask-heading" data-reveal>
             <div class="sub-wrap">
-                <div class="sub-head">
-                    <span class="eyebrow-stamp reveal-side">Service Request</span>
-                    <h2 class="t-h2 sub-head__title reveal-side" id="svc-ask-heading">Tell us what your car needs.</h2>
-                    <p class="t-body sub-head__lead reveal-side">Send a request and our service team will be in touch — or call <a href="tel:+18332905148">+1 (833) 290-5148</a>.</p>
-                </div>
-
-                <div class="contact-split">
-                    <form class="contact-form reveal-up" action="#" method="post" novalidate>
-                        <div class="field--row">
-                            <div class="field">
-                                <label class="field__label" for="svc-name">Name</label>
-                                <input class="field__input" id="svc-name" name="name" type="text" autocomplete="name" required>
-                            </div>
-                            <div class="field">
-                                <label class="field__label" for="svc-phone">Phone</label>
-                                <input class="field__input" id="svc-phone" name="phone" type="tel" autocomplete="tel">
-                            </div>
-                        </div>
-                        <div class="field--row">
-                            <div class="field">
-                                <label class="field__label" for="svc-email">Email</label>
-                                <input class="field__input" id="svc-email" name="email" type="email" autocomplete="email" required>
-                            </div>
-                            <div class="field">
-                                <label class="field__label" for="svc-vehicle">Vehicle</label>
-                                <input class="field__input" id="svc-vehicle" name="vehicle" type="text" placeholder="Year · Make · Model">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="field__label" for="svc-message">What does it need?</label>
-                            <textarea class="field__textarea" id="svc-message" name="message" rows="5"></textarea>
-                        </div>
-                        <button class="btn btn--solid" type="submit"><span>Request Service</span><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
-                    </form>
-
-                    <div class="about-map" id="about-map" role="img" aria-label="Map showing Prestige Imports service at 14780 Biscayne Blvd, North Miami Beach, FL"></div>
-                </div>
+                <p class="t-small evrail__hint reveal-up">Scroll the strip sideways &mdash; or use the arrow keys.</p>
             </div>
         </section>
 
 
-        <!-- COMMENTED OUT 2026-09-21 (client): final "Book your next service." band. RESTORE: delete the <template> tags. -->
-        <template data-cut="2026-09-21">
-        <!-- ═══════════ FINAL CTA ═══════════ -->
+        <!-- ═══════════ CTA ═══════════ -->
         <section class="section cta-band section--overlap" data-reveal>
             <div class="sub-wrap">
-                <span class="eyebrow-stamp eyebrow-stamp--light reveal-side" style="margin: 0 auto;">Keep It Running</span>
-                <h2 class="t-h2 cta-band__title reveal-side" style="margin-top: var(--sp-2);">Book your next service.</h2>
-                <p class="t-body reveal-side" style="color: rgba(237,234,228,0.66); max-width: 52ch; margin: var(--sp-3) auto 0;">Factory-trained care and genuine parts — the standard your car was built for.</p>
+                <span class="eyebrow-stamp eyebrow-stamp--light reveal-side" style="margin: 0 auto;">Be There</span>
+                <h2 class="t-h2 cta-band__title reveal-side" style="margin-top: var(--sp-2);">Ask about an event.</h2>
+                <p class="t-body reveal-side" style="color: rgba(237,234,228,0.72); max-width: 54ch; margin: var(--sp-3) auto 0;">If one of the dates above is of interest, tell us now — it is easier to keep you posted than to catch you later.</p>
                 <div class="cta-band__actions reveal-up">
-                    <a class="btn btn--on-dark btn--solid" href="schedule_service_v2.html"><span>Schedule Service</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
-                    <a class="btn btn--on-dark" href="specials_v2.html"><span>Our Specials</span></a>
+                    <a class="btn btn--on-dark btn--solid" href="contact_v2.html"><span>Contact the Showroom</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+                    <a class="btn btn--on-dark" href="tel:+18332906287"><span>+1 (833) 290-6287</span><i class="ph ph-phone" aria-hidden="true"></i></a>
                 </div>
             </div>
         </section>
-
-        </template><!-- /cut 2026-09-21 -->
 
     </main>
 
-
-    <!-- Leaflet — open-source map. Pins the dealership; OpenStreetMap tiles (B&W via CSS). -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script>
-        (function () {
-            var el = document.getElementById('about-map');
-            if (!el || typeof L === 'undefined') return;
-            var coords = [25.9087, -80.1620];   // 14780 Biscayne Blvd, North Miami Beach, FL
-            var map = L.map(el, { scrollWheelZoom: false, attributionControl: true }).setView(coords, 17);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-            }).addTo(map);
-            L.marker(coords).addTo(map)
-                .bindPopup('<b>Prestige Imports</b><br>14780 Biscayne Blvd<br>North Miami Beach, FL 33181');
-        })();
-    </script>
-
-
-    <!-- ════════════════════════════════════════════════════════════
-         FOOTER — reused from main.css (.site-footer), identical to SRP/VDP.
-         ════════════════════════════════════════════════════════════ -->
     <footer class="site-footer" id="contact">
         <div class="site-footer__inner">
 

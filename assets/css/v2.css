@@ -435,3 +435,105 @@
    source with a deep field of studio grey above it, so the frame anchors
    below centre to keep the car whole and drop the empty air. */
 .subhero--pagani .subhero__media img { object-position: 50% 62%; }
+
+/* ============================================================
+   [11] NEWS & EVENTS  (news_events_v2.html)
+   Two devices, and neither is borrowed from the rest of the set.
+
+   .cal — the date IS the content, so it gets the weight: a numeral
+   block on the left at statrow scale, the event beside it, hairlines
+   between. An <ol> because these are in order, and <time> on every
+   date so the machine-readable value carries too.
+
+   .evrail — the client asked for a slideshow and supplied fourteen
+   frames. Native horizontal scroll with snap, not a JS carousel:
+   nothing autoplays, the visitor keeps the transport, and with
+   scripts off it is still a scrollable strip of photographs.
+   ============================================================ */
+.cal {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--rule);
+}
+.cal__item {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: var(--sp-5);
+    align-items: baseline;
+    padding: var(--sp-4) 0;
+    border-bottom: 1px solid var(--rule);
+}
+.cal__when {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-variant-numeric: tabular-nums;
+}
+.cal__month {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+}
+.cal__day {
+    font-family: var(--font-display);
+    white-space: nowrap;        /* "19–21" is one date, not two lines */
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -1px;
+    color: var(--ink);
+}
+.cal__year {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--ink-soft);
+}
+.cal__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 30px;
+    color: var(--ink);
+}
+.cal__note { margin: 4px 0 0; font-family: var(--font-sans); font-size: 15px; line-height: 24px; color: var(--ink-soft); }
+
+/* ── The photo strip ── */
+.evrail {
+    display: flex;
+    gap: var(--sp-2);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: max(4vw, 20px);
+    padding: var(--sp-5) max(4vw, 20px);
+    /* the strip is full-bleed inside a .section, so it needs its own gutter */
+}
+.evrail:focus-visible { outline: 2px solid var(--ink); outline-offset: -4px; }
+.evrail__item {
+    margin: 0;
+    flex: 0 0 auto;
+    width: clamp(240px, 26vw, 380px);
+    scroll-snap-align: start;
+}
+.evrail__item img {
+    width: 100%;
+    height: clamp(320px, 34vw, 480px);
+    object-fit: cover;
+    display: block;
+    border-radius: 5px;            /* media radius — design-system */
+    background-color: var(--bg-deep);
+}
+.evrail__hint { margin: 0; color: var(--ink-soft); }
+
+@media (max-width: 900px) {
+    .cal__item { grid-template-columns: 1fr; gap: var(--sp-1); padding: var(--sp-3) 0; }
+    .cal__day { font-size: 40px; }
+    .evrail { padding-top: var(--sp-4); padding-bottom: var(--sp-4); }
+    .evrail__item { width: 74vw; }
+    .evrail__item img { height: 92vw; }
+}

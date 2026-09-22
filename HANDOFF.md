@@ -23,6 +23,7 @@ Deployed via **GitHub Pages** from `main` → https://sigovs.github.io/prestige-
 | `schedule_service_v2.html` | Sept 2026 — Service → Schedule Service lead form: pinned shop-photo rail + 3-chapter form; rail photo follows the chapter (`[data-rail]` in main.js). |
 | `concierge_transport_v2.html` | Sept 2026 — landing page for "Beyond the Sale" card 01. Hero → proposition + statrow → three numbered steps on the dark `.statband` → enclosed-transport mediatext → "Request a pickup" form. |
 | `oem_parts_v2.html` | Sept 2026 — landing page for card 03. Hero → why OEM → the marque index (reuses the home `.brand-card`) → order form (VIN / part number / fit-it segmented). The four Order-Parts nav items and the index cards all point here and preselect the marque via `[data-fill]` in main.js. |
+| `news_events_v2.html` | Sept 2026 — News & Events. Calendar of the client's four confirmed dates (`.cal`) + a 14-frame horizontal photo rail (`.evrail`, native scroll-snap, no autoplay, no JS). **The four dates are the client's own and the weekdays they gave were checked against the calendar** — that is how the years were settled. Nothing else about the events is stated because nothing else was given. Home `#events` shows the same four and links here. |
 | `specials_v2.html` | Sept 2026 — Service → Service / Parts Specials. **The empty state is the designed state:** the live page has no offers and dead-ends on "check back soon", so this one says so plainly, then routes on (standing advantages → notify form). `.special` is the offer card the dealer fills; the paste-in markup template sits in an HTML comment in the page. Every offer must carry its own end date. |
 | `lamborghini_parts_v2.html` · `pagani_parts_v2.html` · `karma_parts_v2.html` | Sept 2026 — a counter page per marque, generated from one spine (see the generator kept in the session scratchpad; content lives in a dict at the top). Hero → why the authorized source → model coverage (`.qa--models`) → order form with the marque in a hidden field → the other marques. **Lotus has no page here** — it already has a store. |
 | `warranty_v2.html` | Sept 2026 — landing page for card 04. Hero → why coverage matters on an exotic → a five-question editorial Q&A (`.qa`, the set's only long-form list) → coverage enquiry form. **Names no provider, plan, term or price — we have none.** |
@@ -57,8 +58,7 @@ reviewer cannot fall out of the set and get stranded on a page whose nav predate
 the September round. Regenerate them from the originals if the originals change.
 
 **Still dead by design** (no page exists yet, listed so nobody hunts for a bug):
-Privacy / Terms / Sitemap, the Store and Research nav items, the News & Events
-links on the home page, and Explore Auto Spa / Marine / Prestige Energy. The seven
+Privacy / Terms / Sitemap, the Store and Research nav items, and Explore Auto Spa / Marine / Prestige Energy. The seven
 marque tiles point at `srp_v2.html?make=…` for now — the inventory ignores the
 query, so it lands on the full list; the client's tracker defers real brand pages
 until after launch.
